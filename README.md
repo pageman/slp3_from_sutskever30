@@ -40,8 +40,11 @@ python3 -m pytest
 
 - Main chapters: `2-25`
 - Appendices: `A-D`
+- Status classes: `DIRECT`, `ADAPTED`, `SCAFFOLDED`
 
 All runners are NumPy-only and executable. They are toy reimplementations, not full-scale reproductions of the textbook or original papers.
+
+See [research/CHAPTER_SURVEY.md](./research/CHAPTER_SURVEY.md) for the per-chapter survey and orphan audit.
 
 ## Citation
 
