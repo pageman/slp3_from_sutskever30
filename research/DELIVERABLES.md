@@ -12,7 +12,20 @@ Contents:
 
 - standalone NumPy-only package
 - chapter registry with executable runners
-- smoke tests
+- smoke tests and local verification generators
 - source and packaging notes
 - observability deliverables in `observability/`
 - session checkpoint in `research/SESSION_CHECKPOINT_2026-03-30.md`
+- final batch-completion checkpoint in `research/SESSION_CHECKPOINT_2026-03-30_FINAL.md`
+
+Packaging notes:
+
+- latest pushed commit at packaging time: `441c85a`
+- batch packaging completed for:
+  - `batch_a_classical_foundations`
+  - `batch_b_lm_and_seq_models`
+  - `batch_c_speech`
+  - `batch_d_structure_and_ie`
+  - `batch_e_discourse_and_dialogue`
+- live CircleCI confirmations were completed through Batch E
+- future work should focus on textbook-faithfulness upgrades, not more structural refactoring
