@@ -168,7 +168,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_2_alignment_and_masking",
+        "batch": "batch_b_lm_and_seq_models",
         "counterintuitive_insight": "Post-training is mostly a search-control chapter. The decisive system behavior often lives in candidate generation, reranking, and budget traces rather than in the policy loss alone.",
         "covered_claims": [
             "SFT and pairwise preference optimization can be modeled separately.",
@@ -195,6 +195,23 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Separate supervised preference fitting from pairwise preference optimization.",
+            "Make reranking and compute-budget traces visible as system behavior.",
+            "Show why verifier-guided search can change outcomes without changing the underlying policy loss.",
+        ],
+        core_algorithms=["supervised fine-tuning objective", "pairwise preference optimization", "verifier scoring", "budgeted reranking"],
+        minimal_dataset={
+            "prompt_count": len(fixture["prompts"]),
+            "prompt_feature_dim": int(fixture["prompt_features"].shape[1]),
+            "candidates_per_prompt": int(fixture["candidates"].shape[1]),
+            "candidate_feature_dim": int(fixture["candidates"].shape[2]),
+        },
+        reference_experiments=[
+            {"name": "policy_vs_reranked_accuracy", "metric": ["policy_accuracy", "reranked_accuracy"], "expected_signal": "reranking can improve top-1 without changing base policy argmax"},
+            {"name": "compute_budget_trace", "metric": "top2_recall", "expected_signal": "more budget should recover chosen candidates more often"},
+        ],
+        book_vs_repo_gap="This chapter is faithful only in miniature: it exposes alignment and search-control mechanics, but not a real language model decoder, human feedback dataset, or judge model at scale.",
     )
 
 

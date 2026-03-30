@@ -32,6 +32,7 @@ This deliverable is intentionally small-scale and pedagogical, but batch-by-batc
 - `scripts/generate_circleci_artifacts.py` - CircleCI run metadata artifact generator
 - `scripts/generate_deliverable_manifest.py` - machine-readable deliverable manifest generator
 - `scripts/generate_batch_a_artifacts.py` - Batch A fixture and eval-pack generator
+- `scripts/generate_batch_b_artifacts.py` - Batch B fixture and eval-pack generator
 - `tests/test_smoke.py` - contributor-facing local regression tests
 - `research/` - source mapping and packaging notes
 
@@ -46,6 +47,7 @@ python3 scripts/generate_verification_status.py --run-checks
 python3 scripts/generate_circleci_artifacts.py
 python3 scripts/generate_deliverable_manifest.py
 python3 scripts/generate_batch_a_artifacts.py
+python3 scripts/generate_batch_b_artifacts.py
 ```
 
 ## Coverage
@@ -79,7 +81,7 @@ Committed observability artifacts are local snapshot baselines. CircleCI job art
 
 Local regeneration now writes to `observability/local/`, while CircleCI writes to `observability/ci_latest/`.
 
-Batch packaging starts in `research/batches/batch_a_classical_foundations/`, which is the reference folder layout for chapters `2-6` and appendices `A-D`. The generated Batch A pack includes `BATCH_A_MANIFEST.json`, per-chapter fixtures, and per-chapter eval packs.
+Batch packaging now covers `research/batches/batch_a_classical_foundations/` and `research/batches/batch_b_lm_and_seq_models/`. Each generated batch pack includes a batch manifest, per-chapter fixtures, and per-chapter eval packs.
 
 ## Citation
 

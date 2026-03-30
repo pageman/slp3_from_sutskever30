@@ -1,0 +1,81 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful only in miniature: it exposes alignment and search-control mechanics, but not a real language model decoder, human feedback dataset, or judge model at scale.",
+  "chapter": "9",
+  "chapter_notes": {
+    "batch": "batch_b_lm_and_seq_models",
+    "counterintuitive_insight": "Post-training is mostly a search-control chapter. The decisive system behavior often lives in candidate generation, reranking, and budget traces rather than in the policy loss alone.",
+    "covered_claims": [
+      "SFT and pairwise preference optimization can be modeled separately.",
+      "Verifier-guided reranking changes candidate order under compute budgets.",
+      "Top-1 policy quality and reranked quality are distinct metrics."
+    ],
+    "omitted_claims": [
+      "No real language decoder yet.",
+      "No multi-turn judge model yet."
+    ]
+  },
+  "core_algorithms": [
+    "supervised fine-tuning objective",
+    "pairwise preference optimization",
+    "verifier scoring",
+    "budgeted reranking"
+  ],
+  "failure_modes": [
+    {
+      "case": "policy_misses_preferred_candidate",
+      "policy_top_candidate": 2,
+      "prompt": "follow formatting instruction",
+      "reranked_top_candidate": 2,
+      "target_candidate": 1
+    },
+    {
+      "case": "reward_hacking_risk",
+      "note": "Verifier-guided reranking can prefer fluent but policy-divergent candidates if the verifier overweights surface features."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Separate supervised preference fitting from pairwise preference optimization.",
+    "Make reranking and compute-budget traces visible as system behavior.",
+    "Show why verifier-guided search can change outcomes without changing the underlying policy loss."
+  ],
+  "metrics": {
+    "loss_reduction": {
+      "dpo": 0.060666633791202074,
+      "sft": 0.2657586586363213
+    },
+    "policy_accuracy": 0.75,
+    "reranked_accuracy": 0.75,
+    "top2_recall": 0.75,
+    "verifier_alignment": 0.5447011873894925
+  },
+  "minimal_dataset": {
+    "candidate_feature_dim": 3,
+    "candidates_per_prompt": 3,
+    "prompt_count": 4,
+    "prompt_feature_dim": 4
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "reranking can improve top-1 without changing base policy argmax",
+      "metric": [
+        "policy_accuracy",
+        "reranked_accuracy"
+      ],
+      "name": "policy_vs_reranked_accuracy"
+    },
+    {
+      "expected_signal": "more budget should recover chosen candidates more often",
+      "metric": "top2_recall",
+      "name": "compute_budget_trace"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": []
+  },
+  "title": "Post-training: Instruction Tuning, Alignment, and Test-Time Compute"
+}

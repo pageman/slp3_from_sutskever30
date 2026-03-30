@@ -1,0 +1,57 @@
+{
+  "batch": "batch_b_lm_and_seq_models",
+  "chapter_count": 7,
+  "chapters": [
+    {
+      "eval_pack_path": "research/batches/batch_b_lm_and_seq_models/eval_packs/chapter_07_eval_pack.json",
+      "fixture_path": "research/batches/batch_b_lm_and_seq_models/fixtures/chapter_07_fixture.json",
+      "implementation_status": "DIRECT",
+      "key": "7",
+      "title": "Large Language Models"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_b_lm_and_seq_models/eval_packs/chapter_08_eval_pack.json",
+      "fixture_path": "research/batches/batch_b_lm_and_seq_models/fixtures/chapter_08_fixture.json",
+      "implementation_status": "DIRECT",
+      "key": "8",
+      "title": "Transformers"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_b_lm_and_seq_models/eval_packs/chapter_09_eval_pack.json",
+      "fixture_path": "research/batches/batch_b_lm_and_seq_models/fixtures/chapter_09_fixture.json",
+      "implementation_status": "FULL",
+      "key": "9",
+      "title": "Post-training: Instruction Tuning, Alignment, and Test-Time Compute"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_b_lm_and_seq_models/eval_packs/chapter_10_eval_pack.json",
+      "fixture_path": "research/batches/batch_b_lm_and_seq_models/fixtures/chapter_10_fixture.json",
+      "implementation_status": "FULL",
+      "key": "10",
+      "title": "Masked Language Models"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_b_lm_and_seq_models/eval_packs/chapter_11_eval_pack.json",
+      "fixture_path": "research/batches/batch_b_lm_and_seq_models/fixtures/chapter_11_fixture.json",
+      "implementation_status": "ADAPTED",
+      "key": "11",
+      "title": "Information Retrieval and Retrieval-Augmented Generation"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_b_lm_and_seq_models/eval_packs/chapter_12_eval_pack.json",
+      "fixture_path": "research/batches/batch_b_lm_and_seq_models/fixtures/chapter_12_fixture.json",
+      "implementation_status": "ADAPTED",
+      "key": "12",
+      "title": "Machine Translation"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_b_lm_and_seq_models/eval_packs/chapter_13_eval_pack.json",
+      "fixture_path": "research/batches/batch_b_lm_and_seq_models/fixtures/chapter_13_fixture.json",
+      "implementation_status": "ADAPTED",
+      "key": "13",
+      "title": "RNNs and LSTMs"
+    }
+  ],
+  "generated_at": "2026-03-30T11:43:12.001070+00:00",
+  "schema_version": 1
+}

@@ -1,0 +1,103 @@
+{
+  "book_vs_repo_gap": "This chapter is adapted and only faithful in miniature: it demonstrates alignment mechanics but omits decoder rollout, beam search, and corpus-level MT evaluation.",
+  "chapter": "12",
+  "chapter_notes": {
+    "batch": "batch_b_lm_and_seq_models",
+    "counterintuitive_insight": "The pedagogical heart of neural MT is not BLEU-scale evaluation but making alignment pressure visible as a distinct object from token prediction.",
+    "covered_claims": [
+      "Encoder-decoder attention is exposed directly.",
+      "A context vector and decoder state are combined for target prediction.",
+      "Alignment normalization can be checked independently of translation accuracy."
+    ],
+    "omitted_claims": [
+      "No beam search.",
+      "No multi-step decoder rollout.",
+      "No BLEU or corpus-scale evaluation."
+    ]
+  },
+  "core_algorithms": [
+    "embedding lookup",
+    "encoder-decoder attention",
+    "context-vector construction",
+    "softmax translation prediction"
+  ],
+  "failure_modes": [
+    {
+      "case": "attention_without_search_is_incomplete_mt",
+      "note": "Machine translation quality depends on decoding policy; this toy chapter scores only a single decoder step."
+    },
+    {
+      "attention_preview": [
+        [
+          0.2518,
+          0.2557,
+          0.2369,
+          0.2557
+        ],
+        [
+          0.2535,
+          0.2516,
+          0.2433,
+          0.2516
+        ],
+        [
+          0.2459,
+          0.2483,
+          0.2483,
+          0.2575
+        ],
+        [
+          0.2566,
+          0.2414,
+          0.2605,
+          0.2414
+        ]
+      ],
+      "case": "single_context_vector_limits_reordering"
+    }
+  ],
+  "implementation_status": "ADAPTED",
+  "lesson_objectives": [
+    "Make encoder-decoder attention visible as an alignment object.",
+    "Separate alignment normalization from target-token prediction quality.",
+    "Show what is gained and lost when translation is reduced to a single-step toy decoder."
+  ],
+  "metrics": {
+    "accuracy": 0.5,
+    "attention_row_sums": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "context_norm": 0.25660828201659286,
+    "loss": 1.0511227165995278
+  },
+  "minimal_dataset": {
+    "batch_size": 4,
+    "source_length": 4,
+    "vocab_size": 3
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "alignment rows sum to one",
+      "metric": "attention_row_sums",
+      "name": "attention_normalization"
+    },
+    {
+      "expected_signal": "toy seq2seq setup separates simple target classes",
+      "metric": "accuracy",
+      "name": "single_step_translation_accuracy"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "adapted local NumPy seq2seq wrapper"
+    ],
+    "source_papers": [
+      14
+    ]
+  },
+  "title": "Machine Translation"
+}

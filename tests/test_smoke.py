@@ -21,8 +21,8 @@ def test_all_chapters_run_and_return_chapter_key() -> None:
 
 def test_selected_shapes_exist_for_neural_chapters() -> None:
     chapter_map = {spec.key: spec for spec in get_chapters()}
-    assert chapter_map["8"].runner()["logits_shape"] == (4, 3)
-    assert chapter_map["11"].runner()["rag_probs_shape"] == (4, 3)
+    assert chapter_map["8"].runner()["core_outputs"]["logits_shape"] == (4, 3)
+    assert chapter_map["11"].runner()["core_outputs"]["rag_probs_shape"] == (4, 3)
     assert chapter_map["16"].runner()["core_outputs"]["mel_frames_shape"][0] == 2
     assert chapter_map["25"].runner()["core_outputs"]["act_logits_shape"] == (6, 5)
 

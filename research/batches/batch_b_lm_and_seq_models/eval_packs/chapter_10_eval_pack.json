@@ -1,0 +1,80 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful only in miniature: the bidirectional encoder and corruption policies are present, but not the scale, tokenizer stack, or long pretraining loop of real masked language models.",
+  "chapter": "10",
+  "chapter_notes": {
+    "batch": "batch_b_lm_and_seq_models",
+    "counterintuitive_insight": "The key upgrade is corruption diversity, not mask prediction itself. Encoders become useful when the corruption policy teaches invariance instead of a single special-token trick.",
+    "covered_claims": [
+      "A two-layer bidirectional encoder can support masked-token prediction in NumPy.",
+      "Token masking and span masking produce meaningfully different diagnostics.",
+      "Representation probes help justify the encoder beyond raw MLM loss."
+    ],
+    "omitted_claims": [
+      "No pretrained tokenizer stack yet.",
+      "No large-scale pretraining loop yet."
+    ]
+  },
+  "core_algorithms": [
+    "masked token corruption",
+    "span masking",
+    "two-layer bidirectional self-attention encoder",
+    "representation probing"
+  ],
+  "failure_modes": [
+    {
+      "case": "single_mask_policy_overfits_corruption_style",
+      "span_masking_accuracy": 0.125,
+      "token_masking_accuracy": 0.25
+    },
+    {
+      "case": "mask_token_shortcut_risk",
+      "note": "A model can learn the corruption artifact instead of robust bidirectional context unless multiple corruption patterns are used."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Show how token masking and span masking lead to different supervision signals.",
+    "Inspect bidirectional encoder behavior beyond MLM loss via representation probes.",
+    "Make corruption-policy diversity a first-class design choice."
+  ],
+  "metrics": {
+    "masked_accuracy": {
+      "span_masking": 0.125,
+      "token_masking": 0.25
+    },
+    "masked_loss": {
+      "span_masking": 2.0781823195052347,
+      "token_masking": 2.045204439900836
+    },
+    "probe_quality": {
+      "lexical_probe": 0.0,
+      "parity_probe": 0.5
+    }
+  },
+  "minimal_dataset": {
+    "batch_size": 4,
+    "hidden_dim": 8,
+    "sequence_length": 6,
+    "vocab_size": 7
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "different masking policies induce different prediction behavior",
+      "metric": "masked_accuracy",
+      "name": "corruption_policy_comparison"
+    },
+    {
+      "expected_signal": "encoder states retain lexical and structural signal beyond MLM loss",
+      "metric": "probe_quality",
+      "name": "probe_quality"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": []
+  },
+  "title": "Masked Language Models"
+}

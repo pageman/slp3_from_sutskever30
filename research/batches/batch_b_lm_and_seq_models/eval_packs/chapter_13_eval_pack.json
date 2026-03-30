@@ -1,0 +1,104 @@
+{
+  "book_vs_repo_gap": "This chapter is adapted and method-faithful in miniature, but it still omits training-through-time, longer sequence stress tests, and broader recurrent architecture comparisons.",
+  "chapter": "13",
+  "chapter_notes": {
+    "batch": "batch_b_lm_and_seq_models",
+    "counterintuitive_insight": "The key conceptual jump from RNN to LSTM is not accuracy but controllable state persistence. The cell state is the lesson.",
+    "covered_claims": [
+      "Vanilla recurrent updates and gated recurrent updates are both explicit.",
+      "RNN and LSTM losses can be compared on the same toy sequence task.",
+      "Hidden-state and cell-state trajectories are inspectable as first-class objects."
+    ],
+    "omitted_claims": [
+      "No BPTT training loop.",
+      "No long-sequence benchmark.",
+      "No GRU comparison."
+    ]
+  },
+  "core_algorithms": [
+    "vanilla RNN recurrence",
+    "LSTM gating",
+    "sequence softmax prediction",
+    "state trajectory comparison"
+  ],
+  "failure_modes": [
+    {
+      "case": "rnn_memory_decay",
+      "note": "A vanilla RNN can mix current evidence and past state, but it has no explicit cell state to preserve information under repeated updates."
+    },
+    {
+      "case": "lstm_not_magic",
+      "lstm_cell_preview": [
+        [
+          0.0738,
+          -0.1456,
+          -0.0425,
+          0.0307,
+          0.0427,
+          -0.0989
+        ],
+        [
+          0.1738,
+          -0.1115,
+          0.0717,
+          0.1102,
+          0.0017,
+          -0.1302
+        ],
+        [
+          0.1086,
+          -0.1374,
+          -0.1475,
+          -0.1106,
+          -0.0862,
+          -0.0986
+        ]
+      ],
+      "note": "The LSTM improves memory control, but still depends on training signal and task structure."
+    }
+  ],
+  "implementation_status": "ADAPTED",
+  "lesson_objectives": [
+    "Contrast vanilla recurrent updates with gated memory updates.",
+    "Track hidden and cell dynamics directly instead of only comparing losses.",
+    "Explain why state persistence is the real conceptual gain of LSTMs."
+  ],
+  "metrics": {
+    "lstm_accuracy": 0.2,
+    "lstm_loss": 1.6115190808568047,
+    "rnn_accuracy": 0.2,
+    "rnn_loss": 1.5808411373675282,
+    "state_norm_gap": -0.4272047474407755
+  },
+  "minimal_dataset": {
+    "hidden_dim": 6,
+    "sequence_length": 5,
+    "vocab_size": 5
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "gated memory is usually more stable",
+      "metric": [
+        "rnn_loss",
+        "lstm_loss"
+      ],
+      "name": "rnn_vs_lstm_loss"
+    },
+    {
+      "expected_signal": "hidden-state dynamics differ between plain and gated recurrence",
+      "metric": "state_norm_gap",
+      "name": "state_norm_gap"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "adapted local NumPy recurrent wrapper"
+    ],
+    "source_papers": [
+      2,
+      3
+    ]
+  },
+  "title": "RNNs and LSTMs"
+}

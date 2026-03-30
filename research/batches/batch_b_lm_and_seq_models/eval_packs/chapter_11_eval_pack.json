@@ -1,0 +1,99 @@
+{
+  "book_vs_repo_gap": "This chapter is adapted and method-faithful in miniature, but still lacks lexical baselines, chunking, multi-hop retrieval, and realistic generator conditioning.",
+  "chapter": "11",
+  "chapter_notes": {
+    "batch": "batch_b_lm_and_seq_models",
+    "counterintuitive_insight": "Retrieval systems fail less often because of wrong documents than because the model uses the right documents weakly or inconsistently.",
+    "covered_claims": [
+      "Dense retrieval and generation mixing are separated explicitly.",
+      "Retriever confidence is visible through retrieval entropy.",
+      "RAG is modeled as a composition of retrieval and token mixing rather than a monolithic score."
+    ],
+    "omitted_claims": [
+      "No BM25 baseline yet.",
+      "No document chunking pipeline.",
+      "No multi-hop retrieval loop."
+    ]
+  },
+  "core_algorithms": [
+    "dense passage retrieval",
+    "softmax retrieval over candidate documents",
+    "retrieval-conditioned token mixture",
+    "top-1 retrieval/generation evaluation"
+  ],
+  "failure_modes": [
+    {
+      "case": "correct_retrieval_does_not_guarantee_correct_generation",
+      "note": "RAG quality depends on both retriever ranking and how the generator consumes the retrieved evidence."
+    },
+    {
+      "case": "retrieval_entropy_controls_rag_brittleness",
+      "retrieval_mix_preview": [
+        [
+          0.3464,
+          0.3137,
+          0.3399
+        ],
+        [
+          0.3439,
+          0.3264,
+          0.3296
+        ],
+        [
+          0.3446,
+          0.339,
+          0.3164
+        ],
+        [
+          0.341,
+          0.3307,
+          0.3284
+        ]
+      ]
+    }
+  ],
+  "implementation_status": "ADAPTED",
+  "lesson_objectives": [
+    "Separate dense retrieval quality from generation quality in a RAG-style pipeline.",
+    "Inspect retrieval entropy as a proxy for evidence concentration.",
+    "Show why retrieval success and downstream answer success are different events."
+  ],
+  "metrics": {
+    "dpr_loss": 1.3585264402963269,
+    "rag_loss": 1.0674864119789986,
+    "rag_top1": 0.5,
+    "retrieval_entropy": 1.0981186795076094,
+    "retrieval_top1": 0.5
+  },
+  "minimal_dataset": {
+    "candidate_docs_per_query": 3,
+    "passage_count": 4,
+    "query_count": 4
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "retrieval and answer quality diverge",
+      "metric": [
+        "retrieval_top1",
+        "rag_top1"
+      ],
+      "name": "retrieval_vs_generation"
+    },
+    {
+      "expected_signal": "less concentrated retrieval is more brittle",
+      "metric": "retrieval_entropy",
+      "name": "retrieval_entropy"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "adapted local NumPy retrieval/rag wrapper"
+    ],
+    "source_papers": [
+      28,
+      29
+    ]
+  },
+  "title": "Information Retrieval and Retrieval-Augmented Generation"
+}

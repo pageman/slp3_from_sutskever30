@@ -156,7 +156,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_2_alignment_and_masking",
+        "batch": "batch_b_lm_and_seq_models",
         "counterintuitive_insight": "The key upgrade is corruption diversity, not mask prediction itself. Encoders become useful when the corruption policy teaches invariance instead of a single special-token trick.",
         "covered_claims": [
             "A two-layer bidirectional encoder can support masked-token prediction in NumPy.",
@@ -183,6 +183,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Show how token masking and span masking lead to different supervision signals.",
+            "Inspect bidirectional encoder behavior beyond MLM loss via representation probes.",
+            "Make corruption-policy diversity a first-class design choice.",
+        ],
+        core_algorithms=["masked token corruption", "span masking", "two-layer bidirectional self-attention encoder", "representation probing"],
+        minimal_dataset={"batch_size": int(fixture["token_ids"].shape[0]), "sequence_length": int(fixture["token_ids"].shape[1]), "vocab_size": int(fixture["vocab_size"]), "hidden_dim": int(fixture["hidden_dim"])},
+        reference_experiments=[
+            {"name": "corruption_policy_comparison", "metric": "masked_accuracy", "expected_signal": "different masking policies induce different prediction behavior"},
+            {"name": "probe_quality", "metric": "probe_quality", "expected_signal": "encoder states retain lexical and structural signal beyond MLM loss"},
+        ],
+        book_vs_repo_gap="This chapter is faithful only in miniature: the bidirectional encoder and corruption policies are present, but not the scale, tokenizer stack, or long pretraining loop of real masked language models.",
     )
 
 

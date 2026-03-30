@@ -23,7 +23,8 @@
         "11",
         "12",
         "13"
-      ]
+      ],
+      "folder": "research/batches/batch_b_lm_and_seq_models"
     },
     "batch_c_speech": {
       "chapters": [
@@ -739,7 +740,7 @@
       "title": "Spelling Correction and the Noisy Channel"
     }
   ],
-  "generated_at": "2026-03-30T11:34:22.085357+00:00",
+  "generated_at": "2026-03-30T11:42:37.381232+00:00",
   "repo_root": "/Users/hifi/Downloads/slp3_from_sutskever30",
   "schema_version": 1
 }

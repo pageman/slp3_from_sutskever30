@@ -1,0 +1,98 @@
+{
+  "book_vs_repo_gap": "This chapter remains faithful only in miniature. It preserves causal prediction structure, but not realistic scale, tokenizer infrastructure, or transformer-decoder depth.",
+  "chapter": "7",
+  "chapter_notes": {
+    "batch": "batch_b_lm_and_seq_models",
+    "counterintuitive_insight": "For language models, the educational win is not parameter count but preserving the causal factorization and per-step uncertainty structure.",
+    "covered_claims": [
+      "A tiny autoregressive objective can be modeled with causal next-token heads in NumPy.",
+      "Per-step entropy and accuracy expose prediction confidence beyond a single loss scalar.",
+      "Context separation in hidden space matters even in a minimal causal model."
+    ],
+    "omitted_claims": [
+      "No large vocabulary tokenizer.",
+      "No scaled self-attention decoder stack.",
+      "No long-context generation loop."
+    ]
+  },
+  "core_algorithms": [
+    "causal next-token prediction",
+    "softmax language modeling loss",
+    "greedy decoding",
+    "hidden-state separability check"
+  ],
+  "failure_modes": [
+    {
+      "case": "scale_mismatch_with_real_llms",
+      "note": "This chapter is method-faithful only in miniature: there is no tokenizer, pretraining corpus, or long-context causal decoder stack here."
+    },
+    {
+      "case": "next_token_loss_hides_search_behavior",
+      "greedy_predictions": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "note": "The tiny model can score next tokens but does not expose beam-search or long-horizon decoding tradeoffs found in real LLM systems."
+    }
+  ],
+  "implementation_status": "DIRECT",
+  "lesson_objectives": [
+    "Preserve autoregressive next-token factorization in a minimal NumPy model.",
+    "Measure per-step uncertainty and accuracy instead of only average loss.",
+    "Show what an educational LLM analog can and cannot faithfully capture."
+  ],
+  "metrics": {
+    "context_separability": 0.5366891335892592,
+    "loss": 1.3777177904843851,
+    "mean_entropy_per_step": [
+      1.384157,
+      1.385839
+    ],
+    "per_step_accuracy": [
+      0.5,
+      0.5
+    ]
+  },
+  "minimal_dataset": {
+    "context_count": 4,
+    "context_dim": 3,
+    "prediction_horizon": 2,
+    "vocab_size": 4
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "causal heads can separate early and late token difficulty",
+      "metric": "per_step_accuracy",
+      "name": "per_step_accuracy"
+    },
+    {
+      "expected_signal": "uncertainty stays visible even in a toy autoregressive setup",
+      "metric": "mean_entropy_per_step",
+      "name": "entropy_profile"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "local direct NumPy wrapper"
+    ],
+    "source_papers": [
+      27
+    ]
+  },
+  "title": "Large Language Models"
+}

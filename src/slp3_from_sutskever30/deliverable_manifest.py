@@ -144,7 +144,10 @@ def build_deliverable_manifest() -> dict[str, object]:
                 "chapters": ["2", "3", "4", "5", "6", "A", "B", "C", "D"],
                 "folder": "research/batches/batch_a_classical_foundations",
             },
-            "batch_b_lm_and_seq_models": {"chapters": ["7", "8", "9", "10", "11", "12", "13"]},
+            "batch_b_lm_and_seq_models": {
+                "chapters": ["7", "8", "9", "10", "11", "12", "13"],
+                "folder": "research/batches/batch_b_lm_and_seq_models",
+            },
             "batch_c_speech": {"chapters": ["14", "15", "16"]},
             "batch_d_structure_and_ie": {"chapters": ["17", "18", "19", "20", "21"]},
             "batch_e_discourse_and_dialogue": {"chapters": ["22", "23", "24", "25"]},

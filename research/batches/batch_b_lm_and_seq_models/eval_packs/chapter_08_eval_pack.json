@@ -1,0 +1,78 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful in method but still miniature: no multi-head composition, positional encodings, residual stack, or decoder-only generation path.",
+  "chapter": "8",
+  "chapter_notes": {
+    "batch": "batch_b_lm_and_seq_models",
+    "counterintuitive_insight": "The core transformer lesson is not multi-head scale but the separation between content mixing, pooling, and output prediction.",
+    "covered_claims": [
+      "Scaled dot-product attention is implemented directly in NumPy.",
+      "Attention normalization can be inspected separately from classification loss.",
+      "A tiny transformer block already shows the content-mixing mechanics that matter pedagogically."
+    ],
+    "omitted_claims": [
+      "No multi-head split.",
+      "No positional encoding.",
+      "No residual/FFN stack depth."
+    ]
+  },
+  "core_algorithms": [
+    "query-key-value projections",
+    "scaled dot-product attention",
+    "sequence pooling",
+    "softmax classification"
+  ],
+  "failure_modes": [
+    {
+      "case": "attention_is_not_explanation_by_default",
+      "note": "Attention weights are useful mechanics, but they do not automatically justify a model decision."
+    },
+    {
+      "case": "missing_positional_information",
+      "note": "This toy chapter omits explicit positional encoding, so permutation sensitivity is under-modeled relative to textbook transformer presentations."
+    }
+  ],
+  "implementation_status": "DIRECT",
+  "lesson_objectives": [
+    "Implement scaled dot-product attention directly in NumPy.",
+    "Inspect attention normalization and pooled predictions separately.",
+    "Make explicit which transformer components are present and which are omitted in the toy reference."
+  ],
+  "metrics": {
+    "accuracy": 0.5,
+    "attention_row_sums": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "loss": 1.119506812418627,
+    "mean_diagonal_attention": 0.33054425973067025
+  },
+  "minimal_dataset": {
+    "batch_size": 4,
+    "model_dim": 4,
+    "num_classes": 3,
+    "seq_len": 3
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "attention rows stay normalized",
+      "metric": "attention_row_sums",
+      "name": "attention_normalization"
+    },
+    {
+      "expected_signal": "toy transformer separates simple sequence classes",
+      "metric": "accuracy",
+      "name": "classification_accuracy"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "local direct NumPy wrapper"
+    ],
+    "source_papers": [
+      13
+    ]
+  },
+  "title": "Transformers"
+}
