@@ -1,6 +1,6 @@
 schema_version: 1
-generated_at: "2026-03-30T08:11:24.353795+00:00"
-checked_commit: "3464a7df54a67264944a63d57794226a8e280678"
+generated_at: "2026-03-30T08:35:27.683265+00:00"
+checked_commit: "55a64ffb96530f30dc349e32cc2c2c9625f77a13"
 git_branch: "main"
 repo_checks:
   smoke_test:
@@ -242,12 +242,16 @@ chapters:
         - "sources"
   - key: "20"
     title: "Information Extraction: Relations, Events, and Time"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "entity_logits_shape"
-        - "relation_logits_shape"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "21"
     title: "Semantic Role Labeling and Argument Structure"
     implementation_status: "FULL"
@@ -270,13 +274,16 @@ chapters:
         - "token_scores_shape"
   - key: "23"
     title: "Coreference Resolution and Entity Linking"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "cluster_ids_shape"
-        - "coref_scores_shape"
-        - "link_scores_shape"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "24"
     title: "Discourse Coherence"
     implementation_status: "SCAFFOLDED"

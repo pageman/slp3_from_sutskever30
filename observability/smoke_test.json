@@ -269,12 +269,16 @@
       "title": "Dependency Parsing"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "20",
       "payload_keys": [
         "chapter",
-        "entity_logits_shape",
-        "relation_logits_shape"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Information Extraction: Relations, Events, and Time"
@@ -306,13 +310,16 @@
       "title": "Lexicons for Sentiment, Affect, and Connotation"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "23",
       "payload_keys": [
         "chapter",
-        "cluster_ids_shape",
-        "coref_scores_shape",
-        "link_scores_shape"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Coreference Resolution and Entity Linking"
@@ -383,6 +390,6 @@
       "title": "Spelling Correction and the Noisy Channel"
     }
   ],
-  "timestamp_utc": "2026-03-30T08:11:22.017350+00:00",
+  "timestamp_utc": "2026-03-30T08:35:25.296786+00:00",
   "unexpected_chapters": []
 }
