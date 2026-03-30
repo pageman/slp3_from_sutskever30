@@ -137,6 +137,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Contrast unigram, bigram, and trigram language models on held-out data.",
+            "Expose when backoff is doing the real work.",
+            "Compare additive smoothing against continuation-aware smoothing.",
+        ],
+        core_algorithms=["additive-smoothed n-gram language modeling", "backoff tracing", "Kneser-Ney next-word distribution"],
+        minimal_dataset={"train_sentences": len(fixture["train"]), "heldout_sentences": len(fixture["heldout"]), "probe_contexts": 2},
+        reference_experiments=[
+            {"name": "heldout_perplexity_by_order", "metric": "heldout_perplexity", "expected_signal": "higher-order models improve until sparsity dominates"},
+            {"name": "backoff_context_probe", "metric": "backoff_depths", "expected_signal": "unseen contexts trigger lower-order models"},
+        ],
+        book_vs_repo_gap="This chapter is strong on small-corpus n-gram methods but still lacks a fuller Katz/interpolation family and larger held-out tuning studies.",
     )
 
 

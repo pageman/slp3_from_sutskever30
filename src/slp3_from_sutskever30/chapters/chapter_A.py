@@ -44,7 +44,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_6_appendices",
+        "batch": "batch_a_classical_foundations",
         "counterintuitive_insight": "Hidden states are not inherently identifiable. The valuable object is the posterior structure and likelihood, not a human-friendly state name.",
         "covered_claims": [
             "Appendix A now includes forward-backward and one Baum-Welch update step.",
@@ -69,6 +69,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Run forward-backward to obtain posterior marginals in an HMM.",
+            "Show how one Baum-Welch step changes model parameters.",
+            "Separate latent posterior reasoning from best-path decoding.",
+        ],
+        core_algorithms=["forward algorithm", "backward algorithm", "posterior marginals", "Baum-Welch update"],
+        minimal_dataset={"num_states": int(fixture["start"].shape[0]), "num_symbols": int(fixture["emission"].shape[1]), "sequence_length": int(fixture["observations"].shape[0])},
+        reference_experiments=[
+            {"name": "posterior_normalization_check", "metric": "posterior_row_sums", "expected_signal": "rows sum to one"},
+            {"name": "em_parameter_normalization", "metric": "em_transition_row_sums", "expected_signal": "updated transition rows stay normalized"},
+        ],
+        book_vs_repo_gap="This appendix is faithful in core dynamic programming and EM mechanics, but it still lacks a multi-sequence training loop and supervised tagging bridge.",
     )
 
 

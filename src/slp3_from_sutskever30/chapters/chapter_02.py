@@ -204,6 +204,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Compare normalization and tokenization policies on the same text.",
+            "Measure tokenization quality through OOV rate and error locality.",
+            "Show why subword tokenization changes compression and robustness tradeoffs.",
+        ],
+        core_algorithms=["unicode normalization", "whitespace tokenization", "regex tokenization", "BPE-lite training and application"],
+        minimal_dataset={"train_size": len(fixture["train_texts"]), "eval_size": len(fixture["eval_texts"]), "probe_type": "tokenization robustness"},
+        reference_experiments=[
+            {"name": "tokenizer_oov_comparison", "metric": "oov_rates", "expected_signal": "bpe <= regex <= whitespace"},
+            {"name": "error_locality_probe", "metric": "error_locality", "expected_signal": "subword corruption stays local"},
+        ],
+        book_vs_repo_gap="This chapter is faithful in method but still omits unigram LM tokenization and larger compression benchmarks from a fuller textbook companion.",
     )
 
 

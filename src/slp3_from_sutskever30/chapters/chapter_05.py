@@ -150,6 +150,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Construct embeddings from cooccurrence statistics and predictive training.",
+            "Compare PPMI and SGNS-style spaces.",
+            "Evaluate geometry through isotropy and neighborhood stability.",
+        ],
+        core_algorithms=["PPMI matrix construction", "truncated SVD embeddings", "SGNS-style negative sampling", "nearest-neighbor probing"],
+        minimal_dataset={"corpus_sentences": len(fixture["corpus"]), "perturbed_sentences": len(fixture["perturbed_corpus"]), "probe_tokens": fixture["probes"]},
+        reference_experiments=[
+            {"name": "ppmi_vs_sgns_geometry", "metric": "isotropy", "expected_signal": "spaces differ in anisotropy"},
+            {"name": "perturbation_neighbor_stability", "metric": "neighbor_stability", "expected_signal": "small corpora produce fragile neighborhoods"},
+        ],
+        book_vs_repo_gap="This chapter captures the main embedding lesson in NumPy, but it still lacks GloVe, analogy suites, and broader corpus-scale intrinsic evaluation.",
     )
 
 

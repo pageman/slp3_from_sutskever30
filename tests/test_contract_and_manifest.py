@@ -40,3 +40,22 @@ def test_local_observability_dir_is_separate_from_ci_root(monkeypatch, tmp_path:
 def test_batch_a_folder_exists() -> None:
     root = Path(__file__).resolve().parents[1]
     assert (root / "research" / "batches" / "batch_a_classical_foundations" / "README.md").exists()
+
+
+def test_batch_a_chapters_populate_rich_contract_fields() -> None:
+    batch_a_keys = {"2", "3", "4", "5", "6", "A", "B", "C", "D"}
+    for spec in get_chapters():
+        if spec.key not in batch_a_keys:
+            continue
+        payload = normalize_chapter_payload(
+            chapter=spec.key,
+            implementation_status=spec.implementation_status,
+            title=spec.title,
+            source_papers=spec.source_papers,
+            payload=spec.runner(),
+        )
+        assert payload["lesson_objectives"]
+        assert payload["core_algorithms"]
+        assert payload["minimal_dataset"]
+        assert payload["reference_experiments"]
+        assert payload["book_vs_repo_gap"]

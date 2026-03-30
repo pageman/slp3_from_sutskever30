@@ -151,6 +151,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Train and evaluate logistic regression text classifiers on comparable feature sets.",
+            "Compare bag-of-words and hashed features.",
+            "Inspect calibration alongside accuracy.",
+        ],
+        core_algorithms=["bag-of-words features", "hashed text features", "softmax logistic regression", "expected calibration error"],
+        minimal_dataset={"train_examples": len(fixture["train_texts"]), "validation_examples": len(fixture["val_texts"]), "labels": list(outputs["label_list"])},
+        reference_experiments=[
+            {"name": "feature_map_comparison", "metric": "validation_accuracy", "expected_signal": "simple linear models remain strong baselines"},
+            {"name": "calibration_check", "metric": "expected_calibration_error", "expected_signal": "confidence quality is separable from accuracy"},
+        ],
+        book_vs_repo_gap="This chapter is faithful to the logistic-regression core, but it still omits sparse-matrix tooling, L1 paths, and larger feature-template studies.",
     )
 
 

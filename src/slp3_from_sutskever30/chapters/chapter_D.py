@@ -61,7 +61,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_6_appendices",
+        "batch": "batch_a_classical_foundations",
         "counterintuitive_insight": "Spelling correction should rank candidates by global explanation cost, not raw edit plausibility.",
         "covered_claims": [
             "Appendix D now combines a learned confusion model with language-model reranking.",
@@ -85,6 +85,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Separate candidate generation from noisy-channel reranking.",
+            "Show why a confusion model and language model belong in the same correction pipeline.",
+            "Demonstrate that best edit is not always best sentence explanation.",
+        ],
+        core_algorithms=["edit-distance candidate generation", "learned confusion model", "bigram language model reranking", "noisy-channel scoring"],
+        minimal_dataset={"corpus_sentences": len(fixture["corpus"]), "confusion_examples": len(fixture["confusion_pairs"]), "observed_error": fixture["observed"]},
+        reference_experiments=[
+            {"name": "candidate_reranking", "metric": ["candidate_count", "top_candidate"], "expected_signal": "global sentence score changes ranking"},
+            {"name": "channel_vs_language_model_explanation", "metric": "top_score", "expected_signal": "best candidate combines both sources of evidence"},
+        ],
+        book_vs_repo_gap="This appendix is faithful to the noisy-channel correction story, but it still omits richer candidate generation, sentence-level beams, and phonetic channels.",
     )
 
 

@@ -190,6 +190,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Compare linear and nonlinear neural classifiers on the same task.",
+            "Track optimization progress and hidden-state health.",
+            "Show how initialization and saturation affect model behavior.",
+        ],
+        core_algorithms=["linear softmax classifier", "single-hidden-layer tanh MLP", "momentum SGD", "dropout regularization"],
+        minimal_dataset={"train_examples": len(fixture["train_texts"]), "validation_examples": len(fixture["val_texts"]), "label_space": list(outputs["label_list"])},
+        reference_experiments=[
+            {"name": "linear_vs_mlp", "metric": "validation_accuracy", "expected_signal": "nonlinearity helps only when representation stays healthy"},
+            {"name": "representation_health_probe", "metric": "representation_health", "expected_signal": "bad initialization increases saturation"},
+        ],
+        book_vs_repo_gap="This chapter is faithful for a compact feed-forward network lesson, but it still omits batch normalization, deeper networks, and broader optimizer comparisons.",
     )
 
 

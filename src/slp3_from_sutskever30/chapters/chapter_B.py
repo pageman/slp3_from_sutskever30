@@ -57,7 +57,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_6_appendices",
+        "batch": "batch_a_classical_foundations",
         "counterintuitive_insight": "Naive Bayes is valuable because it is usefully wrong. Its mistakes are structured and debuggable, not opaque.",
         "covered_claims": [
             "Appendix B now compares multinomial and Bernoulli Naive Bayes.",
@@ -81,6 +81,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Compare multinomial and Bernoulli Naive Bayes on the same text data.",
+            "Measure both accuracy and calibration.",
+            "Show why conditional independence can still be operationally useful.",
+        ],
+        core_algorithms=["multinomial Naive Bayes", "Bernoulli Naive Bayes", "Laplace smoothing", "calibration error"],
+        minimal_dataset={"train_examples": len(fixture["train_texts"]), "eval_examples": len(fixture["eval_texts"]), "labels": ["neg", "pos"]},
+        reference_experiments=[
+            {"name": "nb_variant_comparison", "metric": ["multinomial_accuracy", "bernoulli_accuracy"], "expected_signal": "variant choice changes predictions"},
+            {"name": "calibration_check", "metric": ["multinomial_ece", "bernoulli_ece"], "expected_signal": "probabilities are not equally trustworthy"},
+        ],
+        book_vs_repo_gap="This appendix is faithful to the main Naive Bayes variants, but it still omits richer smoothing sweeps and feature-level odds diagnostics.",
     )
 
 

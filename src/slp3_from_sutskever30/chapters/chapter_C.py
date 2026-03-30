@@ -58,7 +58,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_6_appendices",
+        "batch": "batch_a_classical_foundations",
         "counterintuitive_insight": "Kneser-Ney is fundamentally a continuation-estimation algorithm, not a discount trick.",
         "covered_claims": [
             "Appendix C now uses recursive Kneser-Ney style continuation backoff.",
@@ -83,6 +83,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Explain Kneser-Ney through continuation distributions instead of memorized formulas.",
+            "Compare continuation-aware smoothing against a simpler additive baseline.",
+            "Inspect support and top-prediction behavior on held-out text.",
+        ],
+        core_algorithms=["recursive Kneser-Ney distribution", "add-alpha bigram baseline", "held-out perplexity comparison"],
+        minimal_dataset={"train_sentences": len(fixture["train"]), "heldout_sentences": len(fixture["heldout"]), "order": 3},
+        reference_experiments=[
+            {"name": "perplexity_baseline_comparison", "metric": "heldout_perplexity", "expected_signal": "continuation-aware smoothing changes held-out behavior"},
+            {"name": "support_probe", "metric": "support_size", "expected_signal": "distribution support remains explicit and inspectable"},
+        ],
+        book_vs_repo_gap="This appendix is method-faithful for recursive Kneser-Ney intuition, but it still omits modified discount estimation and broader corpus studies.",
     )
 
 
