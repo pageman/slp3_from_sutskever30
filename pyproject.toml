@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slp3-from-sutskever30"
+version = "0.1.0"
+description = "NumPy-only toy reimplementations of Stanford SLP3 chapters derived from local Sutskever-30 work."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["numpy>=1.26"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
