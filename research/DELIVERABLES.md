@@ -14,3 +14,5 @@ Contents:
 - chapter registry with executable runners
 - smoke tests
 - source and packaging notes
+- observability deliverables in `observability/`
+- session checkpoint in `research/SESSION_CHECKPOINT_2026-03-30.md`
