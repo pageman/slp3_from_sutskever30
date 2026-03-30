@@ -1,6 +1,6 @@
 schema_version: 1
-generated_at: "2026-03-30T08:35:27.683265+00:00"
-checked_commit: "55a64ffb96530f30dc349e32cc2c2c9625f77a13"
+generated_at: "2026-03-30T08:39:51.978218+00:00"
+checked_commit: "bd942aa4cea69f654a1f9785dfd86e830e4f54ac"
 git_branch: "main"
 repo_checks:
   smoke_test:
@@ -266,12 +266,16 @@ chapters:
         - "sources"
   - key: "22"
     title: "Lexicons for Sentiment, Affect, and Connotation"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "document_scores_shape"
-        - "token_scores_shape"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "23"
     title: "Coreference Resolution and Entity Linking"
     implementation_status: "FULL"
@@ -286,20 +290,28 @@ chapters:
         - "sources"
   - key: "24"
     title: "Discourse Coherence"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "coherence_scores_shape"
-        - "ordering_logits_shape"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "25"
     title: "Conversation and its Structure"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "dialogue_act_logits_shape"
-        - "state_summary_shape"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "A"
     title: "Hidden Markov Models"
     implementation_status: "SCAFFOLDED"

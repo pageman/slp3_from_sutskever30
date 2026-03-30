@@ -299,12 +299,16 @@
       "title": "Semantic Role Labeling and Argument Structure"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "22",
       "payload_keys": [
         "chapter",
-        "document_scores_shape",
-        "token_scores_shape"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Lexicons for Sentiment, Affect, and Connotation"
@@ -325,23 +329,31 @@
       "title": "Coreference Resolution and Entity Linking"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "24",
       "payload_keys": [
         "chapter",
-        "coherence_scores_shape",
-        "ordering_logits_shape"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Discourse Coherence"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "25",
       "payload_keys": [
         "chapter",
-        "dialogue_act_logits_shape",
-        "state_summary_shape"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Conversation and its Structure"
@@ -390,6 +402,6 @@
       "title": "Spelling Correction and the Noisy Channel"
     }
   ],
-  "timestamp_utc": "2026-03-30T08:35:25.296786+00:00",
+  "timestamp_utc": "2026-03-30T08:39:49.461723+00:00",
   "unexpected_chapters": []
 }

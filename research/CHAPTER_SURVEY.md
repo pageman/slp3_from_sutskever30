@@ -31,10 +31,10 @@ Current survey:
 | 19 | `FULL` | - | Full parsing batch with projective vs MST decoding, relation labels, and structural diagnostics |
 | 20 | `FULL` | - | Full span-graph batch with entity, relation, event, and time heads plus schema-constrained decoding |
 | 21 | `FULL` | - | Full structured-prediction batch with predicate-conditioned role scoring and constrained role decoding |
-| 22 | `SCAFFOLDED` | - | Lite sentiment/affect lexicon chapter |
+| 22 | `FULL` | - | Full discourse batch with lexicon induction, composition rules, and domain-shift evaluation |
 | 23 | `FULL` | - | Full span-graph batch with clustering, candidate retrieval, and late linking revision |
-| 24 | `SCAFFOLDED` | - | Lite discourse-coherence chapter |
-| 25 | `SCAFFOLDED` | - | Lite conversation-structure chapter |
+| 24 | `FULL` | - | Full discourse batch with entity-grid, perturbation-based coherence scoring, and near-correct document evaluation |
+| 25 | `FULL` | - | Full dialogue batch with dialogue acts, repair, grounding, and commitment-consistency evaluation |
 | A | `SCAFFOLDED` | - | Lite HMM appendix chapter |
 | B | `SCAFFOLDED` | - | Lite Naive Bayes appendix chapter |
 | C | `SCAFFOLDED` | - | Lite Kneser-Ney appendix chapter |
