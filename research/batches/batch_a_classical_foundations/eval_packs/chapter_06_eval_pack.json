@@ -1,0 +1,83 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful for a compact feed-forward network lesson, but it still omits batch normalization, deeper networks, and broader optimizer comparisons.",
+  "chapter": "6",
+  "chapter_notes": {
+    "batch": "batch_1_classical_foundations",
+    "counterintuitive_insight": "The important diagnostic is what the network forgets. A larger nonlinear model can be worse than a linear baseline if hidden activations collapse or saturate.",
+    "covered_claims": [
+      "A NumPy MLP can be compared directly against a linear baseline.",
+      "Momentum, dropout, and initialization scale materially affect hidden-state health."
+    ],
+    "omitted_claims": [
+      "No batch normalization path yet.",
+      "No optimizer sweep beyond momentum SGD yet."
+    ]
+  },
+  "core_algorithms": [
+    "linear softmax classifier",
+    "single-hidden-layer tanh MLP",
+    "momentum SGD",
+    "dropout regularization"
+  ],
+  "failure_modes": [
+    {
+      "bad_init_confidences": [
+        1.0,
+        1.0,
+        0.9999,
+        0.9944
+      ],
+      "bad_init_final_loss": 0.0014493383405160447,
+      "case": "oversized_initialization_saturates_hidden_units"
+    },
+    {
+      "case": "nonlinear_model_can_destroy_easy_linear_structure",
+      "note": "The MLP is only useful if its hidden representation stays diverse instead of collapsing into tanh saturation."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Compare linear and nonlinear neural classifiers on the same task.",
+    "Track optimization progress and hidden-state health.",
+    "Show how initialization and saturation affect model behavior."
+  ],
+  "metrics": {
+    "loss_reduction": {
+      "bad_init_mlp": 2.0155197461091032,
+      "linear": 0.6684967481004752,
+      "mlp": 0.6484733465532874
+    },
+    "representation_health": {
+      "bad_init_hidden_variance": 0.6436610976312898,
+      "bad_init_saturation_rate": 0.6375,
+      "hidden_variance": 0.3772449983470817,
+      "saturation_rate": 0.0
+    },
+    "validation_accuracy": {
+      "bad_init_mlp": 1.0,
+      "linear": 1.0,
+      "mlp": 1.0
+    }
+  },
+  "minimal_dataset": {
+    "label_space": [
+      "neg",
+      "pos"
+    ],
+    "train_examples": 8,
+    "validation_examples": 4
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "nonlinearity helps only when representation stays healthy",
+      "metric": "validation_accuracy",
+      "name": "linear_vs_mlp"
+    },
+    {
+      "expected_signal": "bad initialization increases saturation",
+      "metric": "representation_health",
+      "name": "representation_health_probe"
+    }
+  ],
+  "title": "Neural Networks"
+}

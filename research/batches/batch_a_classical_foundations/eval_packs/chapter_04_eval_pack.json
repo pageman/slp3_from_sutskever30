@@ -1,0 +1,69 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful to the logistic-regression core, but it still omits sparse-matrix tooling, L1 paths, and larger feature-template studies.",
+  "chapter": "4",
+  "chapter_notes": {
+    "batch": "batch_1_classical_foundations",
+    "counterintuitive_insight": "Calibration matters more than feature count. A linear model that knows when it is uncertain is often more useful than a richer feature map with uncalibrated confidence.",
+    "covered_claims": [
+      "Bag-of-words and hashed features can be compared on the same validation set.",
+      "Regularized logistic regression supports attribution and calibration diagnostics."
+    ],
+    "omitted_claims": [
+      "No sparse matrix path yet.",
+      "No L1 regularization sweep yet."
+    ]
+  },
+  "core_algorithms": [
+    "bag-of-words features",
+    "hashed text features",
+    "softmax logistic regression",
+    "expected calibration error"
+  ],
+  "failure_modes": [
+    {
+      "case": "no_validation_failures",
+      "note": "Current split is linearly easy; calibration remains the real diagnostic."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Train and evaluate logistic regression text classifiers on comparable feature sets.",
+    "Compare bag-of-words and hashed features.",
+    "Inspect calibration alongside accuracy."
+  ],
+  "metrics": {
+    "expected_calibration_error": {
+      "bag_of_words": 0.09447345124390716,
+      "hashed_features": 0.2566340769758233
+    },
+    "loss_reduction": {
+      "bag_of_words": 0.6528545602570379,
+      "hashed_features": 0.6383633902228563
+    },
+    "validation_accuracy": {
+      "bag_of_words": 1.0,
+      "hashed_features": 1.0
+    }
+  },
+  "minimal_dataset": {
+    "labels": [
+      "neg",
+      "pos"
+    ],
+    "train_examples": 6,
+    "validation_examples": 4
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "simple linear models remain strong baselines",
+      "metric": "validation_accuracy",
+      "name": "feature_map_comparison"
+    },
+    {
+      "expected_signal": "confidence quality is separable from accuracy",
+      "metric": "expected_calibration_error",
+      "name": "calibration_check"
+    }
+  ],
+  "title": "Logistic Regression and Text Classification"
+}

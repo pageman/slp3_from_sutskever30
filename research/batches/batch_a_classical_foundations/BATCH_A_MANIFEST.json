@@ -1,0 +1,71 @@
+{
+  "batch": "batch_a_classical_foundations",
+  "chapter_count": 9,
+  "chapters": [
+    {
+      "eval_pack_path": "research/batches/batch_a_classical_foundations/eval_packs/chapter_02_eval_pack.json",
+      "fixture_path": "research/batches/batch_a_classical_foundations/fixtures/chapter_02_fixture.json",
+      "implementation_status": "FULL",
+      "key": "2",
+      "title": "Words and Tokens"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_a_classical_foundations/eval_packs/chapter_03_eval_pack.json",
+      "fixture_path": "research/batches/batch_a_classical_foundations/fixtures/chapter_03_fixture.json",
+      "implementation_status": "FULL",
+      "key": "3",
+      "title": "N-gram Language Models"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_a_classical_foundations/eval_packs/chapter_04_eval_pack.json",
+      "fixture_path": "research/batches/batch_a_classical_foundations/fixtures/chapter_04_fixture.json",
+      "implementation_status": "FULL",
+      "key": "4",
+      "title": "Logistic Regression and Text Classification"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_a_classical_foundations/eval_packs/chapter_05_eval_pack.json",
+      "fixture_path": "research/batches/batch_a_classical_foundations/fixtures/chapter_05_fixture.json",
+      "implementation_status": "FULL",
+      "key": "5",
+      "title": "Embeddings"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_a_classical_foundations/eval_packs/chapter_06_eval_pack.json",
+      "fixture_path": "research/batches/batch_a_classical_foundations/fixtures/chapter_06_fixture.json",
+      "implementation_status": "FULL",
+      "key": "6",
+      "title": "Neural Networks"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_a_classical_foundations/eval_packs/chapter_A_eval_pack.json",
+      "fixture_path": "research/batches/batch_a_classical_foundations/fixtures/chapter_A_fixture.json",
+      "implementation_status": "FULL",
+      "key": "A",
+      "title": "Hidden Markov Models"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_a_classical_foundations/eval_packs/chapter_B_eval_pack.json",
+      "fixture_path": "research/batches/batch_a_classical_foundations/fixtures/chapter_B_fixture.json",
+      "implementation_status": "FULL",
+      "key": "B",
+      "title": "Naive Bayes Classification"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_a_classical_foundations/eval_packs/chapter_C_eval_pack.json",
+      "fixture_path": "research/batches/batch_a_classical_foundations/fixtures/chapter_C_fixture.json",
+      "implementation_status": "FULL",
+      "key": "C",
+      "title": "Kneser-Ney Smoothing"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_a_classical_foundations/eval_packs/chapter_D_eval_pack.json",
+      "fixture_path": "research/batches/batch_a_classical_foundations/fixtures/chapter_D_fixture.json",
+      "implementation_status": "FULL",
+      "key": "D",
+      "title": "Spelling Correction and the Noisy Channel"
+    }
+  ],
+  "generated_at": "2026-03-30T11:34:22.055479+00:00",
+  "schema_version": 1
+}

@@ -1,0 +1,83 @@
+{
+  "book_vs_repo_gap": "This appendix is method-faithful for recursive Kneser-Ney intuition, but it still omits modified discount estimation and broader corpus studies.",
+  "chapter": "C",
+  "chapter_notes": {
+    "batch": "batch_a_classical_foundations",
+    "counterintuitive_insight": "Kneser-Ney is fundamentally a continuation-estimation algorithm, not a discount trick.",
+    "covered_claims": [
+      "Appendix C now uses recursive Kneser-Ney style continuation backoff.",
+      "Perplexity is compared against a simpler additive-smoothed baseline."
+    ],
+    "omitted_claims": [
+      "No modified discount estimator yet.",
+      "No corpus-scaling curve yet."
+    ]
+  },
+  "core_algorithms": [
+    "recursive Kneser-Ney distribution",
+    "add-alpha bigram baseline",
+    "held-out perplexity comparison"
+  ],
+  "failure_modes": [
+    {
+      "case": "continuation_bookkeeping_is_the_core",
+      "note": "Kneser-Ney works because it tracks continuation diversity, not because it subtracts a constant discount."
+    },
+    {
+      "case": "formula_memory_is_not_enough",
+      "top_predictions": [
+        [
+          "models",
+          0.9196428571419921
+        ],
+        [
+          "</s>",
+          0.020089285714251996
+        ],
+        [
+          "language",
+          0.013392857142834665
+        ],
+        [
+          "<s>",
+          0.006696428571417333
+        ],
+        [
+          "context",
+          0.006696428571417333
+        ]
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Explain Kneser-Ney through continuation distributions instead of memorized formulas.",
+    "Compare continuation-aware smoothing against a simpler additive baseline.",
+    "Inspect support and top-prediction behavior on held-out text."
+  ],
+  "metrics": {
+    "heldout_perplexity": {
+      "add_alpha_bigram": 4.707869938285764,
+      "recursive_kneser_ney": 3.679775987251881
+    },
+    "support_size": 10
+  },
+  "minimal_dataset": {
+    "heldout_sentences": 2,
+    "order": 3,
+    "train_sentences": 4
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "continuation-aware smoothing changes held-out behavior",
+      "metric": "heldout_perplexity",
+      "name": "perplexity_baseline_comparison"
+    },
+    {
+      "expected_signal": "distribution support remains explicit and inspectable",
+      "metric": "support_size",
+      "name": "support_probe"
+    }
+  ],
+  "title": "Kneser-Ney Smoothing"
+}

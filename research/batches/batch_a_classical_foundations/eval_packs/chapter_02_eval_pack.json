@@ -1,0 +1,92 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful in method but still omits unigram LM tokenization and larger compression benchmarks from a fuller textbook companion.",
+  "chapter": "2",
+  "chapter_notes": {
+    "batch": "batch_1_classical_foundations",
+    "counterintuitive_insight": "Error locality matters more than vocabulary size: a tokenizer is better when one typo corrupts fewer positions.",
+    "covered_claims": [
+      "Normalization policy changes token statistics.",
+      "Tokenizers can be compared on OOV rate and error locality.",
+      "A learned BPE-lite tokenizer gives a different compression profile than regex tokenization."
+    ],
+    "omitted_claims": [
+      "No unigram LM tokenizer yet.",
+      "No large-corpus compression benchmark yet."
+    ]
+  },
+  "core_algorithms": [
+    "unicode normalization",
+    "whitespace tokenization",
+    "regex tokenization",
+    "BPE-lite training and application"
+  ],
+  "failure_modes": [
+    {
+      "case": "hyphenation_smears_boundaries",
+      "example": "can't-stop",
+      "observed_bpe": [
+        "ca",
+        "n't",
+        "-",
+        "stop"
+      ],
+      "observed_regex": [
+        "can't",
+        "-",
+        "stop"
+      ]
+    },
+    {
+      "case": "email_tokenization_is_not_semantic",
+      "example": "nlp@example.com",
+      "observed_regex": [
+        "nlp",
+        "@",
+        "example",
+        ".",
+        "com"
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Compare normalization and tokenization policies on the same text.",
+    "Measure tokenization quality through OOV rate and error locality.",
+    "Show why subword tokenization changes compression and robustness tradeoffs."
+  ],
+  "metrics": {
+    "avg_tokens_per_eval_text": {
+      "bpe": 25.0,
+      "regex": 7.5,
+      "whitespace": 5.5
+    },
+    "oov_rates": {
+      "bpe": 0.02,
+      "regex": 0.4666666666666667,
+      "whitespace": 0.7272727272727273
+    },
+    "vocab_sizes": {
+      "bpe": 42,
+      "regex": 28,
+      "whitespace": 21
+    }
+  },
+  "minimal_dataset": {
+    "eval_size": 2,
+    "probe_type": "tokenization robustness",
+    "train_size": 4
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "bpe <= regex <= whitespace",
+      "metric": "oov_rates",
+      "name": "tokenizer_oov_comparison"
+    },
+    {
+      "expected_signal": "subword corruption stays local",
+      "metric": "error_locality",
+      "name": "error_locality_probe"
+    }
+  ],
+  "title": "Words and Tokens"
+}

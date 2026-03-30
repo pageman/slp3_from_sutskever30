@@ -6,5 +6,5 @@ from pathlib import Path
 
 def get_observability_dir(root: Path) -> Path:
     if os.environ.get("CIRCLECI"):
-        return root / "observability"
+        return root / "observability" / "ci_latest"
     return root / "observability" / "local"

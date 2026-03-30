@@ -1,0 +1,86 @@
+{
+  "book_vs_repo_gap": "This chapter captures the main embedding lesson in NumPy, but it still lacks GloVe, analogy suites, and broader corpus-scale intrinsic evaluation.",
+  "chapter": "5",
+  "chapter_notes": {
+    "batch": "batch_1_classical_foundations",
+    "counterintuitive_insight": "Embedding quality is more about neighborhood stability under small corpus shifts than about a single pretty nearest-neighbor screenshot.",
+    "covered_claims": [
+      "PPMI and SGNS-style embeddings can coexist in one NumPy-only chapter.",
+      "Isotropy and neighbor stability are useful intrinsic diagnostics."
+    ],
+    "omitted_claims": [
+      "No analogy benchmark yet.",
+      "No GloVe factorization path yet."
+    ]
+  },
+  "core_algorithms": [
+    "PPMI matrix construction",
+    "truncated SVD embeddings",
+    "SGNS-style negative sampling",
+    "nearest-neighbor probing"
+  ],
+  "failure_modes": [
+    {
+      "affected_tokens": [
+        "language",
+        "context",
+        "speech"
+      ],
+      "case": "small_corpus_geometry_is_fragile",
+      "note": "Neighborhoods shift under a one-sentence corpus perturbation."
+    },
+    {
+      "case": "distributional_similarity_is_not_ground_truth_semantics",
+      "example": "speech and language may look close because they share contexts."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Construct embeddings from cooccurrence statistics and predictive training.",
+    "Compare PPMI and SGNS-style spaces.",
+    "Evaluate geometry through isotropy and neighborhood stability."
+  ],
+  "metrics": {
+    "embedding_shapes": {
+      "ppmi": [
+        12,
+        4
+      ],
+      "sgns": [
+        12,
+        8
+      ]
+    },
+    "isotropy": {
+      "ppmi": 0.1796019415789795,
+      "sgns": 0.13086042420565525
+    },
+    "neighbor_stability": {
+      "context": 0.6666666666666666,
+      "language": 0.6666666666666666,
+      "speech": 0.3333333333333333
+    }
+  },
+  "minimal_dataset": {
+    "corpus_sentences": 5,
+    "perturbed_sentences": 5,
+    "probe_tokens": [
+      "language",
+      "context",
+      "speech"
+    ]
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "spaces differ in anisotropy",
+      "metric": "isotropy",
+      "name": "ppmi_vs_sgns_geometry"
+    },
+    {
+      "expected_signal": "small corpora produce fragile neighborhoods",
+      "metric": "neighbor_stability",
+      "name": "perturbation_neighbor_stability"
+    }
+  ],
+  "title": "Embeddings"
+}

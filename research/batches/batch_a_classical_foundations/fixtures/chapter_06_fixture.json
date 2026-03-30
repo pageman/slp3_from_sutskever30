@@ -1,0 +1,34 @@
+{
+  "train_labels": [
+    "pos",
+    "pos",
+    "neg",
+    "neg",
+    "pos",
+    "neg",
+    "pos",
+    "neg"
+  ],
+  "train_texts": [
+    "great acting bright ending",
+    "warm funny script",
+    "boring acting dull jokes",
+    "bad script slow ending",
+    "excellent bright dialogue",
+    "awful dull pacing",
+    "funny warm chemistry",
+    "slow boring drama"
+  ],
+  "val_labels": [
+    "pos",
+    "neg",
+    "pos",
+    "neg"
+  ],
+  "val_texts": [
+    "bright funny movie",
+    "dull slow movie",
+    "warm dialogue",
+    "bad pacing"
+  ]
+}

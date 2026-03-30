@@ -1,0 +1,97 @@
+{
+  "book_vs_repo_gap": "This chapter is strong on small-corpus n-gram methods but still lacks a fuller Katz/interpolation family and larger held-out tuning studies.",
+  "chapter": "3",
+  "chapter_notes": {
+    "batch": "batch_1_classical_foundations",
+    "counterintuitive_insight": "Continuation diversity is often more predictive than raw count magnitude; the useful question is how many contexts survive compression.",
+    "covered_claims": [
+      "Unigram, bigram, and trigram models produce different held-out perplexities.",
+      "Backoff traces expose where the model truly has evidence.",
+      "Kneser-Ney changes the top distribution even on tiny corpora."
+    ],
+    "omitted_claims": [
+      "No streaming trainer yet.",
+      "No full Katz backoff implementation yet."
+    ]
+  },
+  "core_algorithms": [
+    "additive-smoothed n-gram language modeling",
+    "backoff tracing",
+    "Kneser-Ney next-word distribution"
+  ],
+  "failure_modes": [
+    {
+      "case": "unseen_context_forces_backoff",
+      "context": [
+        "models",
+        "fail"
+      ],
+      "observed_trace": {
+        "context": [],
+        "top_predictions": [
+          [
+            "</s>",
+            0.1954022988505747
+          ],
+          [
+            "language",
+            0.11877394636015326
+          ],
+          [
+            "models",
+            0.11877394636015326
+          ],
+          [
+            "predict",
+            0.11877394636015326
+          ],
+          [
+            "predicts",
+            0.08045977011494253
+          ]
+        ],
+        "used_model": "unigram"
+      }
+    },
+    {
+      "case": "counts_do_not_capture_long_range_semantics",
+      "example": "language models predict pauses",
+      "limitation": "The model sees local continuation statistics only and cannot explain semantic mismatch."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Contrast unigram, bigram, and trigram language models on held-out data.",
+    "Expose when backoff is doing the real work.",
+    "Compare additive smoothing against continuation-aware smoothing."
+  ],
+  "metrics": {
+    "backoff_depths": {
+      "probe_context": "trigram",
+      "unseen_context": "unigram"
+    },
+    "heldout_perplexity": {
+      "bigram": 3.6714054176985376,
+      "trigram": 5.526894099045959,
+      "unigram": 9.748665269394657
+    }
+  },
+  "minimal_dataset": {
+    "heldout_sentences": 2,
+    "probe_contexts": 2,
+    "train_sentences": 5
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "higher-order models improve until sparsity dominates",
+      "metric": "heldout_perplexity",
+      "name": "heldout_perplexity_by_order"
+    },
+    {
+      "expected_signal": "unseen contexts trigger lower-order models",
+      "metric": "backoff_depths",
+      "name": "backoff_context_probe"
+    }
+  ],
+  "title": "N-gram Language Models"
+}

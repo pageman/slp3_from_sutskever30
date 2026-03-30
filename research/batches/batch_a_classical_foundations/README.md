@@ -25,3 +25,9 @@ Folders:
 - `fixtures/` small deterministic inputs for Batch A chapters
 - `eval_packs/` serialized chapter-family evaluation bundles
 - `notes/` batch-specific implementation notes
+
+Generated artifacts:
+
+- `BATCH_A_MANIFEST.json` batch-level index for fixtures and eval packs
+- `fixtures/chapter_XX_fixture.json` chapter-level deterministic inputs
+- `eval_packs/chapter_XX_eval_pack.json` chapter-level lesson and evaluation bundle

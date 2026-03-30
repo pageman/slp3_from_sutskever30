@@ -1,0 +1,32 @@
+{
+  "confusion_pairs": [
+    [
+      "language",
+      "langauge"
+    ],
+    [
+      "speech",
+      "speach"
+    ],
+    [
+      "model",
+      "modle"
+    ],
+    [
+      "right",
+      "rigth"
+    ]
+  ],
+  "corpus": [
+    "language models process speech",
+    "language systems process text",
+    "speech recognition uses language models",
+    "the model predicts the right word"
+  ],
+  "observed": "langauge",
+  "sentence_context": [
+    "the",
+    "langauge",
+    "model"
+  ]
+}

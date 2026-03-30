@@ -1,0 +1,74 @@
+{
+  "book_vs_repo_gap": "This appendix is faithful to the noisy-channel correction story, but it still omits richer candidate generation, sentence-level beams, and phonetic channels.",
+  "chapter": "D",
+  "chapter_notes": {
+    "batch": "batch_a_classical_foundations",
+    "counterintuitive_insight": "Spelling correction should rank candidates by global explanation cost, not raw edit plausibility.",
+    "covered_claims": [
+      "Appendix D now combines a learned confusion model with language-model reranking.",
+      "Candidate generation and reranking are separated explicitly."
+    ],
+    "omitted_claims": [
+      "No sentence-level beam search yet.",
+      "No phonetic channel model yet."
+    ]
+  },
+  "core_algorithms": [
+    "edit-distance candidate generation",
+    "learned confusion model",
+    "bigram language model reranking",
+    "noisy-channel scoring"
+  ],
+  "failure_modes": [
+    {
+      "case": "minimal_edit_distance_is_not_enough",
+      "note": "A globally simpler sentence explanation can outrank a locally smaller edit."
+    },
+    {
+      "candidates": [
+        [
+          "language",
+          -1.6894806200859704
+        ]
+      ],
+      "case": "real_word_errors_need_sentence_reranking",
+      "example_context": [
+        "the",
+        "langauge",
+        "model"
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Separate candidate generation from noisy-channel reranking.",
+    "Show why a confusion model and language model belong in the same correction pipeline.",
+    "Demonstrate that best edit is not always best sentence explanation."
+  ],
+  "metrics": {
+    "candidate_count": 1,
+    "top_candidate": "language",
+    "top_score": -1.6894806200859704
+  },
+  "minimal_dataset": {
+    "confusion_examples": 4,
+    "corpus_sentences": 4,
+    "observed_error": "langauge"
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "global sentence score changes ranking",
+      "metric": [
+        "candidate_count",
+        "top_candidate"
+      ],
+      "name": "candidate_reranking"
+    },
+    {
+      "expected_signal": "best candidate combines both sources of evidence",
+      "metric": "top_score",
+      "name": "channel_vs_language_model_explanation"
+    }
+  ],
+  "title": "Spelling Correction and the Noisy Channel"
+}

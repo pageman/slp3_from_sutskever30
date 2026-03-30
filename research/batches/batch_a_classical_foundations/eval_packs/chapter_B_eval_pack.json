@@ -1,0 +1,79 @@
+{
+  "book_vs_repo_gap": "This appendix is faithful to the main Naive Bayes variants, but it still omits richer smoothing sweeps and feature-level odds diagnostics.",
+  "chapter": "B",
+  "chapter_notes": {
+    "batch": "batch_a_classical_foundations",
+    "counterintuitive_insight": "Naive Bayes is valuable because it is usefully wrong. Its mistakes are structured and debuggable, not opaque.",
+    "covered_claims": [
+      "Appendix B now compares multinomial and Bernoulli Naive Bayes.",
+      "Calibration is measured explicitly instead of assuming probabilistic outputs are trustworthy."
+    ],
+    "omitted_claims": [
+      "No smoothing sweep grid yet.",
+      "No odds-ratio feature report yet."
+    ]
+  },
+  "core_algorithms": [
+    "multinomial Naive Bayes",
+    "Bernoulli Naive Bayes",
+    "Laplace smoothing",
+    "calibration error"
+  ],
+  "failure_modes": [
+    {
+      "case": "correlated_features_break_independence",
+      "example": "fun bright comedy",
+      "note": "Naive Bayes remains useful because the error mode is interpretable even when the assumption is wrong."
+    },
+    {
+      "bernoulli_probs_first": [
+        0.1579,
+        0.8421
+      ],
+      "case": "variant_choice_changes_behavior",
+      "multinomial_probs_first": [
+        0.25,
+        0.75
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Compare multinomial and Bernoulli Naive Bayes on the same text data.",
+    "Measure both accuracy and calibration.",
+    "Show why conditional independence can still be operationally useful."
+  ],
+  "metrics": {
+    "bernoulli_accuracy": 0.75,
+    "bernoulli_ece": 0.2503414863195365,
+    "multinomial_accuracy": 0.75,
+    "multinomial_ece": 0.29821428571632197
+  },
+  "minimal_dataset": {
+    "eval_examples": 4,
+    "labels": [
+      "neg",
+      "pos"
+    ],
+    "train_examples": 6
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "variant choice changes predictions",
+      "metric": [
+        "multinomial_accuracy",
+        "bernoulli_accuracy"
+      ],
+      "name": "nb_variant_comparison"
+    },
+    {
+      "expected_signal": "probabilities are not equally trustworthy",
+      "metric": [
+        "multinomial_ece",
+        "bernoulli_ece"
+      ],
+      "name": "calibration_check"
+    }
+  ],
+  "title": "Naive Bayes Classification"
+}

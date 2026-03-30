@@ -1,0 +1,21 @@
+{
+  "corpus": [
+    "language models use context windows",
+    "speech models use acoustic context",
+    "language systems learn embeddings",
+    "context windows stabilize embeddings",
+    "speech systems learn acoustic structure"
+  ],
+  "perturbed_corpus": [
+    "language models use context windows",
+    "speech models use acoustic context",
+    "language systems learn embeddings",
+    "context windows stabilize embeddings",
+    "language systems learn structure"
+  ],
+  "probes": [
+    "language",
+    "context",
+    "speech"
+  ]
+}

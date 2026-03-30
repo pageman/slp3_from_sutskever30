@@ -1,0 +1,21 @@
+{
+  "heldout": [
+    "language models predict structure",
+    "speech models predict pauses"
+  ],
+  "probe_context": [
+    "language",
+    "models"
+  ],
+  "train": [
+    "language models predict words",
+    "language models predict tokens",
+    "speech models predict words",
+    "language technology predicts structure",
+    "speech technology predicts pauses"
+  ],
+  "unseen_context": [
+    "models",
+    "fail"
+  ]
+}

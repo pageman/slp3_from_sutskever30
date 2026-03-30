@@ -1,0 +1,30 @@
+{
+  "eval_labels": [
+    1,
+    0,
+    0,
+    1
+  ],
+  "eval_texts": [
+    "great movie",
+    "boring drama",
+    "fun fraud",
+    "bright comedy"
+  ],
+  "train_labels": [
+    "pos",
+    "pos",
+    "neg",
+    "neg",
+    "pos",
+    "neg"
+  ],
+  "train_texts": [
+    "great fun movie",
+    "fun bright comedy",
+    "bad dull drama",
+    "boring slow movie",
+    "great bright hero",
+    "dull bad fraud"
+  ]
+}

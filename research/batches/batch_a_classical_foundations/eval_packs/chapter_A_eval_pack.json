@@ -1,0 +1,78 @@
+{
+  "book_vs_repo_gap": "This appendix is faithful in core dynamic programming and EM mechanics, but it still lacks a multi-sequence training loop and supervised tagging bridge.",
+  "chapter": "A",
+  "chapter_notes": {
+    "batch": "batch_a_classical_foundations",
+    "counterintuitive_insight": "Hidden states are not inherently identifiable. The valuable object is the posterior structure and likelihood, not a human-friendly state name.",
+    "covered_claims": [
+      "Appendix A now includes forward-backward and one Baum-Welch update step.",
+      "Posterior marginals are exposed directly instead of only best-path decoding."
+    ],
+    "omitted_claims": [
+      "No multi-sequence EM loop yet.",
+      "No supervised tagger bridge yet."
+    ]
+  },
+  "core_algorithms": [
+    "forward algorithm",
+    "backward algorithm",
+    "posterior marginals",
+    "Baum-Welch update"
+  ],
+  "failure_modes": [
+    {
+      "case": "state_aliasing_is_real",
+      "note": "Equivalent latent-state permutations can preserve likelihood, so named hidden states should not be over-interpreted."
+    },
+    {
+      "case": "posterior_dynamics_not_just_viterbi",
+      "gamma_first_two_steps": [
+        [
+          0.877,
+          0.123
+        ],
+        [
+          0.6266,
+          0.3734
+        ]
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Run forward-backward to obtain posterior marginals in an HMM.",
+    "Show how one Baum-Welch step changes model parameters.",
+    "Separate latent posterior reasoning from best-path decoding."
+  ],
+  "metrics": {
+    "em_transition_row_sums": [
+      1.0,
+      1.0
+    ],
+    "log_likelihood": -4.376754158621284,
+    "posterior_row_sums": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "minimal_dataset": {
+    "num_states": 2,
+    "num_symbols": 3,
+    "sequence_length": 4
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "rows sum to one",
+      "metric": "posterior_row_sums",
+      "name": "posterior_normalization_check"
+    },
+    {
+      "expected_signal": "updated transition rows stay normalized",
+      "metric": "em_transition_row_sums",
+      "name": "em_parameter_normalization"
+    }
+  ],
+  "title": "Hidden Markov Models"
+}

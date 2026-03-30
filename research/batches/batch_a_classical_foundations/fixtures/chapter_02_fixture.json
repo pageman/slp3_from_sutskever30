@@ -1,0 +1,16 @@
+{
+  "eval_texts": [
+    "Cafe tokens normalize even without accents.",
+    "Can't-stop errors should stay local."
+  ],
+  "train_texts": [
+    "Can't stop, won't stop processing language.",
+    "Caf\u00e9 tokens should normalize cleanly.",
+    "Email-like text: nlp@example.com should split predictably.",
+    "The tokenizer should keep punctuation localized."
+  ],
+  "typo_probe": [
+    "tokenization",
+    "tokeniztaion"
+  ]
+}

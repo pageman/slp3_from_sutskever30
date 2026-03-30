@@ -1,0 +1,30 @@
+{
+  "train_labels": [
+    "pos",
+    "pos",
+    "neg",
+    "neg",
+    "pos",
+    "neg"
+  ],
+  "train_texts": [
+    "great acting and warm dialogue",
+    "excellent pacing and great cast",
+    "boring script and dull acting",
+    "bad pacing and boring scenes",
+    "excellent camera work and warm ending",
+    "dull plot and bad jokes"
+  ],
+  "val_labels": [
+    "pos",
+    "neg",
+    "pos",
+    "neg"
+  ],
+  "val_texts": [
+    "great warm movie",
+    "dull boring movie",
+    "excellent acting",
+    "bad script"
+  ]
+}

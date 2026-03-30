@@ -1,0 +1,12 @@
+{
+  "heldout": [
+    "language models predict context",
+    "speech models predict tokens"
+  ],
+  "train": [
+    "language models predict words",
+    "language models predict tokens",
+    "speech models predict words",
+    "context helps language models"
+  ]
+}
