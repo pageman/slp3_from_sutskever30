@@ -1,0 +1,29 @@
+{
+  "batch": "batch_c_speech",
+  "chapter_count": 3,
+  "chapters": [
+    {
+      "eval_pack_path": "research/batches/batch_c_speech/eval_packs/chapter_14_eval_pack.json",
+      "fixture_path": "research/batches/batch_c_speech/fixtures/chapter_14_fixture.json",
+      "implementation_status": "FULL",
+      "key": "14",
+      "title": "Phonetics and Speech Feature Extraction"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_c_speech/eval_packs/chapter_15_eval_pack.json",
+      "fixture_path": "research/batches/batch_c_speech/fixtures/chapter_15_fixture.json",
+      "implementation_status": "FULL",
+      "key": "15",
+      "title": "Automatic Speech Recognition"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_c_speech/eval_packs/chapter_16_eval_pack.json",
+      "fixture_path": "research/batches/batch_c_speech/fixtures/chapter_16_fixture.json",
+      "implementation_status": "FULL",
+      "key": "16",
+      "title": "Text-to-Speech"
+    }
+  ],
+  "generated_at": "2026-03-30T11:51:40.561224+00:00",
+  "schema_version": 1
+}

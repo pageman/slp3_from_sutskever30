@@ -124,7 +124,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_3_speech_stack",
+        "batch": "batch_c_speech",
         "counterintuitive_insight": "TTS bottlenecks on timing correctness more than on spectrogram rendering quality. Durations are the central latent variable.",
         "covered_claims": [
             "Text normalization and a lightweight G2P front end are now part of the chapter.",
@@ -151,6 +151,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Split TTS into text normalization, phoneme conversion, duration prediction, alignment, and acoustic rendering.",
+            "Measure teacher-forcing gap as a timing-drift diagnostic.",
+            "Show why duration modeling is central even in a minimal TTS system.",
+        ],
+        core_algorithms=["text normalization", "lightweight grapheme-to-phoneme mapping", "duration prediction", "monotonic attention alignment", "mel-frame rendering"],
+        minimal_dataset={"text_count": len(fixture["texts"]), "phoneme_sequence_count": len(fixture["phonemes"]), "phoneme_vocab_size": len(outputs["phoneme_vocab"])},
+        reference_experiments=[
+            {"name": "teacher_forcing_gap", "metric": "teacher_forcing_gap", "expected_signal": "free-running duration drift should be visible even when teacher-forced acoustics look stable"},
+            {"name": "attention_mass_check", "metric": "attention_row_mass_error", "expected_signal": "attention rows should stay normalized"},
+        ],
+        book_vs_repo_gap="This chapter is faithful only in miniature: timing and alignment mechanics are explicit, but there is no neural vocoder, speaker conditioning, or large-scale acoustic training loop.",
     )
 
 

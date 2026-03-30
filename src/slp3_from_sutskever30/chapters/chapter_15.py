@@ -98,7 +98,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_3_speech_stack",
+        "batch": "batch_c_speech",
         "counterintuitive_insight": "ASR quality is limited as much by alignment uncertainty as by acoustic classification. Separating the acoustic model from the CTC dynamic program makes the real bottleneck visible.",
         "covered_claims": [
             "Chapter 15 now hooks into a chapter-14-style DSP frontend.",
@@ -124,6 +124,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [21], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Separate acoustic scoring from CTC-style sequence scoring in a toy ASR stack.",
+            "Inspect beam behavior and alignment entropy alongside the dynamic-program loss.",
+            "Show that frame confidence and sequence confidence are not the same object.",
+        ],
+        core_algorithms=["speech DSP frontend", "acoustic logits over frame features", "CTC-like dynamic program", "beam shortlist diagnostics", "monotonic attention summary"],
+        minimal_dataset={"utterance_count": int(fixture["waves"].shape[0]), "samples_per_utterance": int(fixture["waves"].shape[1]), "target_length": int(fixture["targets"].shape[1])},
+        reference_experiments=[
+            {"name": "ctc_vs_frame_confidence", "metric": "ctc_like_loss", "expected_signal": "low frame entropy does not guarantee low sequence loss"},
+            {"name": "beam_hit_rate", "metric": "beam_hit_rate", "expected_signal": "beam shortlist should recover target-leading symbols more often than raw argmax"},
+        ],
+        book_vs_repo_gap="This chapter is faithful only in miniature: the acoustic/CTC decomposition is clear, but LM fusion, real beam search, and true WER-scale evaluation are still omitted.",
     )
 
 

@@ -99,7 +99,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_3_speech_stack",
+        "batch": "batch_c_speech",
         "counterintuitive_insight": "Speech features should be judged by alignment entropy, not by how visually plausible the spectrogram looks to humans.",
         "covered_claims": [
             "A NumPy DSP stack can include pre-emphasis, framing, spectrum, mel, deltas, and CMVN.",
@@ -124,6 +124,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Build a NumPy speech front end from waveform to mel and delta features.",
+            "Evaluate speech features with probe behavior and alignment entropy rather than visual inspection alone.",
+            "Show why normalization and temporal derivatives matter for downstream alignment.",
+        ],
+        core_algorithms=["pre-emphasis", "frame extraction", "power spectrum", "log-mel filterbank", "delta features", "cepstral mean-variance normalization"],
+        minimal_dataset={"utterance_count": int(fixture["waves"].shape[0]), "samples_per_utterance": int(fixture["waves"].shape[1]), "label_count": int(fixture["labels"].shape[0])},
+        reference_experiments=[
+            {"name": "feature_probe", "metric": "probe_accuracy", "expected_signal": "mel plus delta features preserve class-relevant acoustic structure"},
+            {"name": "alignment_entropy", "metric": "alignment_entropy", "expected_signal": "usable features should keep alignment uncertainty bounded"},
+        ],
+        book_vs_repo_gap="This chapter is faithful in the DSP feature pipeline, but still omits MFCC/DCT variants, real phone labels, and broader speech-recognition evaluation.",
     )
 
 

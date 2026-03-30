@@ -1,0 +1,46 @@
+{
+  "normalized": [
+    [
+      "hello",
+      "speech",
+      "models"
+    ],
+    [
+      "align",
+      "timing"
+    ]
+  ],
+  "phonemes": [
+    [
+      "HH",
+      "AH",
+      "L",
+      "OW",
+      "S",
+      "P",
+      "IY",
+      "CH",
+      "M",
+      "AA",
+      "D",
+      "AH",
+      "L",
+      "Z"
+    ],
+    [
+      "AH",
+      "L",
+      "AY",
+      "N",
+      "T",
+      "AY",
+      "M",
+      "IH",
+      "NG"
+    ]
+  ],
+  "texts": [
+    "hello speech models",
+    "align timing"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful only in miniature: the acoustic/CTC decomposition is clear, but LM fusion, real beam search, and true WER-scale evaluation are still omitted.",
+  "chapter": "15",
+  "chapter_notes": {
+    "batch": "batch_c_speech",
+    "counterintuitive_insight": "ASR quality is limited as much by alignment uncertainty as by acoustic classification. Separating the acoustic model from the CTC dynamic program makes the real bottleneck visible.",
+    "covered_claims": [
+      "Chapter 15 now hooks into a chapter-14-style DSP frontend.",
+      "A CTC-like loss and beam diagnostics can be exposed separately from acoustic logits."
+    ],
+    "omitted_claims": [
+      "No language model fusion yet.",
+      "No true beam decoder with path merging yet."
+    ]
+  },
+  "core_algorithms": [
+    "speech DSP frontend",
+    "acoustic logits over frame features",
+    "CTC-like dynamic program",
+    "beam shortlist diagnostics",
+    "monotonic attention summary"
+  ],
+  "failure_modes": [
+    {
+      "case": "acoustic_model_and_ctc_are_distinct_objects",
+      "ctc_like_loss": 53.059047170320945,
+      "note": "Low frame entropy does not automatically imply low sequence loss; the dynamic program and the acoustic model must be inspected separately."
+    },
+    {
+      "beam_paths": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "case": "beam_search_can_hide_alignment_uncertainty"
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Separate acoustic scoring from CTC-style sequence scoring in a toy ASR stack.",
+    "Inspect beam behavior and alignment entropy alongside the dynamic-program loss.",
+    "Show that frame confidence and sequence confidence are not the same object."
+  ],
+  "metrics": {
+    "alignment_entropy": {
+      "mean": 1.0676020756885263,
+      "std": 0.020444091789724964
+    },
+    "beam_hit_rate": 1.0,
+    "ctc_like_loss": 53.059047170320945,
+    "top_token_accuracy": 0.5
+  },
+  "minimal_dataset": {
+    "samples_per_utterance": 8000,
+    "target_length": 2,
+    "utterance_count": 2
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "low frame entropy does not guarantee low sequence loss",
+      "metric": "ctc_like_loss",
+      "name": "ctc_vs_frame_confidence"
+    },
+    {
+      "expected_signal": "beam shortlist should recover target-leading symbols more often than raw argmax",
+      "metric": "beam_hit_rate",
+      "name": "beam_hit_rate"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": [
+      21
+    ]
+  },
+  "title": "Automatic Speech Recognition"
+}

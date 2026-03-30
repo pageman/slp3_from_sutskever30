@@ -1,0 +1,91 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful in the DSP feature pipeline, but still omits MFCC/DCT variants, real phone labels, and broader speech-recognition evaluation.",
+  "chapter": "14",
+  "chapter_notes": {
+    "batch": "batch_c_speech",
+    "counterintuitive_insight": "Speech features should be judged by alignment entropy, not by how visually plausible the spectrogram looks to humans.",
+    "covered_claims": [
+      "A NumPy DSP stack can include pre-emphasis, framing, spectrum, mel, deltas, and CMVN.",
+      "Feature pipelines can be compared through downstream probe behavior and alignment entropy."
+    ],
+    "omitted_claims": [
+      "No MFCC/DCT path yet.",
+      "No real phone recognizer yet."
+    ]
+  },
+  "core_algorithms": [
+    "pre-emphasis",
+    "frame extraction",
+    "power spectrum",
+    "log-mel filterbank",
+    "delta features",
+    "cepstral mean-variance normalization"
+  ],
+  "failure_modes": [
+    {
+      "alignment_entropy_mean": 0.7080971857084062,
+      "case": "spectrogram_appearance_is_not_enough",
+      "note": "Features that look smooth can still have high frame-level alignment entropy and be poor for downstream alignment."
+    },
+    {
+      "case": "raw_energy_collapses_phonetic_contrast",
+      "note": "Raw frame energy alone loses much of the useful contrast preserved by mel plus delta features."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Build a NumPy speech front end from waveform to mel and delta features.",
+    "Evaluate speech features with probe behavior and alignment entropy rather than visual inspection alone.",
+    "Show why normalization and temporal derivatives matter for downstream alignment."
+  ],
+  "metrics": {
+    "alignment_entropy": {
+      "mean": 0.7080971857084062,
+      "std": 0.13612156704111147
+    },
+    "cmvn_mean_abs": 1.9558063593420798e-16,
+    "feature_shapes": {
+      "frames": [
+        4,
+        98,
+        400
+      ],
+      "log_mel": [
+        4,
+        98,
+        40
+      ],
+      "stacked": [
+        4,
+        98,
+        80
+      ]
+    },
+    "probe_accuracy": 0.25
+  },
+  "minimal_dataset": {
+    "label_count": 4,
+    "samples_per_utterance": 16000,
+    "utterance_count": 4
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "mel plus delta features preserve class-relevant acoustic structure",
+      "metric": "probe_accuracy",
+      "name": "feature_probe"
+    },
+    {
+      "expected_signal": "usable features should keep alignment uncertainty bounded",
+      "metric": "alignment_entropy",
+      "name": "alignment_entropy"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": []
+  },
+  "title": "Phonetics and Speech Feature Extraction"
+}
