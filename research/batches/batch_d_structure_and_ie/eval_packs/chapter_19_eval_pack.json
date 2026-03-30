@@ -1,0 +1,118 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful in graph decoding and attachment metrics, but still omits transition-based parsing and broader nonprojective search analysis.",
+  "chapter": "19",
+  "chapter_notes": {
+    "batch": "batch_d_structure_and_ie",
+    "counterintuitive_insight": "The dangerous dependency error is not just a wrong arc. It is a wrong tree that remains globally coherent and therefore looks plausible unless you inspect structure explicitly.",
+    "covered_claims": [
+      "Chapter 19 now compares projective and MST-style arc decoding.",
+      "Evaluation includes UAS/LAS and crossing diagnostics."
+    ],
+    "omitted_claims": [
+      "No transition-based parser yet.",
+      "No length-bucketed error analysis yet."
+    ]
+  },
+  "core_algorithms": [
+    "arc scoring",
+    "projective decoding",
+    "MST-style decoding",
+    "attachment scoring",
+    "crossing-count diagnostics"
+  ],
+  "failure_modes": [
+    {
+      "case": "wrong_but_self_consistent_trees_exist",
+      "gold_heads_first_sentence": [
+        0,
+        2,
+        0,
+        4,
+        2,
+        2
+      ],
+      "mst_heads_first_sentence": [
+        0,
+        2,
+        1,
+        4,
+        0,
+        2
+      ]
+    },
+    {
+      "case": "projective_and_nonprojective_decoders_diverge",
+      "mst_first_sentence": [
+        0,
+        2,
+        1,
+        4,
+        0,
+        2
+      ],
+      "projective_first_sentence": [
+        0,
+        2,
+        1,
+        4,
+        0,
+        2
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Contrast projective and MST-style dependency decoding.",
+    "Evaluate dependency trees with UAS/LAS and structural crossing counts.",
+    "Show why globally coherent but wrong trees are harder to catch than isolated arc mistakes."
+  ],
+  "metrics": {
+    "arc_scores_shape": [
+      4,
+      6,
+      6
+    ],
+    "crossing_counts": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "mst_scores": {
+      "las": 0.05,
+      "uas": 0.35
+    },
+    "projective_scores": {
+      "las": 0.05,
+      "uas": 0.35
+    }
+  },
+  "minimal_dataset": {
+    "relation_count": 5,
+    "sentence_count": 4,
+    "tokens_per_sentence": 6
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "decoding strategy changes attachment behavior",
+      "metric": [
+        "projective_scores",
+        "mst_scores"
+      ],
+      "name": "projective_vs_mst"
+    },
+    {
+      "expected_signal": "structural plausibility should be tracked separately from label accuracy",
+      "metric": "crossing_counts",
+      "name": "crossing_structure"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": []
+  },
+  "title": "Dependency Parsing"
+}

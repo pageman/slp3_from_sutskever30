@@ -1,0 +1,94 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful in constrained decoding and evaluation, but still omits CRF training, corpus-scale feature extraction, and broader tag-set coverage.",
+  "chapter": "17",
+  "chapter_notes": {
+    "batch": "batch_d_structure_and_ie",
+    "counterintuitive_insight": "Boundary certainty matters more than tag identity. A span with the wrong edges is usually more damaging than a semantically nearby label confusion.",
+    "covered_claims": [
+      "Chapter 17 now uses constrained BIO decoding instead of raw argmax tags.",
+      "Evaluation separates token accuracy from span and boundary behavior."
+    ],
+    "omitted_claims": [
+      "No CRF training loop yet.",
+      "No external corpus loader yet."
+    ]
+  },
+  "core_algorithms": [
+    "token and character feature fusion",
+    "contextual sequence scoring",
+    "BIO-constrained decoding",
+    "span and boundary evaluation"
+  ],
+  "failure_modes": [
+    {
+      "case": "boundary_errors_cost_more_than_label_swaps",
+      "label_errors": 0,
+      "segmentation_errors": 19
+    },
+    {
+      "case": "raw_argmax_breaks_bio_constraints",
+      "constrained_tags_first_sequence": [
+        "O",
+        "B-PER",
+        "I-PER",
+        "B-PER",
+        "O"
+      ],
+      "raw_tags_first_sequence": [
+        "I-LOC",
+        "B-PER",
+        "I-ORG",
+        "B-PER",
+        "O"
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Decode BIO tags with explicit structural constraints instead of raw argmax.",
+    "Separate token accuracy from span and boundary behavior.",
+    "Show why segmentation errors dominate many sequence-labeling failures."
+  ],
+  "metrics": {
+    "boundary_f1": 0.0,
+    "error_breakdown": {
+      "label_errors": 0,
+      "segmentation_errors": 19
+    },
+    "span_metrics": {
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    "token_accuracy": 0.1
+  },
+  "minimal_dataset": {
+    "label_count": 7,
+    "sentence_count": 4,
+    "tokens_per_sentence": 5
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "token accuracy overstates quality when boundaries drift",
+      "metric": [
+        "token_accuracy",
+        "span_metrics",
+        "boundary_f1"
+      ],
+      "name": "span_vs_token_metrics"
+    },
+    {
+      "expected_signal": "boundary mistakes dominate label swaps in structured tagging",
+      "metric": "error_breakdown",
+      "name": "segmentation_error_breakdown"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": []
+  },
+  "title": "Sequence Labeling for Parts of Speech and Named Entities"
+}

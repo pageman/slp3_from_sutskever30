@@ -91,7 +91,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_4_span_graphs",
+        "batch": "batch_d_structure_and_ie",
         "counterintuitive_insight": "Joint IE gains more from consistency propagation than from stronger local heads. The system should make impossible graphs hard to express.",
         "covered_claims": [
             "Chapter 20 now uses span proposals plus entity, relation, event, and time heads.",
@@ -117,6 +117,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Build a span-based IE pipeline with separate entity, relation, event, and time heads.",
+            "Enforce schema constraints during relation decoding.",
+            "Measure cascade consistency instead of treating local heads independently.",
+        ],
+        core_algorithms=["span proposal", "entity classification", "pairwise relation scoring", "schema-constrained decoding", "event/time auxiliary heads"],
+        minimal_dataset={"sentence_count": int(fixture["token_ids"].shape[0]), "tokens_per_sentence": int(fixture["token_ids"].shape[1]), "entity_type_count": len(ENTITY_TYPES), "relation_type_count": len(RELATION_TYPES)},
+        reference_experiments=[
+            {"name": "entity_accuracy", "metric": ["entity_accuracy", "non_null_entity_accuracy"], "expected_signal": "non-null extraction is harder than overall tagging"},
+            {"name": "cascade_consistency", "metric": "cascade_consistency", "expected_signal": "schema constraints should keep illegal relation graphs suppressed"},
+        ],
+        book_vs_repo_gap="This chapter is faithful in span-graph structure and schema constraints, but still omits trigger-argument decoding, external schemas, and richer event timelines.",
     )
 
 

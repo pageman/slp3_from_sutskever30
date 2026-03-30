@@ -89,7 +89,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_4_structured_prediction_a",
+        "batch": "batch_d_structure_and_ie",
         "counterintuitive_insight": "Semantic role labeling is less about tagging spans independently and more about enforcing predicate-centric role economy. Wrong but self-consistent role sets are the real failure mode.",
         "covered_claims": [
             "Chapter 21 now uses predicate-conditioned span scoring.",
@@ -113,6 +113,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Score argument spans conditioned on predicate context.",
+            "Decode semantic roles with simple core-role uniqueness constraints.",
+            "Evaluate SRL at the predicate level rather than only span-local accuracy.",
+        ],
+        core_algorithms=["predicate-conditioned span representation", "role scoring", "constraint-aware role decoding", "predicate-centric evaluation"],
+        minimal_dataset={"sentence_count": int(fixture["token_ids"].shape[0]), "spans_per_sentence": int(fixture["span_starts"].shape[1]), "role_count": len(ROLE_LABELS)},
+        reference_experiments=[
+            {"name": "role_metrics", "metric": "role_metrics", "expected_signal": "constraint-aware decoding improves coherent role sets"},
+            {"name": "predicate_centric_accuracy", "metric": "predicate_centric_accuracy", "expected_signal": "whole-predicate correctness is stricter than local span accuracy"},
+        ],
+        book_vs_repo_gap="This chapter is faithful in predicate-conditioned scoring and constraint-aware decoding, but still omits frame lexicons, null-argument recovery, and larger SRL datasets.",
     )
 
 

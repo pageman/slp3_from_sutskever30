@@ -83,7 +83,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_4_structured_prediction_a",
+        "batch": "batch_d_structure_and_ie",
         "counterintuitive_insight": "Boundary certainty matters more than tag identity. A span with the wrong edges is usually more damaging than a semantically nearby label confusion.",
         "covered_claims": [
             "Chapter 17 now uses constrained BIO decoding instead of raw argmax tags.",
@@ -107,6 +107,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Decode BIO tags with explicit structural constraints instead of raw argmax.",
+            "Separate token accuracy from span and boundary behavior.",
+            "Show why segmentation errors dominate many sequence-labeling failures.",
+        ],
+        core_algorithms=["token and character feature fusion", "contextual sequence scoring", "BIO-constrained decoding", "span and boundary evaluation"],
+        minimal_dataset={"sentence_count": int(fixture["token_ids"].shape[0]), "tokens_per_sentence": int(fixture["token_ids"].shape[1]), "label_count": len(LABELS)},
+        reference_experiments=[
+            {"name": "span_vs_token_metrics", "metric": ["token_accuracy", "span_metrics", "boundary_f1"], "expected_signal": "token accuracy overstates quality when boundaries drift"},
+            {"name": "segmentation_error_breakdown", "metric": "error_breakdown", "expected_signal": "boundary mistakes dominate label swaps in structured tagging"},
+        ],
+        book_vs_repo_gap="This chapter is faithful in constrained decoding and evaluation, but still omits CRF training, corpus-scale feature extraction, and broader tag-set coverage.",
     )
 
 

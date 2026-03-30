@@ -1,0 +1,105 @@
+{
+  "binary_rules": [
+    {
+      "lhs": "NP",
+      "rhs": [
+        "DET",
+        "N"
+      ],
+      "score": 1.0
+    },
+    {
+      "lhs": "VP",
+      "rhs": [
+        "V",
+        "NP"
+      ],
+      "score": 0.9
+    },
+    {
+      "lhs": "PP",
+      "rhs": [
+        "P",
+        "NP"
+      ],
+      "score": 0.4
+    },
+    {
+      "lhs": "S",
+      "rhs": [
+        "NP",
+        "VP"
+      ],
+      "score": 1.2
+    }
+  ],
+  "gold_tree": [
+    "S",
+    [
+      "NP",
+      [
+        "DET",
+        "the"
+      ],
+      [
+        "N",
+        "student"
+      ]
+    ],
+    [
+      "VP",
+      [
+        "V",
+        "saw"
+      ],
+      [
+        "NP",
+        [
+          "DET",
+          "the"
+        ],
+        [
+          "N",
+          "telescope"
+        ]
+      ]
+    ]
+  ],
+  "lexical_rules": [
+    {
+      "lhs": "DET",
+      "rhs": [
+        "the"
+      ],
+      "score": 0.9
+    },
+    {
+      "lhs": "N",
+      "rhs": [
+        "student"
+      ],
+      "score": 0.9
+    },
+    {
+      "lhs": "N",
+      "rhs": [
+        "telescope"
+      ],
+      "score": 0.8
+    },
+    {
+      "lhs": "V",
+      "rhs": [
+        "saw"
+      ],
+      "score": 0.9
+    }
+  ],
+  "tokens": [
+    "the",
+    "student",
+    "saw",
+    "the",
+    "telescope"
+  ]
+}

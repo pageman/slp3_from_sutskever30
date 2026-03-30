@@ -90,7 +90,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_4_structured_prediction_b",
+        "batch": "batch_d_structure_and_ie",
         "counterintuitive_insight": "The dangerous dependency error is not just a wrong arc. It is a wrong tree that remains globally coherent and therefore looks plausible unless you inspect structure explicitly.",
         "covered_claims": [
             "Chapter 19 now compares projective and MST-style arc decoding.",
@@ -115,6 +115,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Contrast projective and MST-style dependency decoding.",
+            "Evaluate dependency trees with UAS/LAS and structural crossing counts.",
+            "Show why globally coherent but wrong trees are harder to catch than isolated arc mistakes.",
+        ],
+        core_algorithms=["arc scoring", "projective decoding", "MST-style decoding", "attachment scoring", "crossing-count diagnostics"],
+        minimal_dataset={"sentence_count": int(fixture["token_ids"].shape[0]), "tokens_per_sentence": int(fixture["token_ids"].shape[1]), "relation_count": len(RELATIONS)},
+        reference_experiments=[
+            {"name": "projective_vs_mst", "metric": ["projective_scores", "mst_scores"], "expected_signal": "decoding strategy changes attachment behavior"},
+            {"name": "crossing_structure", "metric": "crossing_counts", "expected_signal": "structural plausibility should be tracked separately from label accuracy"},
+        ],
+        book_vs_repo_gap="This chapter is faithful in graph decoding and attachment metrics, but still omits transition-based parsing and broader nonprojective search analysis.",
     )
 
 

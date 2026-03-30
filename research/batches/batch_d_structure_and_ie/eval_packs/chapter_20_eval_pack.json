@@ -1,0 +1,140 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful in span-graph structure and schema constraints, but still omits trigger-argument decoding, external schemas, and richer event timelines.",
+  "chapter": "20",
+  "chapter_notes": {
+    "batch": "batch_d_structure_and_ie",
+    "counterintuitive_insight": "Joint IE gains more from consistency propagation than from stronger local heads. The system should make impossible graphs hard to express.",
+    "covered_claims": [
+      "Chapter 20 now uses span proposals plus entity, relation, event, and time heads.",
+      "Relation decoding is schema-constrained instead of unconstrained head-by-head argmax."
+    ],
+    "omitted_claims": [
+      "No external schema retrieval yet.",
+      "No trigger-argument decoding loop yet."
+    ]
+  },
+  "core_algorithms": [
+    "span proposal",
+    "entity classification",
+    "pairwise relation scoring",
+    "schema-constrained decoding",
+    "event/time auxiliary heads"
+  ],
+  "failure_modes": [
+    {
+      "case": "local_classifiers_without_constraints_produce_illegal_graphs",
+      "note": "Schema-constrained decoding suppresses relations between incompatible entity types."
+    },
+    {
+      "case": "cascading_errors_dominate_joint_ie",
+      "entity_types_first_sentence": [
+        4,
+        4,
+        4,
+        0,
+        4,
+        4
+      ],
+      "relation_types_first_sentence": [
+        [
+          0,
+          3,
+          3,
+          0,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Build a span-based IE pipeline with separate entity, relation, event, and time heads.",
+    "Enforce schema constraints during relation decoding.",
+    "Measure cascade consistency instead of treating local heads independently."
+  ],
+  "metrics": {
+    "cascade_consistency": 1.0,
+    "entity_accuracy": 0.125,
+    "event_tensor_shape": [
+      4,
+      6,
+      2
+    ],
+    "non_null_entity_accuracy": 0.125,
+    "relation_tensor_shape": [
+      4,
+      6,
+      6
+    ]
+  },
+  "minimal_dataset": {
+    "entity_type_count": 5,
+    "relation_type_count": 4,
+    "sentence_count": 4,
+    "tokens_per_sentence": 6
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "non-null extraction is harder than overall tagging",
+      "metric": [
+        "entity_accuracy",
+        "non_null_entity_accuracy"
+      ],
+      "name": "entity_accuracy"
+    },
+    {
+      "expected_signal": "schema constraints should keep illegal relation graphs suppressed",
+      "metric": "cascade_consistency",
+      "name": "cascade_consistency"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": []
+  },
+  "title": "Information Extraction: Relations, Events, and Time"
+}

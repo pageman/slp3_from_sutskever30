@@ -1,0 +1,43 @@
+{
+  "batch": "batch_d_structure_and_ie",
+  "chapter_count": 5,
+  "chapters": [
+    {
+      "eval_pack_path": "research/batches/batch_d_structure_and_ie/eval_packs/chapter_17_eval_pack.json",
+      "fixture_path": "research/batches/batch_d_structure_and_ie/fixtures/chapter_17_fixture.json",
+      "implementation_status": "FULL",
+      "key": "17",
+      "title": "Sequence Labeling for Parts of Speech and Named Entities"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_d_structure_and_ie/eval_packs/chapter_18_eval_pack.json",
+      "fixture_path": "research/batches/batch_d_structure_and_ie/fixtures/chapter_18_fixture.json",
+      "implementation_status": "FULL",
+      "key": "18",
+      "title": "Context-Free Grammars and Constituency Parsing"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_d_structure_and_ie/eval_packs/chapter_19_eval_pack.json",
+      "fixture_path": "research/batches/batch_d_structure_and_ie/fixtures/chapter_19_fixture.json",
+      "implementation_status": "FULL",
+      "key": "19",
+      "title": "Dependency Parsing"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_d_structure_and_ie/eval_packs/chapter_20_eval_pack.json",
+      "fixture_path": "research/batches/batch_d_structure_and_ie/fixtures/chapter_20_fixture.json",
+      "implementation_status": "FULL",
+      "key": "20",
+      "title": "Information Extraction: Relations, Events, and Time"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_d_structure_and_ie/eval_packs/chapter_21_eval_pack.json",
+      "fixture_path": "research/batches/batch_d_structure_and_ie/fixtures/chapter_21_fixture.json",
+      "implementation_status": "FULL",
+      "key": "21",
+      "title": "Semantic Role Labeling and Argument Structure"
+    }
+  ],
+  "generated_at": "2026-03-30T11:58:48.929346+00:00",
+  "schema_version": 1
+}

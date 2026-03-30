@@ -6,6 +6,7 @@ from pathlib import Path
 from slp3_from_sutskever30.batch_a_artifacts import build_batch_a_payload
 from slp3_from_sutskever30.batch_b_artifacts import build_batch_b_payload
 from slp3_from_sutskever30.batch_c_artifacts import build_batch_c_payload
+from slp3_from_sutskever30.batch_d_artifacts import build_batch_d_payload
 from slp3_from_sutskever30.chapter_contract import REQUIRED_CHAPTER_FIELDS, normalize_chapter_payload
 from slp3_from_sutskever30.deliverable_manifest import build_deliverable_manifest, render_deliverable_manifest
 from slp3_from_sutskever30.observability_paths import get_observability_dir
@@ -45,6 +46,7 @@ def test_batch_a_folder_exists() -> None:
     assert (root / "research" / "batches" / "batch_a_classical_foundations" / "README.md").exists()
     assert (root / "research" / "batches" / "batch_b_lm_and_seq_models" / "README.md").exists()
     assert (root / "research" / "batches" / "batch_c_speech" / "README.md").exists()
+    assert (root / "research" / "batches" / "batch_d_structure_and_ie" / "README.md").exists()
 
 
 def test_batch_a_chapters_populate_rich_contract_fields() -> None:
@@ -132,3 +134,32 @@ def test_batch_c_payload_contains_real_fixture_and_eval_pack_entries() -> None:
     assert sorted(payload["eval_packs"]) == ["14", "15", "16"]
     assert payload["eval_packs"]["14"]["lesson_objectives"]
     assert payload["eval_packs"]["16"]["reference_experiments"]
+
+
+def test_batch_d_chapters_populate_rich_contract_fields() -> None:
+    batch_d_keys = {"17", "18", "19", "20", "21"}
+    for spec in get_chapters():
+        if spec.key not in batch_d_keys:
+            continue
+        payload = normalize_chapter_payload(
+            chapter=spec.key,
+            implementation_status=spec.implementation_status,
+            title=spec.title,
+            source_papers=spec.source_papers,
+            payload=spec.runner(),
+        )
+        assert payload["lesson_objectives"]
+        assert payload["core_algorithms"]
+        assert payload["minimal_dataset"]
+        assert payload["reference_experiments"]
+        assert payload["book_vs_repo_gap"]
+
+
+def test_batch_d_payload_contains_real_fixture_and_eval_pack_entries() -> None:
+    payload = build_batch_d_payload()
+    assert payload["chapter_count"] == 5
+    assert len(payload["chapters"]) == 5
+    assert sorted(payload["fixtures"]) == ["17", "18", "19", "20", "21"]
+    assert sorted(payload["eval_packs"]) == ["17", "18", "19", "20", "21"]
+    assert payload["eval_packs"]["17"]["lesson_objectives"]
+    assert payload["eval_packs"]["20"]["reference_experiments"]

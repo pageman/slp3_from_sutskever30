@@ -52,7 +52,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_4_structured_prediction_b",
+        "batch": "batch_d_structure_and_ie",
         "counterintuitive_insight": "Parsing systems benefit more from accounting for ambiguity than from reporting a single best tree. Where the chart stays uncertain is often the most important output.",
         "covered_claims": [
             "Chapter 18 now includes explicit grammar rules, CKY parsing, backpointers, and tree reconstruction.",
@@ -77,6 +77,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Construct a CKY parser over explicit lexical and binary grammar rules.",
+            "Inspect ambiguity as a chart property instead of only taking the best tree.",
+            "Evaluate parses with unlabeled span F1.",
+        ],
+        core_algorithms=["PCFG-style rule scoring", "CKY chart parsing", "backpointer tree reconstruction", "unlabeled span evaluation"],
+        minimal_dataset={"token_count": len(fixture["tokens"]), "lexical_rule_count": len(fixture["lexical_rules"]), "binary_rule_count": len(fixture["binary_rules"])},
+        reference_experiments=[
+            {"name": "span_f1", "metric": "span_metrics", "expected_signal": "predicted tree should recover gold brackets on the toy grammar"},
+            {"name": "ambiguity_tracking", "metric": "ambiguity_count", "expected_signal": "chart ambiguity should remain visible as a first-class diagnostic"},
+        ],
+        book_vs_repo_gap="This chapter is faithful in CKY mechanics and span evaluation, but still omits unary chains, grammar induction, and broader treebank coverage.",
     )
 
 

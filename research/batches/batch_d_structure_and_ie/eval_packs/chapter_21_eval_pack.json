@@ -1,0 +1,87 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful in predicate-conditioned scoring and constraint-aware decoding, but still omits frame lexicons, null-argument recovery, and larger SRL datasets.",
+  "chapter": "21",
+  "chapter_notes": {
+    "batch": "batch_d_structure_and_ie",
+    "counterintuitive_insight": "Semantic role labeling is less about tagging spans independently and more about enforcing predicate-centric role economy. Wrong but self-consistent role sets are the real failure mode.",
+    "covered_claims": [
+      "Chapter 21 now uses predicate-conditioned span scoring.",
+      "Role decoding enforces simple core-role uniqueness constraints."
+    ],
+    "omitted_claims": [
+      "No null-argument recovery yet.",
+      "No PropBank-style frame lexicon yet."
+    ]
+  },
+  "core_algorithms": [
+    "predicate-conditioned span representation",
+    "role scoring",
+    "constraint-aware role decoding",
+    "predicate-centric evaluation"
+  ],
+  "failure_modes": [
+    {
+      "case": "raw_argmax_reuses_core_roles",
+      "duplicate_examples": [
+        [
+          "ARG1",
+          "ARG1",
+          "ARG1"
+        ],
+        [
+          "ARG2",
+          "ARG2",
+          "ARG1"
+        ]
+      ]
+    },
+    {
+      "case": "predicate_conditioning_changes_role_decisions",
+      "decoded_roles_first_sequence": [
+        "ARG1",
+        "ARGM-TMP",
+        "ARG2"
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Score argument spans conditioned on predicate context.",
+    "Decode semantic roles with simple core-role uniqueness constraints.",
+    "Evaluate SRL at the predicate level rather than only span-local accuracy."
+  ],
+  "metrics": {
+    "predicate_centric_accuracy": 0.0,
+    "role_metrics": {
+      "accuracy": 0.08333333333333333,
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0
+    }
+  },
+  "minimal_dataset": {
+    "role_count": 6,
+    "sentence_count": 4,
+    "spans_per_sentence": 3
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "constraint-aware decoding improves coherent role sets",
+      "metric": "role_metrics",
+      "name": "role_metrics"
+    },
+    {
+      "expected_signal": "whole-predicate correctness is stricter than local span accuracy",
+      "metric": "predicate_centric_accuracy",
+      "name": "predicate_centric_accuracy"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": []
+  },
+  "title": "Semantic Role Labeling and Argument Structure"
+}
