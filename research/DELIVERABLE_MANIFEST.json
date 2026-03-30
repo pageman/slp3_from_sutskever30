@@ -52,10 +52,40 @@
         "25"
       ],
       "folder": "research/batches/batch_e_discourse_and_dialogue"
+    },
+    "introductory_overview": {
+      "chapters": [
+        "1"
+      ],
+      "folder": "src/slp3_from_sutskever30/chapters"
     }
   },
-  "chapter_count": 28,
+  "chapter_count": 29,
   "chapters": [
+    {
+      "audit_class": "method match",
+      "batch": "introductory_overview",
+      "contract_fields": [
+        "book_vs_repo_gap",
+        "chapter",
+        "chapter_notes",
+        "core_algorithms",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "lesson_objectives",
+        "metrics",
+        "minimal_dataset",
+        "reference_experiments",
+        "sources"
+      ],
+      "feasibility": "fully feasible in NumPy",
+      "implementation_status": "FULL",
+      "key": "1",
+      "module_path": "src/slp3_from_sutskever30/chapters/chapter_01.py",
+      "source_papers": [],
+      "title": "Introduction"
+    },
     {
       "audit_class": "method match",
       "batch": "batch_a_classical_foundations",
@@ -743,7 +773,7 @@
       "title": "Spelling Correction and the Noisy Channel"
     }
   ],
-  "generated_at": "2026-03-30T12:04:55.837418+00:00",
+  "generated_at": "2026-03-30T12:26:25.684335+00:00",
   "repo_root": "/Users/hifi/Downloads/slp3_from_sutskever30",
   "schema_version": 1
 }

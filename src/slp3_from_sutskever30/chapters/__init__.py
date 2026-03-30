@@ -1,3 +1,4 @@
+from slp3_from_sutskever30.chapters.chapter_01 import SPEC as CHAPTER_01
 from slp3_from_sutskever30.chapters.chapter_02 import SPEC as CHAPTER_02
 from slp3_from_sutskever30.chapters.chapter_03 import SPEC as CHAPTER_03
 from slp3_from_sutskever30.chapters.chapter_04 import SPEC as CHAPTER_04
@@ -28,6 +29,7 @@ from slp3_from_sutskever30.chapters.chapter_C import SPEC as CHAPTER_C
 from slp3_from_sutskever30.chapters.chapter_D import SPEC as CHAPTER_D
 
 ALL_CHAPTER_SPECS = (
+    CHAPTER_01,
     CHAPTER_02,
     CHAPTER_03,
     CHAPTER_04,

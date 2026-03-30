@@ -13,19 +13,19 @@ This audit compares the current repository against the live Stanford SLP3 table 
 
 ## Summary
 
-- In scope here: chapters `2-25`, appendices `A-D`
-- Out of scope here: chapter `1`, appendices `E-K`
+- In scope here: chapters `1-25`, appendices `A-D`
+- Out of scope here: appendices `E-K`
 - Result by audit classification:
-  - `method match`: `22`
+  - `method match`: `23`
   - `topic match`: `6`
   - `title match`: `0`
-  - `not yet aligned`: `8`
+  - `not yet aligned`: `7`
 
 ## Chapter Audit
 
 | Key | Stanford title | Repo status | Audit class | Why |
 |---|---|---|---|---|
-| 1 | Introduction | missing | `not yet aligned` | Chapter 1 is not implemented in this repo |
+| 1 | Introduction | `FULL` | `method match` | The repo now includes a runnable introductory pipeline tying together corpora, tokenization, probabilistic prediction, classification, and evaluation in the same contract style as later chapters |
 | 2 | Words and Tokens | `FULL` | `method match` | Normalization, tokenization, BPE-lite, OOV, and edit-locality diagnostics match the chapter’s core computational concerns |
 | 3 | N-gram Language Models | `FULL` | `method match` | Unigram/bigram/trigram behavior, backoff, perplexity, and Kneser-Ney-style comparison are directly represented |
 | 4 | Logistic Regression and Text Classification | `FULL` | `method match` | The chapter’s central classifier family is implemented directly with calibration and feature diagnostics |
@@ -64,7 +64,7 @@ This audit compares the current repository against the live Stanford SLP3 table 
 
 ## Bottom Line
 
-- The repo matches the live SLP3 chapter map well for chapters `2-25` and appendices `A-D`
+- The repo matches the live SLP3 chapter map well for chapters `1-25` and appendices `A-D`
 - The strongest alignment is in classical NLP, parsing, appendices, masked LMs, and speech front-end material
 - The weakest alignment is in the broadest modern/system chapters where the repo intentionally compresses textbook scope into compact NumPy demonstrations
 - The repo is not a faithful code companion to the entire online book; it is a runnable educational reimplementation set aligned to much of the SLP3 topic structure

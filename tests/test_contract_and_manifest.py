@@ -28,11 +28,12 @@ def test_all_chapters_normalize_to_contract() -> None:
 
 def test_deliverable_manifest_covers_all_registered_chapters() -> None:
     payload = build_deliverable_manifest()
-    assert payload["chapter_count"] == 28
-    assert len(payload["chapters"]) == 28
+    assert payload["chapter_count"] == 29
+    assert len(payload["chapters"]) == 29
+    assert any(item["batch"] == "introductory_overview" for item in payload["chapters"])
     assert any(item["batch"] == "batch_a_classical_foundations" for item in payload["chapters"])
     rendered = render_deliverable_manifest(payload)
-    assert json.loads(rendered)["chapter_count"] == 28
+    assert json.loads(rendered)["chapter_count"] == 29
 
 
 def test_local_observability_dir_is_separate_from_ci_root(monkeypatch, tmp_path: Path) -> None:
@@ -52,7 +53,7 @@ def test_batch_a_folder_exists() -> None:
 
 
 def test_batch_a_chapters_populate_rich_contract_fields() -> None:
-    batch_a_keys = {"2", "3", "4", "5", "6", "A", "B", "C", "D"}
+    batch_a_keys = {"1", "2", "3", "4", "5", "6", "A", "B", "C", "D"}
     for spec in get_chapters():
         if spec.key not in batch_a_keys:
             continue

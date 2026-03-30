@@ -26,7 +26,7 @@ To count as textbook-faithful in this repo, each chapter should eventually have:
 
 | Key | Chapter | Current repo status | Feasibility | What to add for textbook-faithful status |
 |---|---|---|---|---|
-| 1 | Introduction | missing | `fully feasible in NumPy` | Add a narrative chapter stub tying together corpora, tokenization, modeling, and evaluation with runnable micro-demos |
+| 1 | Introduction | `FULL` | `fully feasible in NumPy` | Add a small speech-inclusive bridge, fuller historical framing, and a clearer map from chapter 1 micro-demos into later chapters |
 | 2 | Words and Tokens | `FULL` | `fully feasible in NumPy` | Add unigram LM tokenization, Unicode edge suites, and larger compression/OOV comparisons |
 | 3 | N-gram Language Models | `FULL` | `fully feasible in NumPy` | Add Katz/interpolated Kneser-Ney variants, held-out tuning, and more faithful backoff traces |
 | 4 | Logistic Regression and Text Classification | `FULL` | `fully feasible in NumPy` | Add sparse feature paths, richer regularization sweeps, threshold analysis, and chapter-style dataset baselines |

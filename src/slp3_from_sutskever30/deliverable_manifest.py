@@ -11,7 +11,7 @@ from slp3_from_sutskever30.registry import get_chapters
 ROOT = Path(__file__).resolve().parents[2]
 
 AUDIT_CLASS_BY_KEY = {
-    "1": "not yet aligned",
+    "1": "method match",
     "2": "method match",
     "3": "method match",
     "4": "method match",
@@ -75,6 +75,7 @@ FEASIBILITY_BY_KEY = {
 }
 
 BATCH_BY_KEY = {
+    "1": "introductory_overview",
     "2": "batch_a_classical_foundations",
     "3": "batch_a_classical_foundations",
     "4": "batch_a_classical_foundations",
@@ -140,6 +141,10 @@ def build_deliverable_manifest() -> dict[str, object]:
         "repo_root": str(ROOT),
         "chapter_count": len(chapters),
         "batches": {
+            "introductory_overview": {
+                "chapters": ["1"],
+                "folder": "src/slp3_from_sutskever30/chapters",
+            },
             "batch_a_classical_foundations": {
                 "chapters": ["2", "3", "4", "5", "6", "A", "B", "C", "D"],
                 "folder": "research/batches/batch_a_classical_foundations",

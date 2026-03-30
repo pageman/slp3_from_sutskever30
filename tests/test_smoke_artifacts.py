@@ -20,4 +20,4 @@ def test_smoke_payload_writes_sqlite_mirror(tmp_path: Path) -> None:
     with sqlite3.connect(sqlite_path) as conn:
         cur = conn.cursor()
         cur.execute("SELECT COUNT(*) FROM results")
-        assert cur.fetchone()[0] == 28
+        assert cur.fetchone()[0] == 29
