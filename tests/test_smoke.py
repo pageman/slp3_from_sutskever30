@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from pathlib import Path
+
+from slp3_from_sutskever30.chapters import ALL_CHAPTER_SPECS
 from slp3_from_sutskever30.registry import (
     EXPECTED_CHAPTER_KEYS,
     get_chapters,
@@ -34,3 +37,9 @@ def test_no_orphaned_or_unexpected_slp3_chapters() -> None:
 def test_only_supported_status_labels_are_used() -> None:
     supported = {"DIRECT", "ADAPTED", "SCAFFOLDED"}
     assert {spec.implementation_status for spec in get_chapters()} <= supported
+
+
+def test_each_chapter_has_a_physical_module() -> None:
+    chapters_dir = Path(__file__).resolve().parents[1] / "src" / "slp3_from_sutskever30" / "chapters"
+    expected_files = [f"chapter_{spec['key'].zfill(2)}.py" if spec["key"].isdigit() else f"chapter_{spec['key']}.py" for spec in ALL_CHAPTER_SPECS]
+    assert sorted(path.name for path in chapters_dir.glob("chapter_*.py")) == sorted(expected_files)
