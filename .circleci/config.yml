@@ -1,0 +1,39 @@
+version: 2.1
+
+jobs:
+  test:
+    docker:
+      - image: cimg/python:3.11
+    working_directory: ~/project
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-pip-{{ checksum "pyproject.toml" }}
+            - v1-pip-
+      - run:
+          name: Install Dependencies
+          command: |
+            python -m pip install --upgrade pip
+            pip install . pytest
+      - save_cache:
+          key: v1-pip-{{ checksum "pyproject.toml" }}
+          paths:
+            - ~/.cache/pip
+      - run:
+          name: Run Pytest
+          command: python3 -m pytest
+      - run:
+          name: Run Smoke Test
+          command: python3 scripts/smoke_test.py
+      - run:
+          name: Generate Verification Artifacts
+          command: python3 scripts/generate_verification_status.py --run-checks
+      - store_artifacts:
+          path: observability
+          destination: observability
+
+workflows:
+  ci:
+    jobs:
+      - test
