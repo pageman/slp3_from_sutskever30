@@ -35,7 +35,7 @@ def test_no_orphaned_or_unexpected_slp3_chapters() -> None:
 
 
 def test_only_supported_status_labels_are_used() -> None:
-    supported = {"DIRECT", "ADAPTED", "SCAFFOLDED"}
+    supported = {"FULL", "DIRECT", "ADAPTED", "SCAFFOLDED"}
     assert {spec.implementation_status for spec in get_chapters()} <= supported
 
 
@@ -43,3 +43,19 @@ def test_each_chapter_has_a_physical_module() -> None:
     chapters_dir = Path(__file__).resolve().parents[1] / "src" / "slp3_from_sutskever30" / "chapters"
     expected_files = [f"chapter_{spec['key'].zfill(2)}.py" if spec["key"].isdigit() else f"chapter_{spec['key']}.py" for spec in ALL_CHAPTER_SPECS]
     assert sorted(path.name for path in chapters_dir.glob("chapter_*.py")) == sorted(expected_files)
+
+
+def test_batch_one_full_chapters_expose_standard_contract_payload() -> None:
+    chapter_map = {spec.key: spec for spec in get_chapters()}
+    for key in ("2", "3", "4", "5", "6"):
+        payload = chapter_map[key].runner()
+        assert chapter_map[key].implementation_status == "FULL"
+        assert set(payload) >= {
+            "chapter",
+            "implementation_status",
+            "core_outputs",
+            "metrics",
+            "failure_modes",
+            "chapter_notes",
+            "sources",
+        }

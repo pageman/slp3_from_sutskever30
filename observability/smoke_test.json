@@ -3,60 +3,76 @@
   "orphaned_chapters": [],
   "results": [
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "2",
       "payload_keys": [
         "chapter",
-        "edit_distance",
-        "tokens",
-        "vocab_size"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Words and Tokens"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "3",
       "payload_keys": [
         "chapter",
-        "top_predictions",
-        "vocab_size"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "N-gram Language Models"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "4",
       "payload_keys": [
         "chapter",
-        "final_loss",
-        "initial_loss",
-        "prediction"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Logistic Regression and Text Classification"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "5",
       "payload_keys": [
         "chapter",
-        "embedding_shape",
-        "ppmi_shape",
-        "vocab_size"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Embeddings"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "6",
       "payload_keys": [
         "chapter",
-        "final_loss",
-        "initial_loss",
-        "prediction"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Neural Networks"
@@ -332,6 +348,6 @@
       "title": "Spelling Correction and the Noisy Channel"
     }
   ],
-  "timestamp_utc": "2026-03-30T07:25:59.755218+00:00",
+  "timestamp_utc": "2026-03-30T07:47:24.882194+00:00",
   "unexpected_chapters": []
 }

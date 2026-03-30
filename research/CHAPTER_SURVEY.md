@@ -2,6 +2,7 @@
 
 Status taxonomy used in this repository:
 
+- `FULL`: chapter now has a richer NumPy-only chapter contract with evaluation and explicit failure modes
 - `DIRECT`: chapter can map one-to-one onto an existing NumPy implementation lineage from `pageman/sutskever-30-implementations` or the NumPy slices of `sutskever-30-beyond-numpy`
 - `ADAPTED`: chapter is mostly derived from those repos but required chapter-specific adaptation or multi-paper composition
 - `SCAFFOLDED`: chapter does not have a clean direct source implementation in those repos, so this repository provides a NumPy-only lite implementation
@@ -10,11 +11,11 @@ Current survey:
 
 | Key | Status | Source papers | Notes |
 |---|---|---:|---|
-| 2 | `SCAFFOLDED` | - | NumPy tokenization and edit-distance lite chapter |
-| 3 | `SCAFFOLDED` | - | NumPy n-gram language model lite chapter |
-| 4 | `SCAFFOLDED` | - | NumPy logistic regression text classification lite chapter |
-| 5 | `SCAFFOLDED` | - | NumPy PPMI/embedding lite chapter |
-| 6 | `SCAFFOLDED` | - | NumPy MLP text-classification lite chapter |
+| 2 | `FULL` | - | Full batch-1 tokenizer chapter with normalization, BPE-lite, OOV, and error-locality diagnostics |
+| 3 | `FULL` | - | Full batch-1 n-gram chapter with held-out perplexity, backoff traces, and Kneser-Ney comparison |
+| 4 | `FULL` | - | Full batch-1 logistic regression chapter with calibration and feature attribution |
+| 5 | `FULL` | - | Full batch-1 embeddings chapter with PPMI, SGNS-style training, and geometry diagnostics |
+| 6 | `FULL` | - | Full batch-1 neural network chapter with baseline comparison and representation-health metrics |
 | 7 | `DIRECT` | 27 | Direct lineage from multi-token prediction |
 | 8 | `DIRECT` | 13 | Direct lineage from transformer attention |
 | 9 | `SCAFFOLDED` | - | Lite post-training objective demo |
