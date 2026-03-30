@@ -1,0 +1,161 @@
+schema_version: 1
+generated_at: "2026-03-30T07:15:06.762066+00:00"
+checked_commit: "be11658f75b8af33504554b5b18e41842d8c2fba"
+git_branch: "main"
+repo_checks:
+  smoke_test:
+    command: "python3 scripts/smoke_test.py"
+    passed: true
+    exit_code: 0
+  pytest_local:
+    command: "python3 -m pytest"
+    passed: true
+    exit_code: 0
+  survey:
+    command: "python3 scripts/survey_slp3.py"
+    passed: true
+    exit_code: 0
+chapter_count: 28
+orphaned_chapters: []
+unexpected_chapters: []
+chapters:
+  - key: "2"
+    title: "Words and Tokens"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"edit_distance\", \"tokens\", \"vocab_size\"]"
+  - key: "3"
+    title: "N-gram Language Models"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"top_predictions\", \"vocab_size\"]"
+  - key: "4"
+    title: "Logistic Regression and Text Classification"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"final_loss\", \"initial_loss\", \"prediction\"]"
+  - key: "5"
+    title: "Embeddings"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"embedding_shape\", \"ppmi_shape\", \"vocab_size\"]"
+  - key: "6"
+    title: "Neural Networks"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"final_loss\", \"initial_loss\", \"prediction\"]"
+  - key: "7"
+    title: "Large Language Models"
+    implementation_status: "DIRECT"
+    source_papers: "[27]"
+    payload_keys: "[\"chapter\", \"logits_shape\", \"loss\"]"
+  - key: "8"
+    title: "Transformers"
+    implementation_status: "DIRECT"
+    source_papers: "[13]"
+    payload_keys: "[\"attention_shape\", \"chapter\", \"logits_shape\", \"loss\"]"
+  - key: "9"
+    title: "Post-training: Instruction Tuning, Alignment, and Test-Time Compute"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"preference_loss\", \"search_trace_shape\", \"sft_loss\"]"
+  - key: "10"
+    title: "Masked Language Models"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"loss\", \"masked_logits_shape\"]"
+  - key: "11"
+    title: "Information Retrieval and Retrieval-Augmented Generation"
+    implementation_status: "ADAPTED"
+    source_papers: "[28, 29]"
+    payload_keys: "[\"chapter\", \"dpr_loss\", \"rag_loss\", \"rag_probs_shape\"]"
+  - key: "12"
+    title: "Machine Translation"
+    implementation_status: "ADAPTED"
+    source_papers: "[14]"
+    payload_keys: "[\"attention_shape\", \"chapter\", \"loss\"]"
+  - key: "13"
+    title: "RNNs and LSTMs"
+    implementation_status: "ADAPTED"
+    source_papers: "[2, 3]"
+    payload_keys: "[\"chapter\", \"lstm_loss\", \"rnn_loss\"]"
+  - key: "14"
+    title: "Phonetics and Speech Feature Extraction"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"log_mel_shape\", \"phonetic_labels\"]"
+  - key: "15"
+    title: "Automatic Speech Recognition"
+    implementation_status: "ADAPTED"
+    source_papers: "[21]"
+    payload_keys: "[\"chapter\", \"logits_shape\", \"loss\", \"targets\"]"
+  - key: "16"
+    title: "Text-to-Speech"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"mel_frames_shape\", \"stop_logits_shape\"]"
+  - key: "17"
+    title: "Sequence Labeling for Parts of Speech and Named Entities"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"decoded_tags_shape\", \"tag_logits_shape\"]"
+  - key: "18"
+    title: "Context-Free Grammars and Constituency Parsing"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"chart_scores_shape\", \"root_scores\"]"
+  - key: "19"
+    title: "Dependency Parsing"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"arc_scores_shape\", \"chapter\", \"head_indices_shape\"]"
+  - key: "20"
+    title: "Information Extraction: Relations, Events, and Time"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"entity_logits_shape\", \"relation_logits_shape\"]"
+  - key: "21"
+    title: "Semantic Role Labeling and Argument Structure"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"role_logits_shape\"]"
+  - key: "22"
+    title: "Lexicons for Sentiment, Affect, and Connotation"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"document_scores_shape\", \"token_scores_shape\"]"
+  - key: "23"
+    title: "Coreference Resolution and Entity Linking"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"cluster_ids_shape\", \"coref_scores_shape\", \"link_scores_shape\"]"
+  - key: "24"
+    title: "Discourse Coherence"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"coherence_scores_shape\", \"ordering_logits_shape\"]"
+  - key: "25"
+    title: "Conversation and its Structure"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"dialogue_act_logits_shape\", \"state_summary_shape\"]"
+  - key: "A"
+    title: "Hidden Markov Models"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"states\", \"tags\"]"
+  - key: "B"
+    title: "Naive Bayes Classification"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"prediction\", \"vocab_size\"]"
+  - key: "C"
+    title: "Kneser-Ney Smoothing"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"support_size\", \"top_predictions\"]"
+  - key: "D"
+    title: "Spelling Correction and the Noisy Channel"
+    implementation_status: "SCAFFOLDED"
+    source_papers: []
+    payload_keys: "[\"chapter\", \"correction\"]"

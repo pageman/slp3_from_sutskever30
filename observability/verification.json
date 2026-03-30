@@ -1,0 +1,363 @@
+{
+  "chapter_count": 28,
+  "chapters": [
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "2",
+      "payload_keys": [
+        "chapter",
+        "edit_distance",
+        "tokens",
+        "vocab_size"
+      ],
+      "source_papers": [],
+      "title": "Words and Tokens"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "3",
+      "payload_keys": [
+        "chapter",
+        "top_predictions",
+        "vocab_size"
+      ],
+      "source_papers": [],
+      "title": "N-gram Language Models"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "4",
+      "payload_keys": [
+        "chapter",
+        "final_loss",
+        "initial_loss",
+        "prediction"
+      ],
+      "source_papers": [],
+      "title": "Logistic Regression and Text Classification"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "5",
+      "payload_keys": [
+        "chapter",
+        "embedding_shape",
+        "ppmi_shape",
+        "vocab_size"
+      ],
+      "source_papers": [],
+      "title": "Embeddings"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "6",
+      "payload_keys": [
+        "chapter",
+        "final_loss",
+        "initial_loss",
+        "prediction"
+      ],
+      "source_papers": [],
+      "title": "Neural Networks"
+    },
+    {
+      "implementation_status": "DIRECT",
+      "key": "7",
+      "payload_keys": [
+        "chapter",
+        "logits_shape",
+        "loss"
+      ],
+      "source_papers": [
+        27
+      ],
+      "title": "Large Language Models"
+    },
+    {
+      "implementation_status": "DIRECT",
+      "key": "8",
+      "payload_keys": [
+        "attention_shape",
+        "chapter",
+        "logits_shape",
+        "loss"
+      ],
+      "source_papers": [
+        13
+      ],
+      "title": "Transformers"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "9",
+      "payload_keys": [
+        "chapter",
+        "preference_loss",
+        "search_trace_shape",
+        "sft_loss"
+      ],
+      "source_papers": [],
+      "title": "Post-training: Instruction Tuning, Alignment, and Test-Time Compute"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "10",
+      "payload_keys": [
+        "chapter",
+        "loss",
+        "masked_logits_shape"
+      ],
+      "source_papers": [],
+      "title": "Masked Language Models"
+    },
+    {
+      "implementation_status": "ADAPTED",
+      "key": "11",
+      "payload_keys": [
+        "chapter",
+        "dpr_loss",
+        "rag_loss",
+        "rag_probs_shape"
+      ],
+      "source_papers": [
+        28,
+        29
+      ],
+      "title": "Information Retrieval and Retrieval-Augmented Generation"
+    },
+    {
+      "implementation_status": "ADAPTED",
+      "key": "12",
+      "payload_keys": [
+        "attention_shape",
+        "chapter",
+        "loss"
+      ],
+      "source_papers": [
+        14
+      ],
+      "title": "Machine Translation"
+    },
+    {
+      "implementation_status": "ADAPTED",
+      "key": "13",
+      "payload_keys": [
+        "chapter",
+        "lstm_loss",
+        "rnn_loss"
+      ],
+      "source_papers": [
+        2,
+        3
+      ],
+      "title": "RNNs and LSTMs"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "14",
+      "payload_keys": [
+        "chapter",
+        "log_mel_shape",
+        "phonetic_labels"
+      ],
+      "source_papers": [],
+      "title": "Phonetics and Speech Feature Extraction"
+    },
+    {
+      "implementation_status": "ADAPTED",
+      "key": "15",
+      "payload_keys": [
+        "chapter",
+        "logits_shape",
+        "loss",
+        "targets"
+      ],
+      "source_papers": [
+        21
+      ],
+      "title": "Automatic Speech Recognition"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "16",
+      "payload_keys": [
+        "chapter",
+        "mel_frames_shape",
+        "stop_logits_shape"
+      ],
+      "source_papers": [],
+      "title": "Text-to-Speech"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "17",
+      "payload_keys": [
+        "chapter",
+        "decoded_tags_shape",
+        "tag_logits_shape"
+      ],
+      "source_papers": [],
+      "title": "Sequence Labeling for Parts of Speech and Named Entities"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "18",
+      "payload_keys": [
+        "chapter",
+        "chart_scores_shape",
+        "root_scores"
+      ],
+      "source_papers": [],
+      "title": "Context-Free Grammars and Constituency Parsing"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "19",
+      "payload_keys": [
+        "arc_scores_shape",
+        "chapter",
+        "head_indices_shape"
+      ],
+      "source_papers": [],
+      "title": "Dependency Parsing"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "20",
+      "payload_keys": [
+        "chapter",
+        "entity_logits_shape",
+        "relation_logits_shape"
+      ],
+      "source_papers": [],
+      "title": "Information Extraction: Relations, Events, and Time"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "21",
+      "payload_keys": [
+        "chapter",
+        "role_logits_shape"
+      ],
+      "source_papers": [],
+      "title": "Semantic Role Labeling and Argument Structure"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "22",
+      "payload_keys": [
+        "chapter",
+        "document_scores_shape",
+        "token_scores_shape"
+      ],
+      "source_papers": [],
+      "title": "Lexicons for Sentiment, Affect, and Connotation"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "23",
+      "payload_keys": [
+        "chapter",
+        "cluster_ids_shape",
+        "coref_scores_shape",
+        "link_scores_shape"
+      ],
+      "source_papers": [],
+      "title": "Coreference Resolution and Entity Linking"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "24",
+      "payload_keys": [
+        "chapter",
+        "coherence_scores_shape",
+        "ordering_logits_shape"
+      ],
+      "source_papers": [],
+      "title": "Discourse Coherence"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "25",
+      "payload_keys": [
+        "chapter",
+        "dialogue_act_logits_shape",
+        "state_summary_shape"
+      ],
+      "source_papers": [],
+      "title": "Conversation and its Structure"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "A",
+      "payload_keys": [
+        "chapter",
+        "states",
+        "tags"
+      ],
+      "source_papers": [],
+      "title": "Hidden Markov Models"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "B",
+      "payload_keys": [
+        "chapter",
+        "prediction",
+        "vocab_size"
+      ],
+      "source_papers": [],
+      "title": "Naive Bayes Classification"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "C",
+      "payload_keys": [
+        "chapter",
+        "support_size",
+        "top_predictions"
+      ],
+      "source_papers": [],
+      "title": "Kneser-Ney Smoothing"
+    },
+    {
+      "implementation_status": "SCAFFOLDED",
+      "key": "D",
+      "payload_keys": [
+        "chapter",
+        "correction"
+      ],
+      "source_papers": [],
+      "title": "Spelling Correction and the Noisy Channel"
+    }
+  ],
+  "checked_commit": "be11658f75b8af33504554b5b18e41842d8c2fba",
+  "generated_at": "2026-03-30T07:15:06.762066+00:00",
+  "git_branch": "main",
+  "orphaned_chapters": [],
+  "repo_checks": {
+    "pytest_local": {
+      "command": "python3 -m pytest",
+      "exit_code": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "============================= test session starts ==============================\nplatform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0\nrootdir: /Users/hifi/Downloads/slp3_from_sutskever30\nconfigfile: pyproject.toml\ntestpaths: tests\nplugins: anyio-4.12.0\ncollected 6 items\n\ntests/test_smoke.py ....                                                 [ 66%]\ntests/test_telemetry.py ..                                               [100%]\n\n============================== 6 passed in 0.12s ==============================="
+    },
+    "smoke_test": {
+      "command": "python3 scripts/smoke_test.py",
+      "exit_code": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\n  \"chapter_count\": 28,\n  \"orphaned_chapters\": [],\n  \"results\": [\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"2\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"edit_distance\",\n        \"tokens\",\n        \"vocab_size\"\n      ],\n      \"title\": \"Words and Tokens\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"3\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"top_predictions\",\n        \"vocab_size\"\n      ],\n      \"title\": \"N-gram Language Models\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"4\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"final_loss\",\n        \"initial_loss\",\n        \"prediction\"\n      ],\n      \"title\": \"Logistic Regression and Text Classification\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"5\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"embedding_shape\",\n        \"ppmi_shape\",\n        \"vocab_size\"\n      ],\n      \"title\": \"Embeddings\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"6\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"final_loss\",\n        \"initial_loss\",\n        \"prediction\"\n      ],\n      \"title\": \"Neural Networks\"\n    },\n    {\n      \"implementation_status\": \"DIRECT\",\n      \"key\": \"7\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"logits_shape\",\n        \"loss\"\n      ],\n      \"title\": \"Large Language Models\"\n    },\n    {\n      \"implementation_status\": \"DIRECT\",\n      \"key\": \"8\",\n      \"payload_keys\": [\n        \"attention_shape\",\n        \"chapter\",\n        \"logits_shape\",\n        \"loss\"\n      ],\n      \"title\": \"Transformers\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"9\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"preference_loss\",\n        \"search_trace_shape\",\n        \"sft_loss\"\n      ],\n      \"title\": \"Post-training: Instruction Tuning, Alignment, and Test-Time Compute\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"10\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"loss\",\n        \"masked_logits_shape\"\n      ],\n      \"title\": \"Masked Language Models\"\n    },\n    {\n      \"implementation_status\": \"ADAPTED\",\n      \"key\": \"11\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"dpr_loss\",\n        \"rag_loss\",\n        \"rag_probs_shape\"\n      ],\n      \"title\": \"Information Retrieval and Retrieval-Augmented Generation\"\n    },\n    {\n      \"implementation_status\": \"ADAPTED\",\n      \"key\": \"12\",\n      \"payload_keys\": [\n        \"attention_shape\",\n        \"chapter\",\n        \"loss\"\n      ],\n      \"title\": \"Machine Translation\"\n    },\n    {\n      \"implementation_status\": \"ADAPTED\",\n      \"key\": \"13\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"lstm_loss\",\n        \"rnn_loss\"\n      ],\n      \"title\": \"RNNs and LSTMs\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"14\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"log_mel_shape\",\n        \"phonetic_labels\"\n      ],\n      \"title\": \"Phonetics and Speech Feature Extraction\"\n    },\n    {\n      \"implementation_status\": \"ADAPTED\",\n      \"key\": \"15\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"logits_shape\",\n        \"loss\",\n        \"targets\"\n      ],\n      \"title\": \"Automatic Speech Recognition\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"16\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"mel_frames_shape\",\n        \"stop_logits_shape\"\n      ],\n      \"title\": \"Text-to-Speech\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"17\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"decoded_tags_shape\",\n        \"tag_logits_shape\"\n      ],\n      \"title\": \"Sequence Labeling for Parts of Speech and Named Entities\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"18\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"chart_scores_shape\",\n        \"root_scores\"\n      ],\n      \"title\": \"Context-Free Grammars and Constituency Parsing\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"19\",\n      \"payload_keys\": [\n        \"arc_scores_shape\",\n        \"chapter\",\n        \"head_indices_shape\"\n      ],\n      \"title\": \"Dependency Parsing\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"20\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"entity_logits_shape\",\n        \"relation_logits_shape\"\n      ],\n      \"title\": \"Information Extraction: Relations, Events, and Time\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"21\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"role_logits_shape\"\n      ],\n      \"title\": \"Semantic Role Labeling and Argument Structure\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"22\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"document_scores_shape\",\n        \"token_scores_shape\"\n      ],\n      \"title\": \"Lexicons for Sentiment, Affect, and Connotation\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"23\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"cluster_ids_shape\",\n        \"coref_scores_shape\",\n        \"link_scores_shape\"\n      ],\n      \"title\": \"Coreference Resolution and Entity Linking\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"24\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"coherence_scores_shape\",\n        \"ordering_logits_shape\"\n      ],\n      \"title\": \"Discourse Coherence\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"25\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"dialogue_act_logits_shape\",\n        \"state_summary_shape\"\n      ],\n      \"title\": \"Conversation and its Structure\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"A\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"states\",\n        \"tags\"\n      ],\n      \"title\": \"Hidden Markov Models\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"B\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"prediction\",\n        \"vocab_size\"\n      ],\n      \"title\": \"Naive Bayes Classification\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"C\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"support_size\",\n        \"top_predictions\"\n      ],\n      \"title\": \"Kneser-Ney Smoothing\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"D\",\n      \"payload_keys\": [\n        \"chapter\",\n        \"correction\"\n      ],\n      \"title\": \"Spelling Correction and the Noisy Channel\"\n    }\n  ],\n  \"timestamp_utc\": \"2026-03-30T07:15:06.344989+00:00\",\n  \"unexpected_chapters\": []\n}"
+    },
+    "survey": {
+      "command": "python3 scripts/survey_slp3.py",
+      "exit_code": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\n  \"chapter_count\": 28,\n  \"chapters\": [\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"2\",\n      \"source_papers\": [],\n      \"title\": \"Words and Tokens\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"3\",\n      \"source_papers\": [],\n      \"title\": \"N-gram Language Models\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"4\",\n      \"source_papers\": [],\n      \"title\": \"Logistic Regression and Text Classification\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"5\",\n      \"source_papers\": [],\n      \"title\": \"Embeddings\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"6\",\n      \"source_papers\": [],\n      \"title\": \"Neural Networks\"\n    },\n    {\n      \"implementation_status\": \"DIRECT\",\n      \"key\": \"7\",\n      \"source_papers\": [\n        27\n      ],\n      \"title\": \"Large Language Models\"\n    },\n    {\n      \"implementation_status\": \"DIRECT\",\n      \"key\": \"8\",\n      \"source_papers\": [\n        13\n      ],\n      \"title\": \"Transformers\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"9\",\n      \"source_papers\": [],\n      \"title\": \"Post-training: Instruction Tuning, Alignment, and Test-Time Compute\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"10\",\n      \"source_papers\": [],\n      \"title\": \"Masked Language Models\"\n    },\n    {\n      \"implementation_status\": \"ADAPTED\",\n      \"key\": \"11\",\n      \"source_papers\": [\n        28,\n        29\n      ],\n      \"title\": \"Information Retrieval and Retrieval-Augmented Generation\"\n    },\n    {\n      \"implementation_status\": \"ADAPTED\",\n      \"key\": \"12\",\n      \"source_papers\": [\n        14\n      ],\n      \"title\": \"Machine Translation\"\n    },\n    {\n      \"implementation_status\": \"ADAPTED\",\n      \"key\": \"13\",\n      \"source_papers\": [\n        2,\n        3\n      ],\n      \"title\": \"RNNs and LSTMs\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"14\",\n      \"source_papers\": [],\n      \"title\": \"Phonetics and Speech Feature Extraction\"\n    },\n    {\n      \"implementation_status\": \"ADAPTED\",\n      \"key\": \"15\",\n      \"source_papers\": [\n        21\n      ],\n      \"title\": \"Automatic Speech Recognition\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"16\",\n      \"source_papers\": [],\n      \"title\": \"Text-to-Speech\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"17\",\n      \"source_papers\": [],\n      \"title\": \"Sequence Labeling for Parts of Speech and Named Entities\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"18\",\n      \"source_papers\": [],\n      \"title\": \"Context-Free Grammars and Constituency Parsing\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"19\",\n      \"source_papers\": [],\n      \"title\": \"Dependency Parsing\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"20\",\n      \"source_papers\": [],\n      \"title\": \"Information Extraction: Relations, Events, and Time\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"21\",\n      \"source_papers\": [],\n      \"title\": \"Semantic Role Labeling and Argument Structure\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"22\",\n      \"source_papers\": [],\n      \"title\": \"Lexicons for Sentiment, Affect, and Connotation\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"23\",\n      \"source_papers\": [],\n      \"title\": \"Coreference Resolution and Entity Linking\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"24\",\n      \"source_papers\": [],\n      \"title\": \"Discourse Coherence\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"25\",\n      \"source_papers\": [],\n      \"title\": \"Conversation and its Structure\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"A\",\n      \"source_papers\": [],\n      \"title\": \"Hidden Markov Models\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"B\",\n      \"source_papers\": [],\n      \"title\": \"Naive Bayes Classification\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"C\",\n      \"source_papers\": [],\n      \"title\": \"Kneser-Ney Smoothing\"\n    },\n    {\n      \"implementation_status\": \"SCAFFOLDED\",\n      \"key\": \"D\",\n      \"source_papers\": [],\n      \"title\": \"Spelling Correction and the Noisy Channel\"\n    }\n  ],\n  \"counts\": {\n    \"ADAPTED\": 4,\n    \"DIRECT\": 2,\n    \"SCAFFOLDED\": 22\n  },\n  \"orphaned_chapters\": [],\n  \"unexpected_chapters\": []\n}"
+    }
+  },
+  "schema_version": 1,
+  "unexpected_chapters": []
+}

@@ -25,6 +25,7 @@ This deliverable is intentionally small-scale and pedagogical:
 - `src/slp3_from_sutskever30/` - package code
 - `scripts/run_slp3.py` - CLI to list and run chapters
 - `scripts/smoke_test.py` - repository-local smoke runner over all chapter entries
+- `scripts/generate_verification_status.py` - observability artifact generator
 - `tests/test_smoke.py` - contributor-facing local regression tests
 - `research/` - source mapping and packaging notes
 
@@ -35,6 +36,7 @@ cd /Users/hifi/Downloads/slp3_from_sutskever30
 python3 scripts/run_slp3.py --list
 python3 scripts/run_slp3.py --chapter 8
 python3 scripts/smoke_test.py
+python3 scripts/generate_verification_status.py --run-checks
 ```
 
 ## Coverage
@@ -49,6 +51,7 @@ See [research/CHAPTER_SURVEY.md](./research/CHAPTER_SURVEY.md) for the per-chapt
 See [research/FULL_IMPLEMENTATION_MARCH2026.md](./research/FULL_IMPLEMENTATION_MARCH2026.md) for the March 2026 full-implementation blueprint for all `SCAFFOLDED` chapters.
 See [research/IMPLEMENTATION_BACKLOG_MARCH2026.md](./research/IMPLEMENTATION_BACKLOG_MARCH2026.md) for the concrete upgrade backlog and the GitHub Actions failure diagnosis.
 See [research/SMOKE_TEST_STATUS.md](./research/SMOKE_TEST_STATUS.md) for the billing-independent smoke-test status.
+See [research/STATUS_VOCABULARY.md](./research/STATUS_VOCABULARY.md) for the observability vocabulary used by the repo telemetry.
 
 ## Citation
 
