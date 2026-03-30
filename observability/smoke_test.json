@@ -177,24 +177,31 @@
       "title": "RNNs and LSTMs"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "14",
       "payload_keys": [
         "chapter",
-        "log_mel_shape",
-        "phonetic_labels"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Phonetics and Speech Feature Extraction"
     },
     {
-      "implementation_status": "ADAPTED",
+      "implementation_status": "FULL",
       "key": "15",
       "payload_keys": [
         "chapter",
-        "logits_shape",
-        "loss",
-        "targets"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [
         21
@@ -202,12 +209,16 @@
       "title": "Automatic Speech Recognition"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "16",
       "payload_keys": [
         "chapter",
-        "mel_frames_shape",
-        "stop_logits_shape"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Text-to-Speech"
@@ -355,6 +366,6 @@
       "title": "Spelling Correction and the Noisy Channel"
     }
   ],
-  "timestamp_utc": "2026-03-30T07:52:25.778839+00:00",
+  "timestamp_utc": "2026-03-30T08:00:47.808551+00:00",
   "unexpected_chapters": []
 }

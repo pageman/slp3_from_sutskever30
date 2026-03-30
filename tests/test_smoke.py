@@ -23,7 +23,7 @@ def test_selected_shapes_exist_for_neural_chapters() -> None:
     chapter_map = {spec.key: spec for spec in get_chapters()}
     assert chapter_map["8"].runner()["logits_shape"] == (4, 3)
     assert chapter_map["11"].runner()["rag_probs_shape"] == (4, 3)
-    assert chapter_map["16"].runner()["mel_frames_shape"][0] == 4
+    assert chapter_map["16"].runner()["core_outputs"]["mel_frames_shape"][0] == 2
     assert chapter_map["25"].runner()["dialogue_act_logits_shape"] == (4, 5, 8)
 
 
@@ -64,6 +64,22 @@ def test_batch_one_full_chapters_expose_standard_contract_payload() -> None:
 def test_batch_two_full_chapters_expose_standard_contract_payload() -> None:
     chapter_map = {spec.key: spec for spec in get_chapters()}
     for key in ("9", "10"):
+        payload = chapter_map[key].runner()
+        assert chapter_map[key].implementation_status == "FULL"
+        assert set(payload) >= {
+            "chapter",
+            "implementation_status",
+            "core_outputs",
+            "metrics",
+            "failure_modes",
+            "chapter_notes",
+            "sources",
+        }
+
+
+def test_batch_three_speech_chapters_expose_standard_contract_payload() -> None:
+    chapter_map = {spec.key: spec for spec in get_chapters()}
+    for key in ("14", "15", "16"):
         payload = chapter_map[key].runner()
         assert chapter_map[key].implementation_status == "FULL"
         assert set(payload) >= {

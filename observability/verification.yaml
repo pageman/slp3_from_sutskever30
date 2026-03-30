@@ -1,6 +1,6 @@
 schema_version: 1
-generated_at: "2026-03-30T07:52:28.085978+00:00"
-checked_commit: "04a424fbadb89ca1546a3273cef5979f7d387131"
+generated_at: "2026-03-30T08:00:50.207020+00:00"
+checked_commit: "573fd06889f3e7c4c81ff79ae66a26d1d007be41"
 git_branch: "main"
 repo_checks:
   smoke_test:
@@ -169,30 +169,41 @@ chapters:
         - "rnn_loss"
   - key: "14"
     title: "Phonetics and Speech Feature Extraction"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "log_mel_shape"
-        - "phonetic_labels"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "15"
     title: "Automatic Speech Recognition"
-    implementation_status: "ADAPTED"
+    implementation_status: "FULL"
     source_papers:
         - 21
     payload_keys:
         - "chapter"
-        - "logits_shape"
-        - "loss"
-        - "targets"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "16"
     title: "Text-to-Speech"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "mel_frames_shape"
-        - "stop_logits_shape"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "17"
     title: "Sequence Labeling for Parts of Speech and Named Entities"
     implementation_status: "SCAFFOLDED"

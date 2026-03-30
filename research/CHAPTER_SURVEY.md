@@ -23,9 +23,9 @@ Current survey:
 | 11 | `ADAPTED` | 28,29 | Combined dense retrieval and RAG chapter |
 | 12 | `ADAPTED` | 14 | Adapted additive-attention MT chapter |
 | 13 | `ADAPTED` | 2,3 | Adapted RNN/LSTM chapter |
-| 14 | `SCAFFOLDED` | - | Lite speech-feature chapter |
-| 15 | `ADAPTED` | 21 | Adapted CTC/ASR chapter |
-| 16 | `SCAFFOLDED` | - | Lite text-to-speech chapter |
+| 14 | `FULL` | - | Full batch-3 DSP chapter with pre-emphasis, mel, deltas, CMVN, and alignment-entropy diagnostics |
+| 15 | `FULL` | 21 | Full batch-3 ASR chapter with DSP frontend hooks, CTC-like loss separation, and beam/alignment diagnostics |
+| 16 | `FULL` | - | Full batch-3 TTS chapter with normalization, G2P, durations, attention alignment, and teacher-forcing gap metrics |
 | 17 | `SCAFFOLDED` | - | Lite sequence-labeling chapter |
 | 18 | `SCAFFOLDED` | - | Lite CKY/chart parsing chapter |
 | 19 | `SCAFFOLDED` | - | Lite dependency parsing chapter |
