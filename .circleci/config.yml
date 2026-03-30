@@ -4,6 +4,7 @@ jobs:
   test:
     docker:
       - image: cimg/python:3.11
+    resource_class: medium
     working_directory: ~/project
     steps:
       - checkout

@@ -1,6 +1,6 @@
 # SLP3 From Sutskever30
 
-[![CircleCI](https://circleci.com/gh/pageman/slp3_from_sutskever30/tree/main.svg?style=shield)](https://circleci.com/gh/pageman/slp3_from_sutskever30?branch=main)
+[![CircleCI](https://img.shields.io/circleci/build/gh/pageman/slp3_from_sutskever30/main?logo=circleci&label=CircleCI)](https://app.circleci.com/pipelines/github/pageman/slp3_from_sutskever30)
 [![Smoke Tested](https://img.shields.io/badge/Smoke-Tested%20Locally-brightgreen.svg)](./research/SMOKE_TEST_STATUS.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](./pyproject.toml)
