@@ -7,14 +7,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
-OUT_DIR = ROOT / "observability"
-JSON_PATH = OUT_DIR / "verification.json"
-YAML_PATH = OUT_DIR / "verification.yaml"
-SQLITE_PATH = OUT_DIR / "verification.sqlite"
 
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
+from slp3_from_sutskever30.observability_paths import get_observability_dir  # noqa: E402
 from slp3_from_sutskever30.telemetry import build_telemetry_payload, write_telemetry_artifacts  # noqa: E402
 
 
@@ -23,12 +20,17 @@ def main() -> None:
     parser.add_argument("--run-checks", action="store_true", help="Execute smoke, pytest, and survey before writing artifacts.")
     args = parser.parse_args()
 
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    out_dir = get_observability_dir(ROOT)
+    json_path = out_dir / "verification.json"
+    yaml_path = out_dir / "verification.yaml"
+    sqlite_path = out_dir / "verification.sqlite"
+
+    out_dir.mkdir(parents=True, exist_ok=True)
     payload = build_telemetry_payload(run_live_checks=args.run_checks)
-    write_telemetry_artifacts(JSON_PATH, YAML_PATH, SQLITE_PATH, payload)
-    print(f"wrote {JSON_PATH}")
-    print(f"wrote {YAML_PATH}")
-    print(f"wrote {SQLITE_PATH}")
+    write_telemetry_artifacts(json_path, yaml_path, sqlite_path, payload)
+    print(f"wrote {json_path}")
+    print(f"wrote {yaml_path}")
+    print(f"wrote {sqlite_path}")
 
 
 if __name__ == "__main__":

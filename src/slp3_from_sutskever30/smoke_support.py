@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
+from slp3_from_sutskever30.chapter_contract import normalize_chapter_payload
 from slp3_from_sutskever30.registry import get_chapters, get_orphaned_chapter_keys, get_unexpected_chapter_keys
 
 
@@ -9,7 +10,13 @@ def build_smoke_payload() -> dict[str, object]:
     chapters = get_chapters()
     results = []
     for spec in chapters:
-        payload = spec.runner()
+        payload = normalize_chapter_payload(
+            chapter=spec.key,
+            implementation_status=spec.implementation_status,
+            title=spec.title,
+            source_papers=spec.source_papers,
+            payload=spec.runner(),
+        )
         results.append(
             {
                 "key": spec.key,

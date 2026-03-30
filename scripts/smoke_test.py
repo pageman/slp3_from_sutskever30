@@ -7,12 +7,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
-OUT_DIR = ROOT / "observability"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from slp3_from_sutskever30.artifacts import write_sqlite_table_with_backup, write_text_with_backup  # noqa: E402
+from slp3_from_sutskever30.observability_paths import get_observability_dir  # noqa: E402
 from slp3_from_sutskever30.smoke_support import build_smoke_payload  # noqa: E402
+
+
+OUT_DIR = get_observability_dir(ROOT)
 
 
 def write_smoke_artifacts(report: dict[str, object]) -> None:

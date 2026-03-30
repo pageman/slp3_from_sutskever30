@@ -29,6 +29,7 @@ This deliverable is intentionally small-scale and pedagogical, but batch-by-batc
 - `scripts/run_slp3.py` - CLI to list and run chapters
 - `scripts/smoke_test.py` - repository-local smoke runner over all chapter entries
 - `scripts/generate_verification_status.py` - observability artifact generator
+- `scripts/generate_deliverable_manifest.py` - machine-readable deliverable manifest generator
 - `tests/test_smoke.py` - contributor-facing local regression tests
 - `research/` - source mapping and packaging notes
 
@@ -40,6 +41,7 @@ python3 scripts/run_slp3.py --list
 python3 scripts/run_slp3.py --chapter 8
 python3 scripts/smoke_test.py
 python3 scripts/generate_verification_status.py --run-checks
+python3 scripts/generate_deliverable_manifest.py
 ```
 
 ## Coverage
@@ -70,6 +72,10 @@ Committed observability artifacts:
 The CircleCI-specific artifacts include the derived CircleCI workflow URL. A compact CI metadata snapshot is also mirrored into `observability/verification.json` and `observability/verification.yaml`.
 
 Committed observability artifacts are local snapshot baselines. CircleCI job artifacts are the per-run source of truth for live CI metadata like `build_url` and `workflow_url`.
+
+Local regeneration now writes to `observability/local/`, while CircleCI writes to the primary `observability/` artifact paths.
+
+Batch packaging starts in `research/batches/batch_a_classical_foundations/`, which is the reference folder layout for chapters `2-6` and appendices `A-D`.
 
 ## Citation
 

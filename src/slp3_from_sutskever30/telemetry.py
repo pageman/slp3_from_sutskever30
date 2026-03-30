@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Iterable
 
 from slp3_from_sutskever30.artifacts import write_sqlite_table_with_backup, write_text_with_backup
+from slp3_from_sutskever30.chapter_contract import normalize_chapter_payload
 from slp3_from_sutskever30.circleci_artifacts import build_circleci_payload
 from slp3_from_sutskever30.registry import get_chapters, get_orphaned_chapter_keys, get_unexpected_chapter_keys
 
@@ -183,7 +184,13 @@ def build_telemetry_payload(*, run_live_checks: bool) -> dict[str, object]:
     checks = {name: _command_mapping(result) for name, result in collect_repo_checks(run_live_checks=run_live_checks).items()}
     chapters = []
     for spec in get_chapters():
-        payload = spec.runner()
+        payload = normalize_chapter_payload(
+            chapter=spec.key,
+            implementation_status=spec.implementation_status,
+            title=spec.title,
+            source_papers=spec.source_papers,
+            payload=spec.runner(),
+        )
         chapters.append(
             {
                 "key": spec.key,
