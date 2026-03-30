@@ -1,6 +1,6 @@
 schema_version: 1
-generated_at: "2026-03-30T08:05:59.497679+00:00"
-checked_commit: "b40d92c89dda5ee1a463e52f788892d56592c96d"
+generated_at: "2026-03-30T08:11:24.353795+00:00"
+checked_commit: "3464a7df54a67264944a63d57794226a8e280678"
 git_branch: "main"
 repo_checks:
   smoke_test:
@@ -218,20 +218,28 @@ chapters:
         - "sources"
   - key: "18"
     title: "Context-Free Grammars and Constituency Parsing"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "chart_scores_shape"
-        - "root_scores"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "19"
     title: "Dependency Parsing"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
-        - "arc_scores_shape"
         - "chapter"
-        - "head_indices_shape"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "20"
     title: "Information Extraction: Relations, Events, and Time"
     implementation_status: "SCAFFOLDED"

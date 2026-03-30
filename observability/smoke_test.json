@@ -239,23 +239,31 @@
       "title": "Sequence Labeling for Parts of Speech and Named Entities"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "18",
       "payload_keys": [
         "chapter",
-        "chart_scores_shape",
-        "root_scores"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Context-Free Grammars and Constituency Parsing"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "19",
       "payload_keys": [
-        "arc_scores_shape",
         "chapter",
-        "head_indices_shape"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Dependency Parsing"
@@ -375,6 +383,6 @@
       "title": "Spelling Correction and the Noisy Channel"
     }
   ],
-  "timestamp_utc": "2026-03-30T08:05:57.193825+00:00",
+  "timestamp_utc": "2026-03-30T08:11:22.017350+00:00",
   "unexpected_chapters": []
 }

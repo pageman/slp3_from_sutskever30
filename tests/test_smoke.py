@@ -107,3 +107,19 @@ def test_batch_four_structured_prediction_chapters_expose_standard_contract_payl
             "chapter_notes",
             "sources",
         }
+
+
+def test_batch_four_parsing_chapters_expose_standard_contract_payload() -> None:
+    chapter_map = {spec.key: spec for spec in get_chapters()}
+    for key in ("18", "19"):
+        payload = chapter_map[key].runner()
+        assert chapter_map[key].implementation_status == "FULL"
+        assert set(payload) >= {
+            "chapter",
+            "implementation_status",
+            "core_outputs",
+            "metrics",
+            "failure_modes",
+            "chapter_notes",
+            "sources",
+        }

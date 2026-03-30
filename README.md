@@ -46,9 +46,9 @@ python3 scripts/generate_verification_status.py --run-checks
 - Main chapters: `2-25`
 - Appendices: `A-D`
 - Status classes: `FULL`, `DIRECT`, `ADAPTED`, `SCAFFOLDED`
-- Current split: `12 FULL`, `2 DIRECT`, `3 ADAPTED`, `11 SCAFFOLDED`
+- Current split: `14 FULL`, `2 DIRECT`, `3 ADAPTED`, `9 SCAFFOLDED`
 
-All runners are NumPy-only and executable. Batch 1 upgraded chapters `2-6`, batch 2 upgraded chapters `9-10`, batch 3 upgraded chapters `14-16`, and the first structured-prediction sub-batch upgraded chapters `17` and `21`, to fuller chapter contracts with evaluation and failure-case reporting. The remaining `SCAFFOLDED` chapters are not yet full implementations.
+All runners are NumPy-only and executable. Batch 1 upgraded chapters `2-6`, batch 2 upgraded chapters `9-10`, batch 3 upgraded chapters `14-16`, the first structured-prediction sub-batch upgraded chapters `17` and `21`, and the parsing sub-batch upgraded chapters `18` and `19`, to fuller chapter contracts with evaluation and failure-case reporting. The remaining `SCAFFOLDED` chapters are not yet full implementations.
 
 See [research/CHAPTER_SURVEY.md](./research/CHAPTER_SURVEY.md) for the per-chapter survey and orphan audit.
 See [research/FULL_IMPLEMENTATION_MARCH2026.md](./research/FULL_IMPLEMENTATION_MARCH2026.md) for the March 2026 full-implementation blueprint for all `SCAFFOLDED` chapters.

@@ -27,8 +27,8 @@ Current survey:
 | 15 | `FULL` | 21 | Full batch-3 ASR chapter with DSP frontend hooks, CTC-like loss separation, and beam/alignment diagnostics |
 | 16 | `FULL` | - | Full batch-3 TTS chapter with normalization, G2P, durations, attention alignment, and teacher-forcing gap metrics |
 | 17 | `FULL` | - | Full structured-prediction batch with constrained BIO decoding and boundary-sensitive metrics |
-| 18 | `SCAFFOLDED` | - | Lite CKY/chart parsing chapter |
-| 19 | `SCAFFOLDED` | - | Lite dependency parsing chapter |
+| 18 | `FULL` | - | Full parsing batch with explicit grammar rules, CKY backpointers, tree reconstruction, and ambiguity diagnostics |
+| 19 | `FULL` | - | Full parsing batch with projective vs MST decoding, relation labels, and structural diagnostics |
 | 20 | `SCAFFOLDED` | - | Lite IE/relation chapter |
 | 21 | `FULL` | - | Full structured-prediction batch with predicate-conditioned role scoring and constrained role decoding |
 | 22 | `SCAFFOLDED` | - | Lite sentiment/affect lexicon chapter |
