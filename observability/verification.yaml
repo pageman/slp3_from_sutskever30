@@ -1,6 +1,6 @@
 schema_version: 1
-generated_at: "2026-03-30T09:51:33.643605+00:00"
-checked_commit: "1024d4bcdd46b29db233ba5aafd0d894c5317364"
+generated_at: "2026-03-30T10:11:03.718494+00:00"
+checked_commit: "508c0e67a48cc6448ef1c3ffb0dd211ae8416753"
 git_branch: "main"
 ci:
   platform: "circleci"
@@ -22,6 +22,8 @@ repo_checks:
   \"orphaned_chapters\": [],
   \"results\": [ ..."
     stderr_preview: ""
+    stdout_truncated: true
+    stderr_truncated: false
   pytest_local:
     command: "python3 -m pytest"
     passed: true
@@ -31,6 +33,8 @@ platform darwin -- Python 3.9.6, pytest-8.4.2, pluggy-1.6.0
 rootdir: /Users/hifi/Downloads/slp3_from_sutskever30
 configfile: pyproject.toml ..."
     stderr_preview: ""
+    stdout_truncated: true
+    stderr_truncated: false
   survey:
     command: "python3 scripts/survey_slp3.py"
     passed: true
@@ -40,6 +44,8 @@ configfile: pyproject.toml ..."
   \"chapters\": [
     { ..."
     stderr_preview: ""
+    stdout_truncated: true
+    stderr_truncated: false
 chapter_count: 28
 orphaned_chapters: []
 unexpected_chapters: []

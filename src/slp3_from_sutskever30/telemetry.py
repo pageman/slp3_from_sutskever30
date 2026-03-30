@@ -120,6 +120,20 @@ def _preview_text(text: str, *, max_lines: int = 4, max_chars: int = 240) -> str
     return preview
 
 
+def _trim_check_output(mapping: dict[str, object]) -> dict[str, object]:
+    stdout = str(mapping.get("stdout", ""))
+    stderr = str(mapping.get("stderr", ""))
+    return {
+        "command": mapping.get("command", ""),
+        "passed": bool(mapping.get("passed", False)),
+        "exit_code": int(mapping.get("exit_code", 0)),
+        "stdout_preview": _preview_text(stdout),
+        "stderr_preview": _preview_text(stderr),
+        "stdout_truncated": bool(stdout.strip()) and _preview_text(stdout) != stdout.strip(),
+        "stderr_truncated": bool(stderr.strip()) and _preview_text(stderr) != stderr.strip(),
+    }
+
+
 def collect_repo_checks(*, run_live_checks: bool) -> dict[str, CommandResult | dict[str, object]]:
     defaults: dict[str, CommandResult | dict[str, object]] = {
         "smoke_test": {
@@ -155,14 +169,14 @@ def collect_repo_checks(*, run_live_checks: bool) -> dict[str, CommandResult | d
 
 def _command_mapping(value: CommandResult | dict[str, object]) -> dict[str, object]:
     if isinstance(value, CommandResult):
-        return {
+        return _trim_check_output({
             "command": value.command,
             "passed": value.passed,
             "exit_code": value.exit_code,
             "stdout": value.stdout,
             "stderr": value.stderr,
-        }
-    return value
+        })
+    return _trim_check_output(value)
 
 
 def build_telemetry_payload(*, run_live_checks: bool) -> dict[str, object]:
@@ -217,8 +231,10 @@ def render_yaml(payload: dict[str, object]) -> str:
             "command": check["command"],
             "passed": check["passed"],
             "exit_code": check["exit_code"],
-            "stdout_preview": _preview_text(str(check.get("stdout", ""))),
-            "stderr_preview": _preview_text(str(check.get("stderr", ""))),
+            "stdout_preview": str(check.get("stdout_preview", "")),
+            "stderr_preview": str(check.get("stderr_preview", "")),
+            "stdout_truncated": bool(check.get("stdout_truncated", False)),
+            "stderr_truncated": bool(check.get("stderr_truncated", False)),
         }
     yaml_payload["repo_checks"] = yaml_checks
     lines: list[str] = []

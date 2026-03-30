@@ -69,6 +69,8 @@ Committed observability artifacts:
 
 The CircleCI-specific artifacts include the derived CircleCI workflow URL. A compact CI metadata snapshot is also mirrored into `observability/verification.json` and `observability/verification.yaml`.
 
+Committed observability artifacts are local snapshot baselines. CircleCI job artifacts are the per-run source of truth for live CI metadata like `build_url` and `workflow_url`.
+
 ## Citation
 
 If you use this repository, cite the project metadata in [CITATION.cff](./CITATION.cff).

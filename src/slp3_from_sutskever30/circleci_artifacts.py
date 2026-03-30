@@ -12,20 +12,22 @@ def build_circleci_payload() -> dict[str, object]:
     env = os.environ
     workflow_id = env.get("CIRCLE_WORKFLOW_ID", "")
     workflow_url = f"https://app.circleci.com/pipelines/workflows/{workflow_id}" if workflow_id else ""
+    build_num = env.get("CIRCLE_BUILD_NUM", "")
+    pipeline_number = env.get("CIRCLE_PIPELINE_NUMBER", "") or build_num
     run = {
         "vcs_type": env.get("CIRCLE_VCS_TYPE", ""),
         "project_username": env.get("CIRCLE_PROJECT_USERNAME", ""),
         "project_reponame": env.get("CIRCLE_PROJECT_REPONAME", ""),
         "branch": env.get("CIRCLE_BRANCH", ""),
         "sha1": env.get("CIRCLE_SHA1", ""),
-        "build_num": env.get("CIRCLE_BUILD_NUM", ""),
+        "build_num": build_num,
         "build_url": env.get("CIRCLE_BUILD_URL", ""),
         "job": env.get("CIRCLE_JOB", ""),
         "workflow_id": workflow_id,
         "workflow_url": workflow_url,
         "workflow_job_id": env.get("CIRCLE_WORKFLOW_JOB_ID", ""),
         "pipeline_id": env.get("CIRCLE_PIPELINE_ID", ""),
-        "pipeline_number": env.get("CIRCLE_PIPELINE_NUMBER", ""),
+        "pipeline_number": pipeline_number,
         "pull_request": env.get("CIRCLE_PULL_REQUEST", ""),
         "pull_requests": [value for value in env.get("CIRCLE_PULL_REQUESTS", "").split(",") if value],
         "runner_os": env.get("RUNNER_OS", ""),

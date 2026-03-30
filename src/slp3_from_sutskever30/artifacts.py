@@ -58,8 +58,8 @@ def write_sqlite_table_with_backup(
                     str(check.get("command", "")),
                     1 if bool(check.get("passed", False)) else 0,
                     int(check.get("exit_code", 0)),
-                    str(check.get("stdout", "")),
-                    str(check.get("stderr", "")),
+                    str(check.get("stdout", check.get("stdout_preview", ""))),
+                    str(check.get("stderr", check.get("stderr_preview", ""))),
                 ),
             )
 

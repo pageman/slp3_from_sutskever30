@@ -20,8 +20,11 @@ def test_telemetry_renderers_emit_core_fields() -> None:
     yaml_text = render_yaml(payload)
     assert '"chapter_count": 28' in json_text
     assert '"ci": {' in json_text
+    assert "stdout_preview" in json_text
+    assert '"stdout":' not in json_text
     assert "repo_checks:" in yaml_text
     assert "ci:" in yaml_text
+    assert "stdout_truncated:" in yaml_text
     assert "chapters:" in yaml_text
     assert "source_papers:" in yaml_text
     assert "payload_keys:" in yaml_text
