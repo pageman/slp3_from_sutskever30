@@ -22,6 +22,21 @@ This deliverable is intentionally small-scale and pedagogical, but batch-by-batc
 - chapters that align with the Sutskever 30 papers were rewritten into standalone chapter demos
 - chapters without a direct paper match were implemented as compact NumPy toy analogs
 
+## Research Arc
+
+At the highest level, this project is not trying to claim full textbook reproduction at modern system scale. The central research move is narrower and more honest: translate the computational structure of SLP3 into executable NumPy chapters, label what is `DIRECT`, `ADAPTED`, or only a compact analog, and then progressively replace ad hoc chapter demos with contract-bound, batch-packaged, CI-verified research assets.
+
+Methodologically, the work moved in a fixed sequence:
+
+1. cover the targeted SLP3 chapter map
+2. make provenance and status explicit
+3. upgrade chapters into richer executable modules
+4. impose a shared chapter contract
+5. package chapters into batch families `A-E`
+6. separate local reproducibility from live CI truth
+
+The result is a stable research scaffold for future textbook-faithfulness work, not just a collection of toy chapter scripts. Researchers who want the full narrative and methodological framing should read [research/NARRATIVE_AND_METHOD_ARC_2026-03-30.md](./research/NARRATIVE_AND_METHOD_ARC_2026-03-30.md).
+
 ## Layout
 
 - `src/slp3_from_sutskever30/` - package code
@@ -86,6 +101,13 @@ The CircleCI-specific artifacts include the derived CircleCI workflow URL. A com
 Committed observability artifacts are local snapshot baselines. CircleCI job artifacts are the per-run source of truth for live CI metadata like `build_url` and `workflow_url`.
 
 Local regeneration now writes to `observability/local/`, while CircleCI writes to `observability/ci_latest/`.
+
+Recommended observability policy:
+
+- do not add current local observability drift to the repo
+- keep `observability/local/` local-only
+- treat `observability/ci_latest/` as per-run CI output, not source-controlled state
+- make any future observability cleanup an explicit commit that ignores `observability/local/` and `observability/ci_latest/` and documents that CI artifacts live in CircleCI, not git
 
 Batch packaging now covers `research/batches/batch_a_classical_foundations/`, `research/batches/batch_b_lm_and_seq_models/`, `research/batches/batch_c_speech/`, `research/batches/batch_d_structure_and_ie/`, and `research/batches/batch_e_discourse_and_dialogue/`. Each generated batch pack includes a batch manifest, per-chapter fixtures, and per-chapter eval packs.
 
