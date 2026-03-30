@@ -1,0 +1,76 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful in dialogue-state and commitment tracking, but still omits long-context memory retrieval and multi-session conversation modeling.",
+  "chapter": "25",
+  "chapter_notes": {
+    "batch": "batch_e_discourse_and_dialogue",
+    "counterintuitive_insight": "Conversation systems fail harder on forgotten commitments than on mildly awkward wording. Commitment consistency should be optimized before response fluency.",
+    "covered_claims": [
+      "Chapter 25 now includes dialogue acts, turn-taking, grounding, repair signals, and commitment memory.",
+      "Evaluation includes consistency over prior commitments, not just turn-local predictions."
+    ],
+    "omitted_claims": [
+      "No retrieval-backed long-context memory yet.",
+      "No multi-session conversation tracking yet."
+    ]
+  },
+  "core_algorithms": [
+    "dialogue state accumulation",
+    "dialogue act scoring",
+    "turn-taking statistics",
+    "repair tracking",
+    "commitment consistency checking"
+  ],
+  "failure_modes": [
+    {
+      "case": "fluency_is_not_commitment_consistency",
+      "commitments": {
+        "delivery_date": "tomorrow",
+        "refund": "approved"
+      },
+      "consistency": 1.0
+    },
+    {
+      "case": "repair_turns_change_state_nonlocally",
+      "repair_positions": [
+        3
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Track dialogue acts, turn-taking, grounding, repairs, and commitments in one conversation state object.",
+    "Measure commitment consistency as a conversation-level metric.",
+    "Show why local act prediction is insufficient for dialogue quality."
+  ],
+  "metrics": {
+    "commitment_consistency": 1.0,
+    "dialogue_act_accuracy": 1.0,
+    "grounding_rate": 0.8333333333333334,
+    "turn_taking_rate": 1.0
+  },
+  "minimal_dataset": {
+    "act_count": 5,
+    "speaker_count": 2,
+    "turn_count": 6
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "local act recognition can be high even when global dialogue state is fragile",
+      "metric": "dialogue_act_accuracy",
+      "name": "dialogue_act_accuracy"
+    },
+    {
+      "expected_signal": "conversation quality depends on maintaining commitments over turns",
+      "metric": "commitment_consistency",
+      "name": "commitment_consistency"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": []
+  },
+  "title": "Conversation and its Structure"
+}

@@ -156,7 +156,10 @@ def build_deliverable_manifest() -> dict[str, object]:
                 "chapters": ["17", "18", "19", "20", "21"],
                 "folder": "research/batches/batch_d_structure_and_ie",
             },
-            "batch_e_discourse_and_dialogue": {"chapters": ["22", "23", "24", "25"]},
+            "batch_e_discourse_and_dialogue": {
+                "chapters": ["22", "23", "24", "25"],
+                "folder": "research/batches/batch_e_discourse_and_dialogue",
+            },
         },
         "chapters": chapters,
     }

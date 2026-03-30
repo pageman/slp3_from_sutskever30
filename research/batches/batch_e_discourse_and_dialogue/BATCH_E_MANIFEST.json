@@ -1,0 +1,36 @@
+{
+  "batch": "batch_e_discourse_and_dialogue",
+  "chapter_count": 4,
+  "chapters": [
+    {
+      "eval_pack_path": "research/batches/batch_e_discourse_and_dialogue/eval_packs/chapter_22_eval_pack.json",
+      "fixture_path": "research/batches/batch_e_discourse_and_dialogue/fixtures/chapter_22_fixture.json",
+      "implementation_status": "FULL",
+      "key": "22",
+      "title": "Lexicons for Sentiment, Affect, and Connotation"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_e_discourse_and_dialogue/eval_packs/chapter_23_eval_pack.json",
+      "fixture_path": "research/batches/batch_e_discourse_and_dialogue/fixtures/chapter_23_fixture.json",
+      "implementation_status": "FULL",
+      "key": "23",
+      "title": "Coreference Resolution and Entity Linking"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_e_discourse_and_dialogue/eval_packs/chapter_24_eval_pack.json",
+      "fixture_path": "research/batches/batch_e_discourse_and_dialogue/fixtures/chapter_24_fixture.json",
+      "implementation_status": "FULL",
+      "key": "24",
+      "title": "Discourse Coherence"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_e_discourse_and_dialogue/eval_packs/chapter_25_eval_pack.json",
+      "fixture_path": "research/batches/batch_e_discourse_and_dialogue/fixtures/chapter_25_fixture.json",
+      "implementation_status": "FULL",
+      "key": "25",
+      "title": "Conversation and its Structure"
+    }
+  ],
+  "generated_at": "2026-03-30T12:04:55.562458+00:00",
+  "schema_version": 1
+}

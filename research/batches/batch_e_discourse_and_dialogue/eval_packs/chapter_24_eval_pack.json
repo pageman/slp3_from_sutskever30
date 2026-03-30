@@ -1,0 +1,72 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful in entity-grid and perturbation-style coherence testing, but still omits discourse relation parsing and larger document encoders.",
+  "chapter": "24",
+  "chapter_notes": {
+    "batch": "batch_e_discourse_and_dialogue",
+    "counterintuitive_insight": "Discourse models should be judged on near-correct documents, not obvious incoherence. Robustness to tiny perturbations matters more than easy binary wins.",
+    "covered_claims": [
+      "Chapter 24 now includes entity-grid and sentence-ordering style coherence evaluation.",
+      "A minimally perturbed document is compared directly against a coherent baseline."
+    ],
+    "omitted_claims": [
+      "No discourse relation classifier yet.",
+      "No hierarchical transformer encoder yet."
+    ]
+  },
+  "core_algorithms": [
+    "entity-grid construction",
+    "sentence-order perturbation",
+    "coherence scoring",
+    "margin-based discourse comparison"
+  ],
+  "failure_modes": [
+    {
+      "case": "near_correct_documents_are_the_real_test",
+      "coherent_score": 0.3340372759753062,
+      "perturbed_score": 0.5007039426419729
+    },
+    {
+      "case": "binary_wellformedness_is_too_easy",
+      "note": "The main challenge is ranking minimally corrupted discourse variants, not separating perfect text from nonsense."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Model coherence with both entity-grid structure and sentence-order signals.",
+    "Compare coherent and minimally perturbed documents directly.",
+    "Treat small coherence margins as the central difficulty, not easy nonsense detection."
+  ],
+  "metrics": {
+    "coherent_score": 0.3340372759753062,
+    "entity_grid_shape": [
+      4,
+      4
+    ],
+    "margin": -0.16666666666666674,
+    "perturbed_score": 0.5007039426419729
+  },
+  "minimal_dataset": {
+    "sentence_count": 4,
+    "tracked_entity_count": 4
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "coherent document should outscore perturbed ordering by a positive but not trivial margin",
+      "metric": "margin",
+      "name": "coherence_margin"
+    },
+    {
+      "expected_signal": "tracked-entity structure stays explicit in the evaluation object",
+      "metric": "entity_grid_shape",
+      "name": "entity_grid_shape"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": []
+  },
+  "title": "Discourse Coherence"
+}

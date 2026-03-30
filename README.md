@@ -35,6 +35,7 @@ This deliverable is intentionally small-scale and pedagogical, but batch-by-batc
 - `scripts/generate_batch_b_artifacts.py` - Batch B fixture and eval-pack generator
 - `scripts/generate_batch_c_artifacts.py` - Batch C fixture and eval-pack generator
 - `scripts/generate_batch_d_artifacts.py` - Batch D fixture and eval-pack generator
+- `scripts/generate_batch_e_artifacts.py` - Batch E fixture and eval-pack generator
 - `tests/test_smoke.py` - contributor-facing local regression tests
 - `research/` - source mapping and packaging notes
 
@@ -52,6 +53,7 @@ python3 scripts/generate_batch_a_artifacts.py
 python3 scripts/generate_batch_b_artifacts.py
 python3 scripts/generate_batch_c_artifacts.py
 python3 scripts/generate_batch_d_artifacts.py
+python3 scripts/generate_batch_e_artifacts.py
 ```
 
 ## Coverage
@@ -85,7 +87,7 @@ Committed observability artifacts are local snapshot baselines. CircleCI job art
 
 Local regeneration now writes to `observability/local/`, while CircleCI writes to `observability/ci_latest/`.
 
-Batch packaging now covers `research/batches/batch_a_classical_foundations/`, `research/batches/batch_b_lm_and_seq_models/`, `research/batches/batch_c_speech/`, and `research/batches/batch_d_structure_and_ie/`. Each generated batch pack includes a batch manifest, per-chapter fixtures, and per-chapter eval packs.
+Batch packaging now covers `research/batches/batch_a_classical_foundations/`, `research/batches/batch_b_lm_and_seq_models/`, `research/batches/batch_c_speech/`, `research/batches/batch_d_structure_and_ie/`, and `research/batches/batch_e_discourse_and_dialogue/`. Each generated batch pack includes a batch manifest, per-chapter fixtures, and per-chapter eval packs.
 
 ## Citation
 

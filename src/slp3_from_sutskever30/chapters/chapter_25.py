@@ -57,7 +57,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_5_discourse_and_dialogue",
+        "batch": "batch_e_discourse_and_dialogue",
         "counterintuitive_insight": "Conversation systems fail harder on forgotten commitments than on mildly awkward wording. Commitment consistency should be optimized before response fluency.",
         "covered_claims": [
             "Chapter 25 now includes dialogue acts, turn-taking, grounding, repair signals, and commitment memory.",
@@ -82,6 +82,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Track dialogue acts, turn-taking, grounding, repairs, and commitments in one conversation state object.",
+            "Measure commitment consistency as a conversation-level metric.",
+            "Show why local act prediction is insufficient for dialogue quality.",
+        ],
+        core_algorithms=["dialogue state accumulation", "dialogue act scoring", "turn-taking statistics", "repair tracking", "commitment consistency checking"],
+        minimal_dataset={"turn_count": len(fixture["turns"]), "speaker_count": 2, "act_count": len(outputs["act_vocab"])},
+        reference_experiments=[
+            {"name": "dialogue_act_accuracy", "metric": "dialogue_act_accuracy", "expected_signal": "local act recognition can be high even when global dialogue state is fragile"},
+            {"name": "commitment_consistency", "metric": "commitment_consistency", "expected_signal": "conversation quality depends on maintaining commitments over turns"},
+        ],
+        book_vs_repo_gap="This chapter is faithful in dialogue-state and commitment tracking, but still omits long-context memory retrieval and multi-session conversation modeling.",
     )
 
 

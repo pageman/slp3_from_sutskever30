@@ -1,0 +1,59 @@
+{
+  "turns": [
+    {
+      "act": "request",
+      "commit": [
+        "refund",
+        "requested"
+      ],
+      "grounded": true,
+      "speaker": "user"
+    },
+    {
+      "act": "inform",
+      "commit": [
+        "refund",
+        "approved"
+      ],
+      "grounded": true,
+      "speaker": "agent"
+    },
+    {
+      "act": "confirm",
+      "check": [
+        "refund",
+        "approved"
+      ],
+      "grounded": true,
+      "speaker": "user"
+    },
+    {
+      "act": "repair",
+      "commit": [
+        "delivery_date",
+        "tomorrow"
+      ],
+      "grounded": false,
+      "repair": true,
+      "speaker": "agent"
+    },
+    {
+      "act": "question",
+      "check": [
+        "delivery_date",
+        "tomorrow"
+      ],
+      "grounded": true,
+      "speaker": "user"
+    },
+    {
+      "act": "inform",
+      "commit": [
+        "delivery_date",
+        "tomorrow"
+      ],
+      "grounded": true,
+      "speaker": "agent"
+    }
+  ]
+}

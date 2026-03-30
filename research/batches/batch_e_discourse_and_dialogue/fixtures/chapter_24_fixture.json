@@ -1,0 +1,38 @@
+{
+  "document": [
+    [
+      "The",
+      "agent",
+      "opened",
+      "the",
+      "case"
+    ],
+    [
+      "The",
+      "customer",
+      "described",
+      "the",
+      "delay"
+    ],
+    [
+      "The",
+      "agent",
+      "offered",
+      "a",
+      "refund"
+    ],
+    [
+      "The",
+      "customer",
+      "accepted",
+      "the",
+      "refund"
+    ]
+  ],
+  "tracked_entities": [
+    "agent",
+    "customer",
+    "refund",
+    "delay"
+  ]
+}

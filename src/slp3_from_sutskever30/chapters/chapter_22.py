@@ -58,7 +58,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_5_discourse_and_dialogue",
+        "batch": "batch_e_discourse_and_dialogue",
         "counterintuitive_insight": "The value of a lexicon is portability under domain shift, not just in-domain sentiment accuracy.",
         "covered_claims": [
             "Chapter 22 now induces a small lexicon and composes document scores across valence, arousal, dominance, and connotation.",
@@ -84,6 +84,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Induce a small affective lexicon from labeled text.",
+            "Compose document-level sentiment and connotation scores from token-level lexicon entries.",
+            "Measure portability under domain shift rather than only in-domain accuracy.",
+        ],
+        core_algorithms=["lexicon induction", "valence-arousal-dominance-connotation scoring", "negation-aware composition", "cross-domain evaluation"],
+        minimal_dataset={"train_size": len(fixture["train_texts"]), "in_domain_size": len(fixture["in_domain"]), "out_domain_size": len(fixture["out_domain"])},
+        reference_experiments=[
+            {"name": "in_vs_out_domain_accuracy", "metric": ["in_domain_accuracy", "out_domain_accuracy"], "expected_signal": "domain shift reduces sentiment portability"},
+            {"name": "portability_gap", "metric": "portability_gap", "expected_signal": "lexicon robustness should be judged by cross-domain degradation"},
+        ],
+        book_vs_repo_gap="This chapter is faithful in lexicon induction and composition, but still omits larger lexicon resources, semi-supervised induction, and richer phrase-structure composition.",
     )
 
 

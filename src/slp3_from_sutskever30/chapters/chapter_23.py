@@ -65,7 +65,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_4_span_graphs",
+        "batch": "batch_e_discourse_and_dialogue",
         "counterintuitive_insight": "The system should delay commitment longer than humans prefer. Linking evidence should be allowed to rewrite coreference hypotheses late.",
         "covered_claims": [
             "Chapter 23 now includes pair scoring, clustering, candidate retrieval, and late link revision.",
@@ -91,6 +91,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Score mention pairs for clustering and candidate entities for linking.",
+            "Show how late link revision can update earlier coreference assumptions.",
+            "Evaluate coreference and linking jointly instead of as isolated tasks.",
+        ],
+        core_algorithms=["pair scoring", "greedy clustering", "candidate retrieval", "cluster-aware late revision", "pairwise coreference F1"],
+        minimal_dataset={"mention_count": int(fixture["mention_doc_ids"].shape[0]), "gold_cluster_count": len(fixture["gold_clusters"]), "kb_entity_count": 4},
+        reference_experiments=[
+            {"name": "initial_vs_revised_linking", "metric": ["initial_link_accuracy", "revised_link_accuracy"], "expected_signal": "late revision can improve linking consistency"},
+            {"name": "coref_pair_metrics", "metric": "coref_pair_metrics", "expected_signal": "cluster quality should be tracked separately from entity-link accuracy"},
+        ],
+        book_vs_repo_gap="This chapter is faithful in joint clustering and linking logic, but still omits cross-document memory, richer mention encoders, and persistent entity indices.",
     )
 
 

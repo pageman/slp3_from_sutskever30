@@ -1,0 +1,29 @@
+{
+  "domain_labels": [
+    1,
+    0,
+    1
+  ],
+  "in_domain": [
+    "bright trust",
+    "angry delay",
+    "not bad support"
+  ],
+  "out_domain": [
+    "hero steady service",
+    "fraud slow refund",
+    "very calm agent"
+  ],
+  "train_labels": [
+    1,
+    0,
+    1,
+    0
+  ],
+  "train_texts": [
+    "bright hero calm trust",
+    "angry fraud delay bad",
+    "steady bright support",
+    "furious delay fraud"
+  ]
+}

@@ -60,7 +60,7 @@ def failure_cases(fixture: dict[str, object], outputs: dict[str, object]) -> lis
 
 def chapter_notes() -> dict[str, object]:
     return {
-        "batch": "batch_5_discourse_and_dialogue",
+        "batch": "batch_e_discourse_and_dialogue",
         "counterintuitive_insight": "Discourse models should be judged on near-correct documents, not obvious incoherence. Robustness to tiny perturbations matters more than easy binary wins.",
         "covered_claims": [
             "Chapter 24 now includes entity-grid and sentence-ordering style coherence evaluation.",
@@ -84,6 +84,18 @@ def run_chapter() -> dict[str, object]:
         failure_modes=failure_cases(fixture, outputs),
         chapter_notes=chapter_notes(),
         sources={"source_papers": [], "derivation_lineage": ["pageman/sutskever-30-implementations", "pageman/sutskever-30-beyond-numpy"]},
+        lesson_objectives=[
+            "Model coherence with both entity-grid structure and sentence-order signals.",
+            "Compare coherent and minimally perturbed documents directly.",
+            "Treat small coherence margins as the central difficulty, not easy nonsense detection.",
+        ],
+        core_algorithms=["entity-grid construction", "sentence-order perturbation", "coherence scoring", "margin-based discourse comparison"],
+        minimal_dataset={"sentence_count": len(fixture["document"]), "tracked_entity_count": len(fixture["tracked_entities"])},
+        reference_experiments=[
+            {"name": "coherence_margin", "metric": "margin", "expected_signal": "coherent document should outscore perturbed ordering by a positive but not trivial margin"},
+            {"name": "entity_grid_shape", "metric": "entity_grid_shape", "expected_signal": "tracked-entity structure stays explicit in the evaluation object"},
+        ],
+        book_vs_repo_gap="This chapter is faithful in entity-grid and perturbation-style coherence testing, but still omits discourse relation parsing and larger document encoders.",
     )
 
 

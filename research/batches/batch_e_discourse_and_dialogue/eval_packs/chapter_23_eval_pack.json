@@ -1,0 +1,107 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful in joint clustering and linking logic, but still omits cross-document memory, richer mention encoders, and persistent entity indices.",
+  "chapter": "23",
+  "chapter_notes": {
+    "batch": "batch_e_discourse_and_dialogue",
+    "counterintuitive_insight": "The system should delay commitment longer than humans prefer. Linking evidence should be allowed to rewrite coreference hypotheses late.",
+    "covered_claims": [
+      "Chapter 23 now includes pair scoring, clustering, candidate retrieval, and late link revision.",
+      "Coreference and linking are evaluated jointly instead of as separate islands."
+    ],
+    "omitted_claims": [
+      "No external memory persistence yet.",
+      "No cross-document retrieval index yet."
+    ]
+  },
+  "core_algorithms": [
+    "pair scoring",
+    "greedy clustering",
+    "candidate retrieval",
+    "cluster-aware late revision",
+    "pairwise coreference F1"
+  ],
+  "failure_modes": [
+    {
+      "case": "late_linking_revision_changes_entity_hypotheses",
+      "initial_links": [
+        2,
+        3,
+        3,
+        3,
+        0,
+        1
+      ],
+      "revised_links": [
+        1,
+        3,
+        3,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "case": "early_clustering_can_lock_in_wrong_links",
+      "clusters": [
+        [
+          0,
+          3,
+          5
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ]
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Score mention pairs for clustering and candidate entities for linking.",
+    "Show how late link revision can update earlier coreference assumptions.",
+    "Evaluate coreference and linking jointly instead of as isolated tasks."
+  ],
+  "metrics": {
+    "cluster_count": 4,
+    "coref_pair_metrics": {
+      "f1": 0.4,
+      "precision": 0.3333333333333333,
+      "recall": 0.5
+    },
+    "initial_link_accuracy": 0.0,
+    "revised_link_accuracy": 0.0
+  },
+  "minimal_dataset": {
+    "gold_cluster_count": 4,
+    "kb_entity_count": 4,
+    "mention_count": 6
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "late revision can improve linking consistency",
+      "metric": [
+        "initial_link_accuracy",
+        "revised_link_accuracy"
+      ],
+      "name": "initial_vs_revised_linking"
+    },
+    {
+      "expected_signal": "cluster quality should be tracked separately from entity-link accuracy",
+      "metric": "coref_pair_metrics",
+      "name": "coref_pair_metrics"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": []
+  },
+  "title": "Coreference Resolution and Entity Linking"
+}

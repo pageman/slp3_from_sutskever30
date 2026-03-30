@@ -1,0 +1,78 @@
+{
+  "book_vs_repo_gap": "This chapter is faithful in lexicon induction and composition, but still omits larger lexicon resources, semi-supervised induction, and richer phrase-structure composition.",
+  "chapter": "22",
+  "chapter_notes": {
+    "batch": "batch_e_discourse_and_dialogue",
+    "counterintuitive_insight": "The value of a lexicon is portability under domain shift, not just in-domain sentiment accuracy.",
+    "covered_claims": [
+      "Chapter 22 now induces a small lexicon and composes document scores across valence, arousal, dominance, and connotation.",
+      "Evaluation reports in-domain and cross-domain behavior separately."
+    ],
+    "omitted_claims": [
+      "No semi-supervised lexicon induction yet.",
+      "No phrase-structure composition yet."
+    ]
+  },
+  "core_algorithms": [
+    "lexicon induction",
+    "valence-arousal-dominance-connotation scoring",
+    "negation-aware composition",
+    "cross-domain evaluation"
+  ],
+  "failure_modes": [
+    {
+      "case": "domain_shift_changes_token_priors",
+      "note": "A lexicon that works in-domain can degrade when new domain words are unseen."
+    },
+    {
+      "case": "composition_rules_matter",
+      "example": "not bad support",
+      "score": [
+        1.0,
+        0.1,
+        -0.2,
+        0.0
+      ]
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Induce a small affective lexicon from labeled text.",
+    "Compose document-level sentiment and connotation scores from token-level lexicon entries.",
+    "Measure portability under domain shift rather than only in-domain accuracy."
+  ],
+  "metrics": {
+    "in_domain_accuracy": 1.0,
+    "lexicon_size": 11,
+    "out_domain_accuracy": 1.0,
+    "portability_gap": 0.0
+  },
+  "minimal_dataset": {
+    "in_domain_size": 3,
+    "out_domain_size": 3,
+    "train_size": 4
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "domain shift reduces sentiment portability",
+      "metric": [
+        "in_domain_accuracy",
+        "out_domain_accuracy"
+      ],
+      "name": "in_vs_out_domain_accuracy"
+    },
+    {
+      "expected_signal": "lexicon robustness should be judged by cross-domain degradation",
+      "metric": "portability_gap",
+      "name": "portability_gap"
+    }
+  ],
+  "sources": {
+    "derivation_lineage": [
+      "pageman/sutskever-30-implementations",
+      "pageman/sutskever-30-beyond-numpy"
+    ],
+    "source_papers": []
+  },
+  "title": "Lexicons for Sentiment, Affect, and Connotation"
+}
