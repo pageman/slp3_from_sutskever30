@@ -64,6 +64,8 @@ Committed observability artifacts:
 - `observability/verification.json`
 - `observability/verification.yaml`
 - `observability/verification.sqlite`
+- `observability/circleci_run.json`
+- `observability/circleci_run.sqlite`
 
 ## Citation
 

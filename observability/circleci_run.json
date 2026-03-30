@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-03-30T09:43:35.234857+00:00",
+  "run_count": 1,
+  "runs": [
+    {
+      "branch": "",
+      "build_num": "",
+      "build_url": "",
+      "ci_platform": "circleci",
+      "job": "",
+      "pipeline_id": "",
+      "pipeline_number": "",
+      "project_reponame": "",
+      "project_username": "",
+      "pull_request": "",
+      "pull_requests": [],
+      "runner_os": "",
+      "sha1": "",
+      "vcs_type": "",
+      "workflow_id": "",
+      "workflow_job_id": ""
+    }
+  ],
+  "schema_version": 1
+}

@@ -23,6 +23,9 @@ jobs:
       - run:
           name: Generate Verification Artifacts
           command: python3 scripts/generate_verification_status.py --run-checks
+      - run:
+          name: Generate CircleCI Run Artifacts
+          command: python3 scripts/generate_circleci_artifacts.py
       - store_artifacts:
           path: observability
           destination: observability
