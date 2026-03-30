@@ -26,7 +26,7 @@ class CommandResult:
 
 def run_command(command: str) -> CommandResult:
     completed = subprocess.run(
-        [sys.executable, "-c", command] if command.startswith("import ") else ["/bin/zsh", "-lc", command],
+        [sys.executable, "-c", command] if command.startswith("import ") else ["/bin/sh", "-lc", command],
         cwd=ROOT,
         capture_output=True,
         text=True,
