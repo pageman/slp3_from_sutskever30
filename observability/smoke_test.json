@@ -359,49 +359,66 @@
       "title": "Conversation and its Structure"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "A",
       "payload_keys": [
         "chapter",
-        "states",
-        "tags"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Hidden Markov Models"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "B",
       "payload_keys": [
         "chapter",
-        "prediction",
-        "vocab_size"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Naive Bayes Classification"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "C",
       "payload_keys": [
         "chapter",
-        "support_size",
-        "top_predictions"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Kneser-Ney Smoothing"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "D",
       "payload_keys": [
         "chapter",
-        "correction"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Spelling Correction and the Noisy Channel"
     }
   ],
-  "timestamp_utc": "2026-03-30T08:39:49.461723+00:00",
+  "timestamp_utc": "2026-03-30T08:44:55.269841+00:00",
   "unexpected_chapters": []
 }

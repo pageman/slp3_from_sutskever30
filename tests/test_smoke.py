@@ -155,3 +155,19 @@ def test_batch_five_discourse_chapters_expose_standard_contract_payload() -> Non
             "chapter_notes",
             "sources",
         }
+
+
+def test_appendix_chapters_expose_standard_contract_payload() -> None:
+    chapter_map = {spec.key: spec for spec in get_chapters()}
+    for key in ("A", "B", "C", "D"):
+        payload = chapter_map[key].runner()
+        assert chapter_map[key].implementation_status == "FULL"
+        assert set(payload) >= {
+            "chapter",
+            "implementation_status",
+            "core_outputs",
+            "metrics",
+            "failure_modes",
+            "chapter_notes",
+            "sources",
+        }

@@ -35,10 +35,10 @@ Current survey:
 | 23 | `FULL` | - | Full span-graph batch with clustering, candidate retrieval, and late linking revision |
 | 24 | `FULL` | - | Full discourse batch with entity-grid, perturbation-based coherence scoring, and near-correct document evaluation |
 | 25 | `FULL` | - | Full dialogue batch with dialogue acts, repair, grounding, and commitment-consistency evaluation |
-| A | `SCAFFOLDED` | - | Lite HMM appendix chapter |
-| B | `SCAFFOLDED` | - | Lite Naive Bayes appendix chapter |
-| C | `SCAFFOLDED` | - | Lite Kneser-Ney appendix chapter |
-| D | `SCAFFOLDED` | - | Lite spelling-correction appendix chapter |
+| A | `FULL` | - | Full appendix batch with forward-backward, posterior marginals, and one Baum-Welch update |
+| B | `FULL` | - | Full appendix batch with Bernoulli vs multinomial Naive Bayes and calibration diagnostics |
+| C | `FULL` | - | Full appendix batch with recursive Kneser-Ney continuation estimation and perplexity comparison |
+| D | `FULL` | - | Full appendix batch with learned confusion estimates and noisy-channel reranking |
 
 Orphan audit result:
 
