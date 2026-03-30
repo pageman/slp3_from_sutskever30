@@ -26,11 +26,11 @@ Current survey:
 | 14 | `FULL` | - | Full batch-3 DSP chapter with pre-emphasis, mel, deltas, CMVN, and alignment-entropy diagnostics |
 | 15 | `FULL` | 21 | Full batch-3 ASR chapter with DSP frontend hooks, CTC-like loss separation, and beam/alignment diagnostics |
 | 16 | `FULL` | - | Full batch-3 TTS chapter with normalization, G2P, durations, attention alignment, and teacher-forcing gap metrics |
-| 17 | `SCAFFOLDED` | - | Lite sequence-labeling chapter |
+| 17 | `FULL` | - | Full structured-prediction batch with constrained BIO decoding and boundary-sensitive metrics |
 | 18 | `SCAFFOLDED` | - | Lite CKY/chart parsing chapter |
 | 19 | `SCAFFOLDED` | - | Lite dependency parsing chapter |
 | 20 | `SCAFFOLDED` | - | Lite IE/relation chapter |
-| 21 | `SCAFFOLDED` | - | Lite semantic-role-labeling chapter |
+| 21 | `FULL` | - | Full structured-prediction batch with predicate-conditioned role scoring and constrained role decoding |
 | 22 | `SCAFFOLDED` | - | Lite sentiment/affect lexicon chapter |
 | 23 | `SCAFFOLDED` | - | Lite coreference/entity-linking chapter |
 | 24 | `SCAFFOLDED` | - | Lite discourse-coherence chapter |

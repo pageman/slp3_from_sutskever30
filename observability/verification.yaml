@@ -1,6 +1,6 @@
 schema_version: 1
-generated_at: "2026-03-30T08:00:50.207020+00:00"
-checked_commit: "573fd06889f3e7c4c81ff79ae66a26d1d007be41"
+generated_at: "2026-03-30T08:05:59.497679+00:00"
+checked_commit: "b40d92c89dda5ee1a463e52f788892d56592c96d"
 git_branch: "main"
 repo_checks:
   smoke_test:
@@ -206,12 +206,16 @@ chapters:
         - "sources"
   - key: "17"
     title: "Sequence Labeling for Parts of Speech and Named Entities"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "decoded_tags_shape"
-        - "tag_logits_shape"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "18"
     title: "Context-Free Grammars and Constituency Parsing"
     implementation_status: "SCAFFOLDED"
@@ -238,11 +242,16 @@ chapters:
         - "relation_logits_shape"
   - key: "21"
     title: "Semantic Role Labeling and Argument Structure"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "role_logits_shape"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "22"
     title: "Lexicons for Sentiment, Affect, and Connotation"
     implementation_status: "SCAFFOLDED"

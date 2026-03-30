@@ -224,12 +224,16 @@
       "title": "Text-to-Speech"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "17",
       "payload_keys": [
         "chapter",
-        "decoded_tags_shape",
-        "tag_logits_shape"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Sequence Labeling for Parts of Speech and Named Entities"
@@ -268,11 +272,16 @@
       "title": "Information Extraction: Relations, Events, and Time"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "21",
       "payload_keys": [
         "chapter",
-        "role_logits_shape"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Semantic Role Labeling and Argument Structure"
@@ -366,6 +375,6 @@
       "title": "Spelling Correction and the Noisy Channel"
     }
   ],
-  "timestamp_utc": "2026-03-30T08:00:47.808551+00:00",
+  "timestamp_utc": "2026-03-30T08:05:57.193825+00:00",
   "unexpected_chapters": []
 }
