@@ -45,6 +45,7 @@ python3 -m pytest
 All runners are NumPy-only and executable. They are toy reimplementations, not full-scale reproductions of the textbook or original papers.
 
 See [research/CHAPTER_SURVEY.md](./research/CHAPTER_SURVEY.md) for the per-chapter survey and orphan audit.
+See [research/FULL_IMPLEMENTATION_MARCH2026.md](./research/FULL_IMPLEMENTATION_MARCH2026.md) for the March 2026 full-implementation blueprint for all `SCAFFOLDED` chapters.
 
 ## Citation
 
