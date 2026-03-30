@@ -105,24 +105,31 @@
       "title": "Transformers"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "9",
       "payload_keys": [
         "chapter",
-        "preference_loss",
-        "search_trace_shape",
-        "sft_loss"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Post-training: Instruction Tuning, Alignment, and Test-Time Compute"
     },
     {
-      "implementation_status": "SCAFFOLDED",
+      "implementation_status": "FULL",
       "key": "10",
       "payload_keys": [
         "chapter",
-        "loss",
-        "masked_logits_shape"
+        "chapter_notes",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "metrics",
+        "sources"
       ],
       "source_papers": [],
       "title": "Masked Language Models"
@@ -348,6 +355,6 @@
       "title": "Spelling Correction and the Noisy Channel"
     }
   ],
-  "timestamp_utc": "2026-03-30T07:47:24.882194+00:00",
+  "timestamp_utc": "2026-03-30T07:52:25.778839+00:00",
   "unexpected_chapters": []
 }

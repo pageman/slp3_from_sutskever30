@@ -18,8 +18,8 @@ Current survey:
 | 6 | `FULL` | - | Full batch-1 neural network chapter with baseline comparison and representation-health metrics |
 | 7 | `DIRECT` | 27 | Direct lineage from multi-token prediction |
 | 8 | `DIRECT` | 13 | Direct lineage from transformer attention |
-| 9 | `SCAFFOLDED` | - | Lite post-training objective demo |
-| 10 | `SCAFFOLDED` | - | Lite masked-language-model demo |
+| 9 | `FULL` | - | Full batch-2 post-training chapter with SFT, pairwise preferences, verifier reranking, and budget traces |
+| 10 | `FULL` | - | Full batch-2 masked-LM chapter with dynamic masking policies, encoder stack, and probe metrics |
 | 11 | `ADAPTED` | 28,29 | Combined dense retrieval and RAG chapter |
 | 12 | `ADAPTED` | 14 | Adapted additive-attention MT chapter |
 | 13 | `ADAPTED` | 2,3 | Adapted RNN/LSTM chapter |

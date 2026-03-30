@@ -1,6 +1,6 @@
 schema_version: 1
-generated_at: "2026-03-30T07:47:27.864920+00:00"
-checked_commit: "c479386ae266c68b4c92ac2bd2280b666e5a2ed5"
+generated_at: "2026-03-30T07:52:28.085978+00:00"
+checked_commit: "04a424fbadb89ca1546a3273cef5979f7d387131"
 git_branch: "main"
 repo_checks:
   smoke_test:
@@ -115,21 +115,28 @@ chapters:
         - "loss"
   - key: "9"
     title: "Post-training: Instruction Tuning, Alignment, and Test-Time Compute"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "preference_loss"
-        - "search_trace_shape"
-        - "sft_loss"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "10"
     title: "Masked Language Models"
-    implementation_status: "SCAFFOLDED"
+    implementation_status: "FULL"
     source_papers:
     payload_keys:
         - "chapter"
-        - "loss"
-        - "masked_logits_shape"
+        - "chapter_notes"
+        - "core_outputs"
+        - "failure_modes"
+        - "implementation_status"
+        - "metrics"
+        - "sources"
   - key: "11"
     title: "Information Retrieval and Retrieval-Augmented Generation"
     implementation_status: "ADAPTED"
