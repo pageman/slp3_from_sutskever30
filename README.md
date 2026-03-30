@@ -1,5 +1,10 @@
 # SLP3 From Sutskever30
 
+[![Pytest](https://github.com/pageman/slp3_from_sutskever30/actions/workflows/pytest.yml/badge.svg)](https://github.com/pageman/slp3_from_sutskever30/actions/workflows/pytest.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](./pyproject.toml)
+[![NumPy Only](https://img.shields.io/badge/Backend-NumPy%20Only-orange.svg)](./src/slp3_from_sutskever30/numpy_chapters.py)
+
 NumPy-only toy reimplementations of the Stanford *Speech and Language Processing* third-edition draft chapters, assembled into a standalone package and derived from local work based on:
 
 - `pageman/sutskever-30-implementations`
@@ -33,3 +38,7 @@ python3 -m pytest
 - Appendices: `A-D`
 
 All runners are NumPy-only and executable. They are toy reimplementations, not full-scale reproductions of the textbook or original papers.
+
+## Citation
+
+If you use this repository, cite the project metadata in [CITATION.cff](./CITATION.cff).

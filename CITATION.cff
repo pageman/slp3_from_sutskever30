@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it using the metadata below."
+title: "SLP3 From Sutskever30"
+type: software
+authors:
+  - family-names: "Pajo"
+    given-names: "Paul"
+    alias: "The Pageman"
+    email: "pageman@gmail.com"
+repository-code: "https://github.com/pageman/slp3_from_sutskever30"
+url: "https://github.com/pageman/slp3_from_sutskever30"
+license: "MIT"
+version: "0.1.0"
+date-released: "2026-03-30"
+abstract: "NumPy-only toy reimplementations of Stanford SLP3 chapters derived from local Sutskever-30 implementation work."
+keywords:
+  - "nlp"
+  - "speech-and-language-processing"
+  - "numpy"
+  - "educational"
+  - "transformers"
+  - "language-models"
