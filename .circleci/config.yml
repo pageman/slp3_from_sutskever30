@@ -27,8 +27,26 @@ jobs:
           name: Generate CircleCI Run Artifacts
           command: python3 scripts/generate_circleci_artifacts.py
       - store_artifacts:
-          path: observability
-          destination: observability
+          path: observability/smoke_test.json
+          destination: observability/smoke_test.json
+      - store_artifacts:
+          path: observability/smoke_test.sqlite
+          destination: observability/smoke_test.sqlite
+      - store_artifacts:
+          path: observability/verification.json
+          destination: observability/verification.json
+      - store_artifacts:
+          path: observability/verification.yaml
+          destination: observability/verification.yaml
+      - store_artifacts:
+          path: observability/verification.sqlite
+          destination: observability/verification.sqlite
+      - store_artifacts:
+          path: observability/circleci_run.json
+          destination: observability/circleci_run.json
+      - store_artifacts:
+          path: observability/circleci_run.sqlite
+          destination: observability/circleci_run.sqlite
 
 workflows:
   ci:
