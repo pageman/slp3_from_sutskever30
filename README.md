@@ -1,6 +1,6 @@
 # SLP3 From Sutskever30
 
-[![Pytest](https://github.com/pageman/slp3_from_sutskever30/actions/workflows/pytest.yml/badge.svg)](https://github.com/pageman/slp3_from_sutskever30/actions/workflows/pytest.yml)
+[![Smoke Tested](https://img.shields.io/badge/Smoke-Tested%20Locally-brightgreen.svg)](./research/SMOKE_TEST_STATUS.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](./pyproject.toml)
 [![NumPy Only](https://img.shields.io/badge/Backend-NumPy%20Only-orange.svg)](./src/slp3_from_sutskever30/numpy_chapters.py)
@@ -24,7 +24,8 @@ This deliverable is intentionally small-scale and pedagogical:
 
 - `src/slp3_from_sutskever30/` - package code
 - `scripts/run_slp3.py` - CLI to list and run chapters
-- `tests/test_smoke.py` - smoke tests over all chapter runners
+- `scripts/smoke_test.py` - repository-local smoke runner over all chapter entries
+- `tests/test_smoke.py` - contributor-facing local regression tests
 - `research/` - source mapping and packaging notes
 
 ## Quick Start
@@ -33,7 +34,7 @@ This deliverable is intentionally small-scale and pedagogical:
 cd /Users/hifi/Downloads/slp3_from_sutskever30
 python3 scripts/run_slp3.py --list
 python3 scripts/run_slp3.py --chapter 8
-python3 -m pytest
+python3 scripts/smoke_test.py
 ```
 
 ## Coverage
@@ -46,6 +47,8 @@ All runners are NumPy-only and executable. They are toy reimplementations, not f
 
 See [research/CHAPTER_SURVEY.md](./research/CHAPTER_SURVEY.md) for the per-chapter survey and orphan audit.
 See [research/FULL_IMPLEMENTATION_MARCH2026.md](./research/FULL_IMPLEMENTATION_MARCH2026.md) for the March 2026 full-implementation blueprint for all `SCAFFOLDED` chapters.
+See [research/IMPLEMENTATION_BACKLOG_MARCH2026.md](./research/IMPLEMENTATION_BACKLOG_MARCH2026.md) for the concrete upgrade backlog and the GitHub Actions failure diagnosis.
+See [research/SMOKE_TEST_STATUS.md](./research/SMOKE_TEST_STATUS.md) for the billing-independent smoke-test status.
 
 ## Citation
 
