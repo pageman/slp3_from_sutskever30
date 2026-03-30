@@ -49,7 +49,7 @@ The method evolved through five large moves:
    Give every chapter a shared payload structure so they can be compared, tested, packaged, and audited consistently.
 
 4. **Batch packaging**
-   Group chapters into coherent families `A-E`, then generate fixtures, eval packs, and batch manifests for each family.
+   Group chapters into coherent families `A-F`, then generate fixtures, eval packs, and batch manifests for each family.
 
 5. **Verification duality**
    Separate local reproducibility from CI-truth:
@@ -73,17 +73,17 @@ The first act is territorial, not philosophical.
 
 The project had to answer a basic legitimacy question:
 
-- are all the targeted SLP3 chapters actually present
+- are all the targeted SLP3 chapters and appendices actually present
 
-At this point, breadth mattered more than elegance. The project needed complete chapter coverage before any claim about research coherence or textbook faithfulness could be taken seriously.
+At this point, breadth mattered more than elegance. The project needed complete chapter and appendix coverage before any claim about research coherence or textbook faithfulness could be taken seriously.
 
 ### Method Box
 
 Technical move:
 
 - create chapter entries for the expected SLP3 scope:
-  - chapters `2-25`
-  - appendices `A-D`
+  - chapters `1-25`
+  - appendices `A-K`
 
 Artifacts produced:
 
@@ -240,13 +240,14 @@ Research meaning:
 
 Once the contract existed, the repo could stop thinking chapter-by-chapter and start thinking family-by-family.
 
-That produced five research families:
+That produced six research families:
 
 - **Batch A**: classical foundations
 - **Batch B**: language models and sequence models
 - **Batch C**: speech
 - **Batch D**: structure and information extraction
 - **Batch E**: discourse and dialogue
+- **Batch F**: web appendices
 
 The narrative significance of batching is that it creates intelligible research units larger than a single chapter but smaller than the whole repo.
 
@@ -267,6 +268,7 @@ Artifacts produced:
 - `research/batches/batch_c_speech/`
 - `research/batches/batch_d_structure_and_ie/`
 - `research/batches/batch_e_discourse_and_dialogue/`
+- `research/batches/batch_f_web_appendices/`
 
 Verification logic:
 
@@ -381,9 +383,9 @@ It shows that classical NLP and the probabilistic appendices can be represented 
 
 ### Method Box: Batch A
 
-- focus: chapters `2-6`, `A-D`
+- focus: chapter `1`, chapters `2-6`, `A-D`
 - role: reference-quality family
-- contribution: strongest bridge between textbook method and NumPy feasibility
+- contribution: strongest bridge between textbook method and NumPy feasibility, now anchored by an executable introductory chapter
 
 ### Story Box: Batch B
 
@@ -437,6 +439,18 @@ It shows that the highest-level language tasks depend on what persists across to
 - focus: chapters `22-25`
 - role: discourse and dialogue family
 - contribution: portability, coherence margins, and commitment consistency are made operational
+
+### Story Box: Batch F
+
+Batch F establishes closure.
+
+It removes the last structural mismatch with the live Stanford web table of contents by bringing the web-only appendices into the same contract, packaging, and verification regime as the rest of the repo.
+
+### Method Box: Batch F
+
+- focus: appendices `E-K`
+- role: web-appendix family
+- contribution: extends the repo into statistical parsing, formal grammar, CCG, logic, WordNet/WSD, standalone PPMI, and frame-based dialogue tracking
 
 ---
 

@@ -27,6 +27,13 @@ from slp3_from_sutskever30.chapters.chapter_A import SPEC as CHAPTER_A
 from slp3_from_sutskever30.chapters.chapter_B import SPEC as CHAPTER_B
 from slp3_from_sutskever30.chapters.chapter_C import SPEC as CHAPTER_C
 from slp3_from_sutskever30.chapters.chapter_D import SPEC as CHAPTER_D
+from slp3_from_sutskever30.chapters.chapter_E import SPEC as CHAPTER_E
+from slp3_from_sutskever30.chapters.chapter_F import SPEC as CHAPTER_F
+from slp3_from_sutskever30.chapters.chapter_G import SPEC as CHAPTER_G
+from slp3_from_sutskever30.chapters.chapter_H import SPEC as CHAPTER_H
+from slp3_from_sutskever30.chapters.chapter_I import SPEC as CHAPTER_I
+from slp3_from_sutskever30.chapters.chapter_J import SPEC as CHAPTER_J
+from slp3_from_sutskever30.chapters.chapter_K import SPEC as CHAPTER_K
 
 ALL_CHAPTER_SPECS = (
     CHAPTER_01,
@@ -58,6 +65,13 @@ ALL_CHAPTER_SPECS = (
     CHAPTER_B,
     CHAPTER_C,
     CHAPTER_D,
+    CHAPTER_E,
+    CHAPTER_F,
+    CHAPTER_G,
+    CHAPTER_H,
+    CHAPTER_I,
+    CHAPTER_J,
+    CHAPTER_K,
 )
 
 __all__ = ["ALL_CHAPTER_SPECS"]

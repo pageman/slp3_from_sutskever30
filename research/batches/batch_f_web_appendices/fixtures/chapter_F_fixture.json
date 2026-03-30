@@ -1,0 +1,56 @@
+{
+  "accepted": [
+    "the",
+    "student",
+    "reads",
+    "a",
+    "book"
+  ],
+  "grammar": {
+    "Det": [
+      [
+        "the"
+      ],
+      [
+        "a"
+      ]
+    ],
+    "N": [
+      [
+        "student"
+      ],
+      [
+        "book"
+      ]
+    ],
+    "NP": [
+      [
+        "Det",
+        "N"
+      ]
+    ],
+    "S": [
+      [
+        "NP",
+        "VP"
+      ]
+    ],
+    "V": [
+      [
+        "reads"
+      ]
+    ],
+    "VP": [
+      [
+        "V",
+        "NP"
+      ]
+    ]
+  },
+  "rejected": [
+    "student",
+    "the",
+    "reads",
+    "book"
+  ]
+}

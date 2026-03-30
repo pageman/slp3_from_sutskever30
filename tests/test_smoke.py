@@ -13,7 +13,7 @@ from slp3_from_sutskever30.registry import (
 
 def test_all_chapters_run_and_return_chapter_key() -> None:
     chapters = get_chapters()
-    assert len(chapters) == 29
+    assert len(chapters) == 36
     for spec in chapters:
         payload = spec.runner()
         assert payload["chapter"] == spec.key
@@ -159,7 +159,7 @@ def test_batch_five_discourse_chapters_expose_standard_contract_payload() -> Non
 
 def test_appendix_chapters_expose_standard_contract_payload() -> None:
     chapter_map = {spec.key: spec for spec in get_chapters()}
-    for key in ("A", "B", "C", "D"):
+    for key in ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"):
         payload = chapter_map[key].runner()
         assert chapter_map[key].implementation_status == "FULL"
         assert set(payload) >= {

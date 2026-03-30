@@ -1,0 +1,59 @@
+{
+  "book_vs_repo_gap": "This appendix captures the core frame-state tracking story, but omits NLU parsing, action policy, and external knowledge-base interaction.",
+  "chapter": "K",
+  "chapter_notes": {
+    "batch": "batch_f_web_appendices",
+    "counterintuitive_insight": "Frame systems look simple until repair happens; then the core problem is memory overwriting, not slot extraction.",
+    "covered_claims": [
+      "This appendix complements chapter 25 with explicit frame-state tracking.",
+      "Repairs and confirmations are handled as state transitions."
+    ],
+    "omitted_claims": [
+      "No learned NLU front-end.",
+      "No policy optimization or database querying layer."
+    ]
+  },
+  "core_algorithms": [
+    "slot-state tracking",
+    "repair overwrite handling",
+    "confirmation counting",
+    "frame-state evaluation"
+  ],
+  "failure_modes": [
+    {
+      "case": "frame_systems_depend_on_ontology",
+      "note": "Anything outside the predefined slot set is invisible to a frame tracker."
+    },
+    {
+      "case": "repairs_need_memory",
+      "note": "A frame system fails if it cannot overwrite stale slot values after repair.",
+      "state": {
+        "area": "downtown",
+        "food": "sushi"
+      }
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Track slot-value state across dialogue turns.",
+    "Handle confirmation and repair explicitly.",
+    "Show how frame-based systems differ from broader dialogue structure modeling."
+  ],
+  "metrics": {
+    "confirmation_count": 2.0,
+    "repair_count": 1.0,
+    "slot_accuracy": 1.0
+  },
+  "minimal_dataset": {
+    "gold_slot_count": 2,
+    "turn_count": 5
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "repairs update the final slot state correctly",
+      "metric": "slot_accuracy",
+      "name": "frame_state_accuracy"
+    }
+  ],
+  "title": "Frame-based Dialogue Systems"
+}

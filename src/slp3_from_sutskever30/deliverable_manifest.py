@@ -40,6 +40,13 @@ AUDIT_CLASS_BY_KEY = {
     "B": "method match",
     "C": "method match",
     "D": "method match",
+    "E": "method match",
+    "F": "method match",
+    "G": "method match",
+    "H": "method match",
+    "I": "method match",
+    "J": "method match",
+    "K": "method match",
 }
 
 FEASIBILITY_BY_KEY = {
@@ -72,6 +79,13 @@ FEASIBILITY_BY_KEY = {
     "B": "fully feasible in NumPy",
     "C": "fully feasible in NumPy",
     "D": "fully feasible in NumPy",
+    "E": "fully feasible in NumPy",
+    "F": "fully feasible in NumPy",
+    "G": "fully feasible in NumPy",
+    "H": "fully feasible in NumPy",
+    "I": "fully feasible in NumPy",
+    "J": "fully feasible in NumPy",
+    "K": "fully feasible in NumPy",
 }
 
 BATCH_BY_KEY = {
@@ -104,6 +118,13 @@ BATCH_BY_KEY = {
     "23": "batch_e_discourse_and_dialogue",
     "24": "batch_e_discourse_and_dialogue",
     "25": "batch_e_discourse_and_dialogue",
+    "E": "batch_f_web_appendices",
+    "F": "batch_f_web_appendices",
+    "G": "batch_f_web_appendices",
+    "H": "batch_f_web_appendices",
+    "I": "batch_f_web_appendices",
+    "J": "batch_f_web_appendices",
+    "K": "batch_f_web_appendices",
 }
 
 
@@ -164,6 +185,10 @@ def build_deliverable_manifest() -> dict[str, object]:
             "batch_e_discourse_and_dialogue": {
                 "chapters": ["22", "23", "24", "25"],
                 "folder": "research/batches/batch_e_discourse_and_dialogue",
+            },
+            "batch_f_web_appendices": {
+                "chapters": ["E", "F", "G", "H", "I", "J", "K"],
+                "folder": "research/batches/batch_f_web_appendices",
             },
         },
         "chapters": chapters,

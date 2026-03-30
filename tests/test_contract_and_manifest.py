@@ -8,6 +8,7 @@ from slp3_from_sutskever30.batch_b_artifacts import build_batch_b_payload
 from slp3_from_sutskever30.batch_c_artifacts import build_batch_c_payload
 from slp3_from_sutskever30.batch_d_artifacts import build_batch_d_payload
 from slp3_from_sutskever30.batch_e_artifacts import build_batch_e_payload
+from slp3_from_sutskever30.batch_f_artifacts import build_batch_f_payload
 from slp3_from_sutskever30.chapter_contract import REQUIRED_CHAPTER_FIELDS, normalize_chapter_payload
 from slp3_from_sutskever30.deliverable_manifest import build_deliverable_manifest, render_deliverable_manifest
 from slp3_from_sutskever30.observability_paths import get_observability_dir
@@ -28,12 +29,13 @@ def test_all_chapters_normalize_to_contract() -> None:
 
 def test_deliverable_manifest_covers_all_registered_chapters() -> None:
     payload = build_deliverable_manifest()
-    assert payload["chapter_count"] == 29
-    assert len(payload["chapters"]) == 29
+    assert payload["chapter_count"] == 36
+    assert len(payload["chapters"]) == 36
     assert any(item["batch"] == "introductory_overview" for item in payload["chapters"])
     assert any(item["batch"] == "batch_a_classical_foundations" for item in payload["chapters"])
+    assert any(item["batch"] == "batch_f_web_appendices" for item in payload["chapters"])
     rendered = render_deliverable_manifest(payload)
-    assert json.loads(rendered)["chapter_count"] == 29
+    assert json.loads(rendered)["chapter_count"] == 36
 
 
 def test_local_observability_dir_is_separate_from_ci_root(monkeypatch, tmp_path: Path) -> None:
@@ -50,6 +52,7 @@ def test_batch_a_folder_exists() -> None:
     assert (root / "research" / "batches" / "batch_c_speech" / "README.md").exists()
     assert (root / "research" / "batches" / "batch_d_structure_and_ie" / "README.md").exists()
     assert (root / "research" / "batches" / "batch_e_discourse_and_dialogue" / "README.md").exists()
+    assert (root / "research" / "batches" / "batch_f_web_appendices" / "README.md").exists()
 
 
 def test_batch_a_chapters_populate_rich_contract_fields() -> None:
@@ -195,3 +198,32 @@ def test_batch_e_payload_contains_real_fixture_and_eval_pack_entries() -> None:
     assert sorted(payload["eval_packs"]) == ["22", "23", "24", "25"]
     assert payload["eval_packs"]["22"]["lesson_objectives"]
     assert payload["eval_packs"]["25"]["reference_experiments"]
+
+
+def test_batch_f_chapters_populate_rich_contract_fields() -> None:
+    batch_f_keys = {"E", "F", "G", "H", "I", "J", "K"}
+    for spec in get_chapters():
+        if spec.key not in batch_f_keys:
+            continue
+        payload = normalize_chapter_payload(
+            chapter=spec.key,
+            implementation_status=spec.implementation_status,
+            title=spec.title,
+            source_papers=spec.source_papers,
+            payload=spec.runner(),
+        )
+        assert payload["lesson_objectives"]
+        assert payload["core_algorithms"]
+        assert payload["minimal_dataset"]
+        assert payload["reference_experiments"]
+        assert payload["book_vs_repo_gap"]
+
+
+def test_batch_f_payload_contains_real_fixture_and_eval_pack_entries() -> None:
+    payload = build_batch_f_payload()
+    assert payload["chapter_count"] == 7
+    assert len(payload["chapters"]) == 7
+    assert sorted(payload["fixtures"]) == ["E", "F", "G", "H", "I", "J", "K"]
+    assert sorted(payload["eval_packs"]) == ["E", "F", "G", "H", "I", "J", "K"]
+    assert payload["eval_packs"]["E"]["lesson_objectives"]
+    assert payload["eval_packs"]["K"]["reference_experiments"]

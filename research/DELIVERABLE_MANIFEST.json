@@ -53,6 +53,18 @@
       ],
       "folder": "research/batches/batch_e_discourse_and_dialogue"
     },
+    "batch_f_web_appendices": {
+      "chapters": [
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K"
+      ],
+      "folder": "research/batches/batch_f_web_appendices"
+    },
     "introductory_overview": {
       "chapters": [
         "1"
@@ -60,7 +72,7 @@
       "folder": "src/slp3_from_sutskever30/chapters"
     }
   },
-  "chapter_count": 29,
+  "chapter_count": 36,
   "chapters": [
     {
       "audit_class": "method match",
@@ -771,9 +783,177 @@
       "module_path": "src/slp3_from_sutskever30/chapters/chapter_D.py",
       "source_papers": [],
       "title": "Spelling Correction and the Noisy Channel"
+    },
+    {
+      "audit_class": "method match",
+      "batch": "batch_f_web_appendices",
+      "contract_fields": [
+        "book_vs_repo_gap",
+        "chapter",
+        "chapter_notes",
+        "core_algorithms",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "lesson_objectives",
+        "metrics",
+        "minimal_dataset",
+        "reference_experiments",
+        "sources"
+      ],
+      "feasibility": "fully feasible in NumPy",
+      "implementation_status": "FULL",
+      "key": "E",
+      "module_path": "src/slp3_from_sutskever30/chapters/chapter_E.py",
+      "source_papers": [],
+      "title": "Statistical Constituency Parsing"
+    },
+    {
+      "audit_class": "method match",
+      "batch": "batch_f_web_appendices",
+      "contract_fields": [
+        "book_vs_repo_gap",
+        "chapter",
+        "chapter_notes",
+        "core_algorithms",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "lesson_objectives",
+        "metrics",
+        "minimal_dataset",
+        "reference_experiments",
+        "sources"
+      ],
+      "feasibility": "fully feasible in NumPy",
+      "implementation_status": "FULL",
+      "key": "F",
+      "module_path": "src/slp3_from_sutskever30/chapters/chapter_F.py",
+      "source_papers": [],
+      "title": "Context-Free Grammars"
+    },
+    {
+      "audit_class": "method match",
+      "batch": "batch_f_web_appendices",
+      "contract_fields": [
+        "book_vs_repo_gap",
+        "chapter",
+        "chapter_notes",
+        "core_algorithms",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "lesson_objectives",
+        "metrics",
+        "minimal_dataset",
+        "reference_experiments",
+        "sources"
+      ],
+      "feasibility": "fully feasible in NumPy",
+      "implementation_status": "FULL",
+      "key": "G",
+      "module_path": "src/slp3_from_sutskever30/chapters/chapter_G.py",
+      "source_papers": [],
+      "title": "Combinatory Categorial Grammar"
+    },
+    {
+      "audit_class": "method match",
+      "batch": "batch_f_web_appendices",
+      "contract_fields": [
+        "book_vs_repo_gap",
+        "chapter",
+        "chapter_notes",
+        "core_algorithms",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "lesson_objectives",
+        "metrics",
+        "minimal_dataset",
+        "reference_experiments",
+        "sources"
+      ],
+      "feasibility": "fully feasible in NumPy",
+      "implementation_status": "FULL",
+      "key": "H",
+      "module_path": "src/slp3_from_sutskever30/chapters/chapter_H.py",
+      "source_papers": [],
+      "title": "Logical Representations of Sentence Meaning"
+    },
+    {
+      "audit_class": "method match",
+      "batch": "batch_f_web_appendices",
+      "contract_fields": [
+        "book_vs_repo_gap",
+        "chapter",
+        "chapter_notes",
+        "core_algorithms",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "lesson_objectives",
+        "metrics",
+        "minimal_dataset",
+        "reference_experiments",
+        "sources"
+      ],
+      "feasibility": "fully feasible in NumPy",
+      "implementation_status": "FULL",
+      "key": "I",
+      "module_path": "src/slp3_from_sutskever30/chapters/chapter_I.py",
+      "source_papers": [],
+      "title": "Word Senses and WordNet"
+    },
+    {
+      "audit_class": "method match",
+      "batch": "batch_f_web_appendices",
+      "contract_fields": [
+        "book_vs_repo_gap",
+        "chapter",
+        "chapter_notes",
+        "core_algorithms",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "lesson_objectives",
+        "metrics",
+        "minimal_dataset",
+        "reference_experiments",
+        "sources"
+      ],
+      "feasibility": "fully feasible in NumPy",
+      "implementation_status": "FULL",
+      "key": "J",
+      "module_path": "src/slp3_from_sutskever30/chapters/chapter_J.py",
+      "source_papers": [],
+      "title": "PPMI"
+    },
+    {
+      "audit_class": "method match",
+      "batch": "batch_f_web_appendices",
+      "contract_fields": [
+        "book_vs_repo_gap",
+        "chapter",
+        "chapter_notes",
+        "core_algorithms",
+        "core_outputs",
+        "failure_modes",
+        "implementation_status",
+        "lesson_objectives",
+        "metrics",
+        "minimal_dataset",
+        "reference_experiments",
+        "sources"
+      ],
+      "feasibility": "fully feasible in NumPy",
+      "implementation_status": "FULL",
+      "key": "K",
+      "module_path": "src/slp3_from_sutskever30/chapters/chapter_K.py",
+      "source_papers": [],
+      "title": "Frame-based Dialogue Systems"
     }
   ],
-  "generated_at": "2026-03-30T12:26:25.684335+00:00",
+  "generated_at": "2026-03-30T12:38:59.424358+00:00",
   "repo_root": "/Users/hifi/Downloads/slp3_from_sutskever30",
   "schema_version": 1
 }

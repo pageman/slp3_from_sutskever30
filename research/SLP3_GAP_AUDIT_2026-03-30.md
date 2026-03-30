@@ -13,13 +13,13 @@ This audit compares the current repository against the live Stanford SLP3 table 
 
 ## Summary
 
-- In scope here: chapters `1-25`, appendices `A-D`
-- Out of scope here: appendices `E-K`
+- In scope here: chapters `1-25`, appendices `A-K`
+- Out of scope here: none from the current Stanford web TOC
 - Result by audit classification:
-  - `method match`: `23`
+  - `method match`: `30`
   - `topic match`: `6`
   - `title match`: `0`
-  - `not yet aligned`: `7`
+  - `not yet aligned`: `0`
 
 ## Chapter Audit
 
@@ -54,17 +54,17 @@ This audit compares the current repository against the live Stanford SLP3 table 
 | B | Naive Bayes Classification | `FULL` | `method match` | Bernoulli and multinomial NB are directly implemented |
 | C | Kneser-Ney Smoothing | `FULL` | `method match` | Continuation-based smoothing is explicitly implemented and compared |
 | D | Spelling Correction and the Noisy Channel | `FULL` | `method match` | Noisy-channel scoring and confusion-model reranking align with the appendix topic |
-| E | Statistical Constituency Parsing | missing | `not yet aligned` | Web appendix is not implemented in this repo |
-| F | Context-Free Grammars | missing | `not yet aligned` | Web appendix is not implemented in this repo |
-| G | Combinatory Categorial Grammar | missing | `not yet aligned` | Web appendix is not implemented in this repo |
-| H | Logical Representations of Sentence Meaning | missing | `not yet aligned` | Web appendix is not implemented in this repo |
-| I | Word Senses and WordNet | missing | `not yet aligned` | Web appendix is not implemented in this repo |
-| J | PPMI | missing | `not yet aligned` | Web appendix is not implemented separately, although related ideas appear inside chapter 5 |
-| K | Frame-based Dialogue Systems | missing | `not yet aligned` | Web appendix is not implemented in this repo |
+| E | Statistical Constituency Parsing | `FULL` | `method match` | A separate statistical parsing appendix now induces a tiny PCFG and scores parses apart from the base CFG chapter |
+| F | Context-Free Grammars | `FULL` | `method match` | CFG generation and membership are now represented explicitly as a standalone formal-language appendix |
+| G | Combinatory Categorial Grammar | `FULL` | `method match` | Lexical categories and application-based derivations are explicitly represented |
+| H | Logical Representations of Sentence Meaning | `FULL` | `method match` | Sentence-to-logic mapping and a quantifier-sensitive entailment probe are now present |
+| I | Word Senses and WordNet | `FULL` | `method match` | A toy lexical graph plus gloss-overlap WSD separates hierarchy and sense disambiguation directly |
+| J | PPMI | `FULL` | `method match` | PPMI has been factored out into its own count-based appendix with nearest-neighbor evaluation |
+| K | Frame-based Dialogue Systems | `FULL` | `method match` | A dedicated frame-state tracker now complements the broader conversation chapter |
 
 ## Bottom Line
 
-- The repo matches the live SLP3 chapter map well for chapters `1-25` and appendices `A-D`
+- The repo matches the live SLP3 chapter map well for chapters `1-25` and appendices `A-K`
 - The strongest alignment is in classical NLP, parsing, appendices, masked LMs, and speech front-end material
 - The weakest alignment is in the broadest modern/system chapters where the repo intentionally compresses textbook scope into compact NumPy demonstrations
 - The repo is not a faithful code companion to the entire online book; it is a runnable educational reimplementation set aligned to much of the SLP3 topic structure

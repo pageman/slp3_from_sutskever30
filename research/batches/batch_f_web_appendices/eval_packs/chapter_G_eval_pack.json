@@ -1,0 +1,58 @@
+{
+  "book_vs_repo_gap": "This appendix captures the compositional core of CCG, but not type raising, composition variants, or wide-coverage parsing.",
+  "chapter": "G",
+  "chapter_notes": {
+    "batch": "batch_f_web_appendices",
+    "counterintuitive_insight": "The power of CCG is not fancy trees but the discipline of directional types that force composition to reveal semantic structure.",
+    "covered_claims": [
+      "Lexical categories and application-based derivations are explicit.",
+      "Simple and transitive-verb examples both reduce to sentence categories."
+    ],
+    "omitted_claims": [
+      "No composition rules beyond application.",
+      "No type raising or full wide-coverage lexicon."
+    ]
+  },
+  "core_algorithms": [
+    "CCG lexical typing",
+    "forward application",
+    "backward application",
+    "derivation tracing"
+  ],
+  "failure_modes": [
+    {
+      "case": "category_directionality_is_fragile",
+      "note": "Swapping slash direction changes whether composition is legal."
+    },
+    {
+      "case": "toy_ccg_lacks_type_raising",
+      "note": "The appendix captures application but not the richer combinatory inventory of full CCG analyses."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Represent lexical items as directional categories.",
+    "Show forward and backward application in a CCG derivation.",
+    "Connect composition steps to semantic assembly."
+  ],
+  "metrics": {
+    "complex_reaches_sentence": 0.0,
+    "derivation_steps": 4.0,
+    "simple_reaches_sentence": 1.0
+  },
+  "minimal_dataset": {
+    "complex_item_count": 3,
+    "simple_item_count": 2
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "well-typed expressions reduce to S",
+      "metric": [
+        "simple_reaches_sentence",
+        "complex_reaches_sentence"
+      ],
+      "name": "sentence_reduction"
+    }
+  ],
+  "title": "Combinatory Categorial Grammar"
+}

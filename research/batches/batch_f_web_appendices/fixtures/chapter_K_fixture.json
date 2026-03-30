@@ -1,0 +1,35 @@
+{
+  "gold_state": {
+    "area": "downtown",
+    "food": "sushi"
+  },
+  "turns": [
+    {
+      "inform": {
+        "food": "ramen"
+      },
+      "speaker": "user"
+    },
+    {
+      "confirm": true,
+      "speaker": "system"
+    },
+    {
+      "inform": {
+        "area": "downtown"
+      },
+      "speaker": "user"
+    },
+    {
+      "repair": [
+        "food",
+        "sushi"
+      ],
+      "speaker": "user"
+    },
+    {
+      "confirm": true,
+      "speaker": "system"
+    }
+  ]
+}

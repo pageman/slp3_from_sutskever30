@@ -1,0 +1,62 @@
+{
+  "book_vs_repo_gap": "This appendix captures taxonomy and simple WSD in miniature, but omits large lexical resources, supervised WSD, and richer semantic relations.",
+  "chapter": "I",
+  "chapter_notes": {
+    "batch": "batch_f_web_appendices",
+    "counterintuitive_insight": "Word-sense resources are most useful when they fail: taxonomy and context are different signals, and forcing them together reveals the real problem.",
+    "covered_claims": [
+      "This appendix separates lexical hierarchy from context-sensitive disambiguation.",
+      "A toy WordNet graph and gloss-overlap WSD are both explicit."
+    ],
+    "omitted_claims": [
+      "No supervised WSD.",
+      "No full synset inventory or relation types beyond tiny samples."
+    ]
+  },
+  "core_algorithms": [
+    "path-based lexical similarity",
+    "gloss-overlap scoring",
+    "toy word-sense disambiguation"
+  ],
+  "failure_modes": [
+    {
+      "case": "gloss_overlap_is_brittle",
+      "note": "Changing context wording can flip WSD even when meaning stays constant."
+    },
+    {
+      "case": "path_similarity_is_taxonomic_only",
+      "note": "WordNet graph distance captures ontology structure, not contextual usage."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Represent lexical hierarchy as a graph.",
+    "Contrast taxonomy-based similarity with context-based WSD.",
+    "Make word sense ambiguity operational."
+  ],
+  "metrics": {
+    "cross_branch_similarity": 0.0,
+    "semantic_hierarchy_signal": 0.5,
+    "wsd_correct": 1.0
+  },
+  "minimal_dataset": {
+    "context_length": 5,
+    "sense_inventory_size": 2
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "taxonomic closeness differs from contextual ambiguity",
+      "metric": [
+        "semantic_hierarchy_signal",
+        "cross_branch_similarity"
+      ],
+      "name": "hierarchy_vs_context"
+    },
+    {
+      "expected_signal": "context can pick the financial-bank sense",
+      "metric": "wsd_correct",
+      "name": "toy_wsd_probe"
+    }
+  ],
+  "title": "Word Senses and WordNet"
+}

@@ -55,13 +55,13 @@ To count as textbook-faithful in this repo, each chapter should eventually have:
 | B | Naive Bayes Classification | `FULL` | `fully feasible in NumPy` | Add feature smoothing ablations, threshold calibration, and more dataset comparisons |
 | C | Kneser-Ney Smoothing | `FULL` | `fully feasible in NumPy` | Add modified Kneser-Ney variants and more formal held-out comparisons |
 | D | Spelling Correction and the Noisy Channel | `FULL` | `fully feasible in NumPy` | Add richer candidate generation, channel-model ablations, and more realistic spelling-noise suites |
-| E | Statistical Constituency Parsing | missing | `fully feasible in NumPy` | Add a dedicated statistical parsing appendix instead of folding everything into chapter 18 |
-| F | Context-Free Grammars | missing | `fully feasible in NumPy` | Add a grammar-focused appendix that separates formal CFG mechanics from parsing practice |
-| G | Combinatory Categorial Grammar | missing | `fully feasible in NumPy` | Add a compact combinatory rule engine and derivation visualizer |
-| H | Logical Representations of Sentence Meaning | missing | `fully feasible in NumPy` | Add lambda-calculus or first-order semantics miniatures plus scope ambiguity examples |
-| I | Word Senses and WordNet | missing | `fully feasible in NumPy` | Add sense inventories, similarity structure, and WSD-style toy tasks |
-| J | PPMI | missing | `fully feasible in NumPy` | Extract the PPMI material from chapter 5 into a dedicated appendix with standalone evaluation |
-| K | Frame-based Dialogue Systems | missing | `fully feasible in NumPy` | Add slot filling, frame state tracking, and repair handling as an appendix to complement chapter 25 |
+| E | Statistical Constituency Parsing | `FULL` | `fully feasible in NumPy` | Add stronger treebank statistics, labeled metrics, and reranking analyses |
+| F | Context-Free Grammars | `FULL` | `fully feasible in NumPy` | Add CNF conversion, grammar transformations, and parser-family comparisons |
+| G | Combinatory Categorial Grammar | `FULL` | `fully feasible in NumPy` | Add type raising, composition, and richer semantic assembly traces |
+| H | Logical Representations of Sentence Meaning | `FULL` | `fully feasible in NumPy` | Add compositional lambda semantics, ambiguity handling, and stronger inference checks |
+| I | Word Senses and WordNet | `FULL` | `fully feasible in NumPy` | Add more relation types, richer synset structure, and supervised WSD baselines |
+| J | PPMI | `FULL` | `fully feasible in NumPy` | Add larger cooccurrence studies, SVD, and broader intrinsic evaluation |
+| K | Frame-based Dialogue Systems | `FULL` | `fully feasible in NumPy` | Add ontology growth, NLU parsing, and action-policy coupling |
 
 ## Bottom Line
 

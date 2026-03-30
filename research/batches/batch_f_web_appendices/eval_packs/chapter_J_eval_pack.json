@@ -1,0 +1,60 @@
+{
+  "book_vs_repo_gap": "This appendix isolates PPMI cleanly, but omits larger corpora, SVD reductions, and broader intrinsic evaluation.",
+  "chapter": "J",
+  "chapter_notes": {
+    "batch": "batch_f_web_appendices",
+    "counterintuitive_insight": "PPMI matters most when isolated from downstream embeddings because it exposes which semantic structure comes from counts alone.",
+    "covered_claims": [
+      "This appendix factors PPMI out of chapter 5 into a standalone count-based representation chapter.",
+      "Nearest-neighbor structure is visible directly in the PPMI matrix."
+    ],
+    "omitted_claims": [
+      "No dimensionality reduction step.",
+      "No very large cooccurrence corpus."
+    ]
+  },
+  "core_algorithms": [
+    "cooccurrence counting",
+    "PPMI transformation",
+    "cosine neighbor search"
+  ],
+  "failure_modes": [
+    {
+      "case": "ppmi_is_sparse_and_frequency_sensitive",
+      "note": "Rare cooccurrences can dominate representation quality if counts are tiny."
+    },
+    {
+      "case": "distributional_similarity_is_not_identity",
+      "note": "Words that occur in similar contexts are not necessarily synonyms."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Compute PPMI from raw cooccurrence counts.",
+    "Inspect count-based distributional similarity directly.",
+    "Separate count geometry from downstream neural embedding objectives."
+  ],
+  "metrics": {
+    "cat_top_neighbor_is_pet_or_dog": 0.0,
+    "dog_top_neighbor_is_pet_or_cat": 0.0,
+    "nonzero_entries": 10.0
+  },
+  "minimal_dataset": {
+    "cooccurrence_shape": [
+      5,
+      5
+    ],
+    "vocab_size": 5
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "distributional neighborhoods reflect shared context",
+      "metric": [
+        "dog_top_neighbor_is_pet_or_cat",
+        "cat_top_neighbor_is_pet_or_dog"
+      ],
+      "name": "ppmi_neighbor_probe"
+    }
+  ],
+  "title": "PPMI"
+}

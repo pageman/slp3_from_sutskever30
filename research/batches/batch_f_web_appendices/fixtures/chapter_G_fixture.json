@@ -1,0 +1,31 @@
+{
+  "complex": [
+    {
+      "category": "NP",
+      "semantics": "john",
+      "token": "John"
+    },
+    {
+      "category": "(S\\NP)/NP",
+      "semantics": "likes",
+      "token": "likes"
+    },
+    {
+      "category": "NP",
+      "semantics": "books",
+      "token": "books"
+    }
+  ],
+  "simple": [
+    {
+      "category": "NP",
+      "semantics": "john",
+      "token": "John"
+    },
+    {
+      "category": "S\\NP",
+      "semantics": "reads",
+      "token": "reads"
+    }
+  ]
+}

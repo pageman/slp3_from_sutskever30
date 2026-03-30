@@ -4,7 +4,7 @@
 
 - Repository: `https://github.com/pageman/slp3_from_sutskever30`
 - Local root: `/Users/hifi/Downloads/slp3_from_sutskever30`
-- Latest pushed commit at final packaging: `441c85a`
+- Latest pushed commit at final packaging: `fdd7e83`
 
 ## Batch Completion
 
@@ -18,18 +18,20 @@
   - `17`, `18`, `19`, `20`, `21`
 - Batch E complete:
   - `22`, `23`, `24`, `25`
+- Batch F complete:
+  - `E`, `F`, `G`, `H`, `I`, `J`, `K`
 
 ## Structural State
 
 - Every expected SLP3 chapter key is present:
-  - chapters `2-25`
-  - appendices `A-D`
+  - chapters `1-25`
+  - appendices `A-K`
 - Current status split:
-  - `23 FULL`
+  - `31 FULL`
   - `2 DIRECT`
   - `3 ADAPTED`
   - `0 SCAFFOLDED`
-- Batch folders now exist for `A-E`, each with:
+- Batch folders now exist for `A-F`, each with:
   - batch manifest
   - per-chapter fixtures
   - per-chapter eval packs
@@ -41,9 +43,9 @@
   - `python3 scripts/smoke_test.py`
   - `python3 scripts/generate_verification_status.py --run-checks`
   - `python3 scripts/generate_circleci_artifacts.py`
-- Final local suite status during the last batch pass:
-  - `33 passed`
-- Live CircleCI confirmations completed through Batch E with artifact output under:
+- Final local suite status during the last appendix/web-appendix pass:
+  - `35 passed`
+- Live CircleCI confirmations completed through Batch E, and Batch F now uses the same artifact path under:
   - `observability/ci_latest/`
 
 ## Artifact Model

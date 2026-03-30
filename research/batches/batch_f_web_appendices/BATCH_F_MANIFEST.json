@@ -1,0 +1,57 @@
+{
+  "batch": "batch_f_web_appendices",
+  "chapter_count": 7,
+  "chapters": [
+    {
+      "eval_pack_path": "research/batches/batch_f_web_appendices/eval_packs/chapter_E_eval_pack.json",
+      "fixture_path": "research/batches/batch_f_web_appendices/fixtures/chapter_E_fixture.json",
+      "implementation_status": "FULL",
+      "key": "E",
+      "title": "Statistical Constituency Parsing"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_f_web_appendices/eval_packs/chapter_F_eval_pack.json",
+      "fixture_path": "research/batches/batch_f_web_appendices/fixtures/chapter_F_fixture.json",
+      "implementation_status": "FULL",
+      "key": "F",
+      "title": "Context-Free Grammars"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_f_web_appendices/eval_packs/chapter_G_eval_pack.json",
+      "fixture_path": "research/batches/batch_f_web_appendices/fixtures/chapter_G_fixture.json",
+      "implementation_status": "FULL",
+      "key": "G",
+      "title": "Combinatory Categorial Grammar"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_f_web_appendices/eval_packs/chapter_H_eval_pack.json",
+      "fixture_path": "research/batches/batch_f_web_appendices/fixtures/chapter_H_fixture.json",
+      "implementation_status": "FULL",
+      "key": "H",
+      "title": "Logical Representations of Sentence Meaning"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_f_web_appendices/eval_packs/chapter_I_eval_pack.json",
+      "fixture_path": "research/batches/batch_f_web_appendices/fixtures/chapter_I_fixture.json",
+      "implementation_status": "FULL",
+      "key": "I",
+      "title": "Word Senses and WordNet"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_f_web_appendices/eval_packs/chapter_J_eval_pack.json",
+      "fixture_path": "research/batches/batch_f_web_appendices/fixtures/chapter_J_fixture.json",
+      "implementation_status": "FULL",
+      "key": "J",
+      "title": "PPMI"
+    },
+    {
+      "eval_pack_path": "research/batches/batch_f_web_appendices/eval_packs/chapter_K_eval_pack.json",
+      "fixture_path": "research/batches/batch_f_web_appendices/fixtures/chapter_K_fixture.json",
+      "implementation_status": "FULL",
+      "key": "K",
+      "title": "Frame-based Dialogue Systems"
+    }
+  ],
+  "generated_at": "2026-03-30T12:38:59.074882+00:00",
+  "schema_version": 1
+}

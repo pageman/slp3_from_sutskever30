@@ -15,7 +15,7 @@ class ChapterSpec:
     runner: Callable[[], dict[str, object]]
 
 
-EXPECTED_CHAPTER_KEYS: tuple[str, ...] = tuple([str(index) for index in range(1, 26)] + ["A", "B", "C", "D"])
+EXPECTED_CHAPTER_KEYS: tuple[str, ...] = tuple([str(index) for index in range(1, 26)] + ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"])
 
 
 def get_chapters() -> list[ChapterSpec]:

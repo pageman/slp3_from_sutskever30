@@ -8,8 +8,8 @@
 
 ## Implementation Status
 
-- Chapter coverage: `28`
-- Status split: `23 FULL`, `2 DIRECT`, `3 ADAPTED`, `0 SCAFFOLDED`
+- Chapter coverage: `36`
+- Status split: `31 FULL`, `2 DIRECT`, `3 ADAPTED`, `0 SCAFFOLDED`
 - `DIRECT`: `7`, `8`
 - `ADAPTED`: `11`, `12`, `13`
 - No orphaned chapters

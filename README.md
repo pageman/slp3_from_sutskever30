@@ -32,7 +32,7 @@ Methodologically, the work moved in a fixed sequence:
 2. make provenance and status explicit
 3. upgrade chapters into richer executable modules
 4. impose a shared chapter contract
-5. package chapters into batch families `A-E`
+5. package chapters into batch families `A-F`
 6. separate local reproducibility from live CI truth
 
 The result is a stable research scaffold for future textbook-faithfulness work, not just a collection of toy chapter scripts. Researchers who want the full narrative and methodological framing should read [research/NARRATIVE_AND_METHOD_ARC_2026-03-30.md](./research/NARRATIVE_AND_METHOD_ARC_2026-03-30.md).
@@ -51,6 +51,7 @@ The result is a stable research scaffold for future textbook-faithfulness work, 
 - `scripts/generate_batch_c_artifacts.py` - Batch C fixture and eval-pack generator
 - `scripts/generate_batch_d_artifacts.py` - Batch D fixture and eval-pack generator
 - `scripts/generate_batch_e_artifacts.py` - Batch E fixture and eval-pack generator
+- `scripts/generate_batch_f_artifacts.py` - Batch F fixture and eval-pack generator
 - `tests/test_smoke.py` - contributor-facing local regression tests
 - `research/` - source mapping and packaging notes
 
@@ -69,19 +70,20 @@ python3 scripts/generate_batch_b_artifacts.py
 python3 scripts/generate_batch_c_artifacts.py
 python3 scripts/generate_batch_d_artifacts.py
 python3 scripts/generate_batch_e_artifacts.py
+python3 scripts/generate_batch_f_artifacts.py
 ```
 
 ## Coverage
 
-- Main chapters: `2-25`
-- Appendices: `A-D`
+- Main chapters: `1-25`
+- Appendices: `A-K`
 - Status classes: `FULL`, `DIRECT`, `ADAPTED`, `SCAFFOLDED`
-- Current split: `23 FULL`, `2 DIRECT`, `3 ADAPTED`, `0 SCAFFOLDED`
+- Current split: `31 FULL`, `2 DIRECT`, `3 ADAPTED`, `0 SCAFFOLDED`
 
-All runners are NumPy-only and executable. Batch 1 upgraded chapters `2-6`, batch 2 upgraded chapters `9-10`, batch 3 upgraded chapters `14-16`, the first structured-prediction sub-batch upgraded chapters `17` and `21`, the parsing sub-batch upgraded chapters `18` and `19`, the span-graph sub-batch upgraded chapters `20` and `23`, the discourse/dialogue batch upgraded chapters `22`, `24`, and `25`, and the appendix batch upgraded `A-D`, to fuller chapter contracts with evaluation and failure-case reporting. There are now no scaffolded SLP3 entries left in the registry.
+All runners are NumPy-only and executable. Batch 1 upgraded chapters `2-6`, batch 2 upgraded chapters `9-10`, batch 3 upgraded chapters `14-16`, the first structured-prediction sub-batch upgraded chapters `17` and `21`, the parsing sub-batch upgraded chapters `18` and `19`, the span-graph sub-batch upgraded chapters `20` and `23`, the discourse/dialogue batch upgraded chapters `22`, `24`, and `25`, the first appendix batch upgraded `A-D`, and the web-appendix batch upgraded `E-K`, to fuller chapter contracts with evaluation and failure-case reporting. There are now no scaffolded SLP3 entries left in the registry.
 
 See [research/CHAPTER_SURVEY.md](./research/CHAPTER_SURVEY.md) for the per-chapter survey and orphan audit.
-See [research/FULL_IMPLEMENTATION_MARCH2026.md](./research/FULL_IMPLEMENTATION_MARCH2026.md) for the March 2026 full-implementation blueprint for all `SCAFFOLDED` chapters.
+See [research/FULL_IMPLEMENTATION_MARCH2026.md](./research/FULL_IMPLEMENTATION_MARCH2026.md) for the historical March 2026 full-implementation blueprint that drove the earlier scaffold-to-full upgrade plan.
 See [research/IMPLEMENTATION_BACKLOG_MARCH2026.md](./research/IMPLEMENTATION_BACKLOG_MARCH2026.md) for the concrete upgrade backlog and the GitHub Actions failure diagnosis.
 See [research/SMOKE_TEST_STATUS.md](./research/SMOKE_TEST_STATUS.md) for the billing-independent smoke-test status.
 See [research/STATUS_VOCABULARY.md](./research/STATUS_VOCABULARY.md) for the observability vocabulary used by the repo telemetry.
@@ -109,7 +111,7 @@ Recommended observability policy:
 - treat `observability/ci_latest/` as per-run CI output, not source-controlled state
 - make any future observability cleanup an explicit commit that ignores `observability/local/` and `observability/ci_latest/` and documents that CI artifacts live in CircleCI, not git
 
-Batch packaging now covers `research/batches/batch_a_classical_foundations/`, `research/batches/batch_b_lm_and_seq_models/`, `research/batches/batch_c_speech/`, `research/batches/batch_d_structure_and_ie/`, and `research/batches/batch_e_discourse_and_dialogue/`. Each generated batch pack includes a batch manifest, per-chapter fixtures, and per-chapter eval packs.
+Batch packaging now covers `research/batches/batch_a_classical_foundations/`, `research/batches/batch_b_lm_and_seq_models/`, `research/batches/batch_c_speech/`, `research/batches/batch_d_structure_and_ie/`, `research/batches/batch_e_discourse_and_dialogue/`, and `research/batches/batch_f_web_appendices/`. Each generated batch pack includes a batch manifest, per-chapter fixtures, and per-chapter eval packs.
 
 ## Citation
 

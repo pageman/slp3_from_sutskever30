@@ -1,0 +1,40 @@
+{
+  "context": [
+    "deposit",
+    "money",
+    "at",
+    "the",
+    "bank"
+  ],
+  "graph": {
+    "bank.n.finance": [
+      "institution.n.01"
+    ],
+    "bank.n.river": [
+      "geological_formation.n.01"
+    ],
+    "canine.n.02": [
+      "animal.n.01"
+    ],
+    "dog.n.01": [
+      "canine.n.02",
+      "animal.n.01"
+    ]
+  },
+  "senses": {
+    "bank": {
+      "finance": [
+        "financial",
+        "institution",
+        "money",
+        "deposit"
+      ],
+      "river": [
+        "sloping",
+        "land",
+        "beside",
+        "river"
+      ]
+    }
+  }
+}

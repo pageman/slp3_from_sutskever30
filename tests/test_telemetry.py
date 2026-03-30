@@ -8,17 +8,17 @@ from slp3_from_sutskever30.telemetry import build_telemetry_payload, render_json
 
 def test_telemetry_payload_has_expected_shape() -> None:
     payload = build_telemetry_payload(run_live_checks=False)
-    assert payload["chapter_count"] == 29
+    assert payload["chapter_count"] == 36
     assert payload["orphaned_chapters"] == []
     assert payload["unexpected_chapters"] == []
-    assert len(payload["chapters"]) == 29
+    assert len(payload["chapters"]) == 36
 
 
 def test_telemetry_renderers_emit_core_fields() -> None:
     payload = build_telemetry_payload(run_live_checks=False)
     json_text = render_json(payload)
     yaml_text = render_yaml(payload)
-    assert '"chapter_count": 29' in json_text
+    assert '"chapter_count": 36' in json_text
     assert '"ci": {' in json_text
     assert "stdout_preview" in json_text
     assert '"stdout":' not in json_text
@@ -42,4 +42,4 @@ def test_telemetry_writes_sqlite_mirror(tmp_path: Path) -> None:
     with sqlite3.connect(sqlite_path) as conn:
         cur = conn.cursor()
         cur.execute("SELECT COUNT(*) FROM chapters")
-        assert cur.fetchone()[0] == 29
+        assert cur.fetchone()[0] == 36

@@ -1,0 +1,58 @@
+{
+  "book_vs_repo_gap": "This appendix captures explicit logical representation in miniature, but omits compositional lambda semantics, ambiguity, and full model-theoretic inference.",
+  "chapter": "H",
+  "chapter_notes": {
+    "batch": "batch_f_web_appendices",
+    "counterintuitive_insight": "Logical representation becomes clearer when the hard part is not syntax but the fact that apparently similar quantified sentences do not entail each other.",
+    "covered_claims": [
+      "Sentence patterns map to explicit logical forms.",
+      "A simple entailment probe is enough to surface quantifier reasoning limits."
+    ],
+    "omitted_claims": [
+      "No lambda reduction engine.",
+      "No scope ambiguity search."
+    ]
+  },
+  "core_algorithms": [
+    "template-to-logic mapping",
+    "quantifier-sensitive representation",
+    "lightweight entailment check"
+  ],
+  "failure_modes": [
+    {
+      "case": "surface_templates_are_not_full_semantics",
+      "note": "This appendix only handles a tiny inventory of quantified sentence patterns."
+    },
+    {
+      "case": "entailment_needs_model_theory",
+      "note": "String-level logical forms still need interpretation machinery for real reasoning."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Translate simple sentence templates into logical forms.",
+    "Expose the gap between syntactic similarity and entailment.",
+    "Make sentence meaning explicit rather than implicit."
+  ],
+  "metrics": {
+    "formula_count": 3.0,
+    "recognizes_nonentailment": 1.0
+  },
+  "minimal_dataset": {
+    "sentence_count": 3,
+    "template_inventory": 3
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "each template receives an explicit logical form",
+      "metric": "formula_count",
+      "name": "logic_translation_suite"
+    },
+    {
+      "expected_signal": "universal-to-existential inference is not assumed by string similarity",
+      "metric": "recognizes_nonentailment",
+      "name": "quantifier_probe"
+    }
+  ],
+  "title": "Logical Representations of Sentence Meaning"
+}

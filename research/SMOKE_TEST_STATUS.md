@@ -11,14 +11,14 @@ python3 scripts/smoke_test.py
 
 Expected behavior:
 
-- every chapter in `2-25` and `A-D` executes
+- every chapter in `1-25` and `A-K` executes
 - no orphaned chapters are reported
 - no unexpected chapter entries are reported
 
 Latest local result:
 
 - status: `PASS`
-- chapter count: `28`
+- chapter count: `36`
 - orphaned chapters: `[]`
 - unexpected chapters: `[]`
 

@@ -11,6 +11,7 @@ Current survey:
 
 | Key | Status | Source papers | Notes |
 |---|---|---:|---|
+| 1 | `FULL` | - | Executable introduction chapter tying together tokenization, probabilistic prediction, classification, and evaluation |
 | 2 | `FULL` | - | Full batch-1 tokenizer chapter with normalization, BPE-lite, OOV, and error-locality diagnostics |
 | 3 | `FULL` | - | Full batch-1 n-gram chapter with held-out perplexity, backoff traces, and Kneser-Ney comparison |
 | 4 | `FULL` | - | Full batch-1 logistic regression chapter with calibration and feature attribution |
@@ -39,9 +40,16 @@ Current survey:
 | B | `FULL` | - | Full appendix batch with Bernoulli vs multinomial Naive Bayes and calibration diagnostics |
 | C | `FULL` | - | Full appendix batch with recursive Kneser-Ney continuation estimation and perplexity comparison |
 | D | `FULL` | - | Full appendix batch with learned confusion estimates and noisy-channel reranking |
+| E | `FULL` | - | Web appendix with tiny PCFG induction and statistical constituency parsing |
+| F | `FULL` | - | Web appendix isolating CFG generation and membership from parsing |
+| G | `FULL` | - | Web appendix with CCG lexical categories and derivation tracing |
+| H | `FULL` | - | Web appendix with logical-form templates and entailment probe |
+| I | `FULL` | - | Web appendix with toy WordNet graph and gloss-overlap WSD |
+| J | `FULL` | - | Web appendix extracting standalone PPMI representation and neighbor analysis |
+| K | `FULL` | - | Web appendix with frame-state tracking and repair handling |
 
 Orphan audit result:
 
-- Expected chapter set: `2-25`, `A-D`
+- Expected chapter set: `1-25`, `A-K`
 - Orphaned chapters: none
 - Unexpected chapter entries: none

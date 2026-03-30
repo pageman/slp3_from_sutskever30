@@ -1,0 +1,64 @@
+{
+  "book_vs_repo_gap": "This appendix isolates CFG mechanics well, but omits normal-form conversion, parser families, and richer grammar transforms.",
+  "chapter": "F",
+  "chapter_notes": {
+    "batch": "batch_f_web_appendices",
+    "counterintuitive_insight": "A CFG is most useful when treated as a language definition device first and a parser input second.",
+    "covered_claims": [
+      "This appendix isolates CFG mechanics from the parsing-specific chapter.",
+      "Generation and membership are both exposed."
+    ],
+    "omitted_claims": [
+      "No CNF conversion pipeline.",
+      "No left-corner or top-down parser."
+    ]
+  },
+  "core_algorithms": [
+    "CFG production expansion",
+    "sentence generation",
+    "CKY-style membership testing"
+  ],
+  "failure_modes": [
+    {
+      "case": "cfg_generation_is_not_semantics",
+      "example": [
+        "the",
+        "student",
+        "reads",
+        "the",
+        "student"
+      ],
+      "note": "A sentence can be grammatical and still meaningless."
+    },
+    {
+      "case": "coverage_depends_on_lexicon",
+      "note": "Membership fails immediately if terminals are absent even when the structure is licensed."
+    }
+  ],
+  "implementation_status": "FULL",
+  "lesson_objectives": [
+    "Separate grammar definition from statistical parsing.",
+    "Show sentence generation and language membership in a CFG.",
+    "Make formal grammar coverage explicit."
+  ],
+  "metrics": {
+    "accepts_well_formed_sentence": 1.0,
+    "generated_length": 5.0,
+    "rejects_bad_order": 1.0
+  },
+  "minimal_dataset": {
+    "accepted_length": 5,
+    "nonterminal_count": 6
+  },
+  "reference_experiments": [
+    {
+      "expected_signal": "formal grammar distinguishes well-formed from malformed strings",
+      "metric": [
+        "accepts_well_formed_sentence",
+        "rejects_bad_order"
+      ],
+      "name": "language_membership_pair"
+    }
+  ],
+  "title": "Context-Free Grammars"
+}
