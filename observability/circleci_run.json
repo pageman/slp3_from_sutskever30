@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-30T09:43:35.234857+00:00",
+  "generated_at": "2026-03-30T09:51:31.021647+00:00",
   "run_count": 1,
   "runs": [
     {
@@ -18,7 +18,8 @@
       "sha1": "",
       "vcs_type": "",
       "workflow_id": "",
-      "workflow_job_id": ""
+      "workflow_job_id": "",
+      "workflow_url": ""
     }
   ],
   "schema_version": 1

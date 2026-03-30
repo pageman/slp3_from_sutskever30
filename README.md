@@ -67,6 +67,8 @@ Committed observability artifacts:
 - `observability/circleci_run.json`
 - `observability/circleci_run.sqlite`
 
+The CircleCI-specific artifacts include the derived CircleCI workflow URL. A compact CI metadata snapshot is also mirrored into `observability/verification.json` and `observability/verification.yaml`.
+
 ## Citation
 
 If you use this repository, cite the project metadata in [CITATION.cff](./CITATION.cff).

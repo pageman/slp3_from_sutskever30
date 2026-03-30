@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Iterable
 
 from slp3_from_sutskever30.artifacts import write_sqlite_table_with_backup, write_text_with_backup
+from slp3_from_sutskever30.circleci_artifacts import build_circleci_payload
 from slp3_from_sutskever30.registry import get_chapters, get_orphaned_chapter_keys, get_unexpected_chapter_keys
 
 
@@ -178,11 +179,24 @@ def build_telemetry_payload(*, run_live_checks: bool) -> dict[str, object]:
                 "payload_keys": sorted(payload.keys()),
             }
         )
+    circleci_payload = build_circleci_payload()
+    ci_run = circleci_payload["runs"][0] if circleci_payload["runs"] else {}
     return {
         "schema_version": 1,
         "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
         "checked_commit": git_output(["git", "rev-parse", "HEAD"]),
         "git_branch": git_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]),
+        "ci": {
+            "platform": ci_run.get("ci_platform", ""),
+            "branch": ci_run.get("branch", ""),
+            "sha1": ci_run.get("sha1", ""),
+            "job": ci_run.get("job", ""),
+            "build_url": ci_run.get("build_url", ""),
+            "workflow_id": ci_run.get("workflow_id", ""),
+            "workflow_url": ci_run.get("workflow_url", ""),
+            "pipeline_id": ci_run.get("pipeline_id", ""),
+            "pipeline_number": ci_run.get("pipeline_number", ""),
+        },
         "repo_checks": checks,
         "chapter_count": len(chapters),
         "orphaned_chapters": get_orphaned_chapter_keys(),
@@ -208,7 +222,7 @@ def render_yaml(payload: dict[str, object]) -> str:
         }
     yaml_payload["repo_checks"] = yaml_checks
     lines: list[str] = []
-    for key in ("schema_version", "generated_at", "checked_commit", "git_branch", "repo_checks", "chapter_count", "orphaned_chapters", "unexpected_chapters", "chapters"):
+    for key in ("schema_version", "generated_at", "checked_commit", "git_branch", "ci", "repo_checks", "chapter_count", "orphaned_chapters", "unexpected_chapters", "chapters"):
         lines.extend(_yaml_lines_for_value(key, yaml_payload[key], 0))
     return "\n".join(lines) + "\n"
 

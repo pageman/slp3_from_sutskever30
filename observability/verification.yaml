@@ -1,7 +1,17 @@
 schema_version: 1
-generated_at: "2026-03-30T09:43:38.267264+00:00"
-checked_commit: "c8ff9778e6f833239988749d76118611832eb388"
+generated_at: "2026-03-30T09:51:33.643605+00:00"
+checked_commit: "1024d4bcdd46b29db233ba5aafd0d894c5317364"
 git_branch: "main"
+ci:
+  platform: "circleci"
+  branch: ""
+  sha1: ""
+  job: ""
+  build_url: ""
+  workflow_id: ""
+  workflow_url: ""
+  pipeline_id: ""
+  pipeline_number: ""
 repo_checks:
   smoke_test:
     command: "python3 scripts/smoke_test.py"

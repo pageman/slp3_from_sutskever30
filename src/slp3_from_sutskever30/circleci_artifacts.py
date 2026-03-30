@@ -10,6 +10,8 @@ from slp3_from_sutskever30.artifacts import write_sqlite_table_with_backup, writ
 
 def build_circleci_payload() -> dict[str, object]:
     env = os.environ
+    workflow_id = env.get("CIRCLE_WORKFLOW_ID", "")
+    workflow_url = f"https://app.circleci.com/pipelines/workflows/{workflow_id}" if workflow_id else ""
     run = {
         "vcs_type": env.get("CIRCLE_VCS_TYPE", ""),
         "project_username": env.get("CIRCLE_PROJECT_USERNAME", ""),
@@ -19,7 +21,8 @@ def build_circleci_payload() -> dict[str, object]:
         "build_num": env.get("CIRCLE_BUILD_NUM", ""),
         "build_url": env.get("CIRCLE_BUILD_URL", ""),
         "job": env.get("CIRCLE_JOB", ""),
-        "workflow_id": env.get("CIRCLE_WORKFLOW_ID", ""),
+        "workflow_id": workflow_id,
+        "workflow_url": workflow_url,
         "workflow_job_id": env.get("CIRCLE_WORKFLOW_JOB_ID", ""),
         "pipeline_id": env.get("CIRCLE_PIPELINE_ID", ""),
         "pipeline_number": env.get("CIRCLE_PIPELINE_NUMBER", ""),
@@ -54,6 +57,7 @@ def write_circleci_artifacts(json_path: Path, sqlite_path: Path, payload: dict[s
             "build_url",
             "job",
             "workflow_id",
+            "workflow_url",
             "workflow_job_id",
             "pipeline_id",
             "pipeline_number",
