@@ -3,37 +3,33 @@ from __future__ import annotations
 
 import json
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
+OUT_DIR = ROOT / "observability"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from slp3_from_sutskever30.registry import get_chapters, get_orphaned_chapter_keys, get_unexpected_chapter_keys  # noqa: E402
+from slp3_from_sutskever30.artifacts import write_sqlite_table_with_backup, write_text_with_backup  # noqa: E402
+from slp3_from_sutskever30.smoke_support import build_smoke_payload  # noqa: E402
+
+
+def write_smoke_artifacts(report: dict[str, object]) -> None:
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    write_text_with_backup(OUT_DIR / "smoke_test.json", json.dumps(report, indent=2, sort_keys=True) + "\n")
+    write_sqlite_table_with_backup(
+        OUT_DIR / "smoke_test.sqlite",
+        table_name="results",
+        payload=report,
+        item_key="results",
+        item_columns=("key", "title", "implementation_status", "source_papers", "payload_keys"),
+    )
 
 
 def main() -> None:
-    chapters = get_chapters()
-    results = []
-    for spec in chapters:
-        payload = spec.runner()
-        results.append(
-            {
-                "key": spec.key,
-                "title": spec.title,
-                "implementation_status": spec.implementation_status,
-                "payload_keys": sorted(payload.keys()),
-            }
-        )
-    report = {
-        "timestamp_utc": datetime.now(timezone.utc).isoformat(),
-        "chapter_count": len(chapters),
-        "orphaned_chapters": get_orphaned_chapter_keys(),
-        "unexpected_chapters": get_unexpected_chapter_keys(),
-        "results": results,
-    }
+    report = build_smoke_payload()
+    write_smoke_artifacts(report)
     print(json.dumps(report, indent=2, sort_keys=True))
 
 

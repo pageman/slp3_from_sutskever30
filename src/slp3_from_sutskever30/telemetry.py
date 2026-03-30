@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
+from slp3_from_sutskever30.artifacts import write_sqlite_table_with_backup, write_text_with_backup
 from slp3_from_sutskever30.registry import get_chapters, get_orphaned_chapter_keys, get_unexpected_chapter_keys
 
 
@@ -62,6 +63,60 @@ def optional_quote_yaml(text: str | None) -> str:
 def indent(lines: Iterable[str], n: int) -> list[str]:
     prefix = " " * n
     return [prefix + line if line else line for line in lines]
+
+
+def _yaml_scalar(value: object) -> str:
+    if isinstance(value, bool):
+        return bool_yaml(value)
+    if value is None:
+        return "null"
+    if isinstance(value, (int, float)):
+        return str(value)
+    return quote_yaml(str(value))
+
+
+def _yaml_lines_for_value(key: str, value: object, level: int = 0) -> list[str]:
+    prefix = " " * level
+    if isinstance(value, dict):
+        lines = [f"{prefix}{key}:"]
+        for child_key, child_value in value.items():
+            lines.extend(_yaml_lines_for_value(str(child_key), child_value, level + 2))
+        return lines
+    if isinstance(value, list):
+        if not value:
+            return [f"{prefix}{key}: []"]
+        lines = [f"{prefix}{key}:"]
+        for item in value:
+            if isinstance(item, dict):
+                first = True
+                for child_key, child_value in item.items():
+                    marker = "- " if first else "  "
+                    if isinstance(child_value, (dict, list)):
+                        lines.append(f"{prefix}  {marker}{child_key}:")
+                        nested = _yaml_lines_for_value(child_key, child_value, level + 6)[1:]
+                        lines.extend(nested)
+                    else:
+                        lines.append(f"{prefix}  {marker}{child_key}: {_yaml_scalar(child_value)}")
+                    first = False
+            elif isinstance(item, list):
+                lines.append(f"{prefix}  -")
+                for child in item:
+                    lines.append(f"{prefix}    - {_yaml_scalar(child)}")
+            else:
+                lines.append(f"{prefix}  - {_yaml_scalar(item)}")
+        return lines
+    return [f"{prefix}{key}: {_yaml_scalar(value)}"]
+
+
+def _preview_text(text: str, *, max_lines: int = 4, max_chars: int = 240) -> str:
+    stripped = text.strip()
+    if not stripped:
+        return ""
+    lines = stripped.splitlines()[:max_lines]
+    preview = "\n".join(lines)
+    if len(preview) > max_chars or len(stripped.splitlines()) > max_lines:
+        return preview[:max_chars].rstrip() + " ..."
+    return preview
 
 
 def collect_repo_checks(*, run_live_checks: bool) -> dict[str, CommandResult | dict[str, object]]:
@@ -141,41 +196,35 @@ def render_json(payload: dict[str, object]) -> str:
 
 
 def render_yaml(payload: dict[str, object]) -> str:
-    lines: list[str] = []
-    lines.append(f"schema_version: {payload['schema_version']}")
-    lines.append(f"generated_at: {quote_yaml(str(payload['generated_at']))}")
-    lines.append(f"checked_commit: {optional_quote_yaml(payload['checked_commit'])}")
-    lines.append(f"git_branch: {optional_quote_yaml(payload['git_branch'])}")
-    lines.append("repo_checks:")
+    yaml_payload = dict(payload)
+    yaml_checks: dict[str, object] = {}
     for name, check in payload["repo_checks"].items():
-        lines.extend(
-            indent(
-                [
-                    f"{name}:",
-                    f"  command: {quote_yaml(str(check['command']))}",
-                    f"  passed: {bool_yaml(bool(check['passed']))}",
-                    f"  exit_code: {check['exit_code']}",
-                ],
-                2,
-            )
-        )
-    lines.append(f"chapter_count: {payload['chapter_count']}")
-    orphaned = payload["orphaned_chapters"]
-    unexpected = payload["unexpected_chapters"]
-    lines.append(f"orphaned_chapters: {quote_yaml(json.dumps(orphaned)) if orphaned else '[]'}")
-    lines.append(f"unexpected_chapters: {quote_yaml(json.dumps(unexpected)) if unexpected else '[]'}")
-    lines.append("chapters:")
-    for chapter in payload["chapters"]:
-        lines.extend(
-            indent(
-                [
-                    f"- key: {quote_yaml(str(chapter['key']))}",
-                    f"  title: {quote_yaml(str(chapter['title']))}",
-                    f"  implementation_status: {quote_yaml(str(chapter['implementation_status']))}",
-                    f"  source_papers: {quote_yaml(json.dumps(chapter['source_papers'])) if chapter['source_papers'] else '[]'}",
-                    f"  payload_keys: {quote_yaml(json.dumps(chapter['payload_keys']))}",
-                ],
-                2,
-            )
-        )
+        yaml_checks[name] = {
+            "command": check["command"],
+            "passed": check["passed"],
+            "exit_code": check["exit_code"],
+            "stdout_preview": _preview_text(str(check.get("stdout", ""))),
+            "stderr_preview": _preview_text(str(check.get("stderr", ""))),
+        }
+    yaml_payload["repo_checks"] = yaml_checks
+    lines: list[str] = []
+    for key in ("schema_version", "generated_at", "checked_commit", "git_branch", "repo_checks", "chapter_count", "orphaned_chapters", "unexpected_chapters", "chapters"):
+        lines.extend(_yaml_lines_for_value(key, yaml_payload[key], 0))
     return "\n".join(lines) + "\n"
+
+
+def write_telemetry_artifacts(json_path: Path, yaml_path: Path, sqlite_path: Path, payload: dict[str, object]) -> dict[str, str | None]:
+    json_backup = write_text_with_backup(json_path, render_json(payload))
+    yaml_backup = write_text_with_backup(yaml_path, render_yaml(payload))
+    sqlite_backup = write_sqlite_table_with_backup(
+        sqlite_path,
+        table_name="chapters",
+        payload=payload,
+        item_key="chapters",
+        item_columns=("key", "title", "implementation_status", "source_papers", "payload_keys"),
+    )
+    return {
+        "json_backup": None if json_backup is None else str(json_backup),
+        "yaml_backup": None if yaml_backup is None else str(yaml_backup),
+        "sqlite_backup": None if sqlite_backup is None else str(sqlite_backup),
+    }

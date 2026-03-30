@@ -53,6 +53,14 @@ See [research/IMPLEMENTATION_BACKLOG_MARCH2026.md](./research/IMPLEMENTATION_BAC
 See [research/SMOKE_TEST_STATUS.md](./research/SMOKE_TEST_STATUS.md) for the billing-independent smoke-test status.
 See [research/STATUS_VOCABULARY.md](./research/STATUS_VOCABULARY.md) for the observability vocabulary used by the repo telemetry.
 
+Committed observability artifacts:
+
+- `observability/smoke_test.json`
+- `observability/smoke_test.sqlite`
+- `observability/verification.json`
+- `observability/verification.yaml`
+- `observability/verification.sqlite`
+
 ## Citation
 
 If you use this repository, cite the project metadata in [CITATION.cff](./CITATION.cff).
