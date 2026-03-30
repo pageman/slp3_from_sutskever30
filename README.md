@@ -5,7 +5,11 @@
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](./pyproject.toml)
 [![NumPy Only](https://img.shields.io/badge/Backend-NumPy%20Only-orange.svg)](./src/slp3_from_sutskever30/numpy_chapters.py)
 
-NumPy-only toy reimplementations of the Stanford *Speech and Language Processing* third-edition draft chapters, assembled into a standalone package and derived from local work based on:
+This GitHub repository is a full NumPy re-implementation of the Stanford *Speech and Language Processing* third-edition draft:
+
+- https://web.stanford.edu/~jurafsky/slp3/
+
+It is assembled as a standalone package and derived from local work based on:
 
 - `pageman/sutskever-30-implementations`
 - `sutskever-30-beyond-numpy`
